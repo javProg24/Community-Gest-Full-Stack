@@ -1,4 +1,4 @@
-namespace API_Community_Gest
+namespace API_Community
 {
     public class WeatherForecast
     {

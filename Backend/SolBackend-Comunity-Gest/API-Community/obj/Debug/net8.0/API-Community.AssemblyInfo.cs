@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("API-Community-Gest")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("API-Community")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("API-Community-Gest")]
-[assembly: System.Reflection.AssemblyTitleAttribute("API-Community-Gest")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9885ed7ffd3180b82e54f95c2f5ee65f60f5da0e")]
+[assembly: System.Reflection.AssemblyProductAttribute("API-Community")]
+[assembly: System.Reflection.AssemblyTitleAttribute("API-Community")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.

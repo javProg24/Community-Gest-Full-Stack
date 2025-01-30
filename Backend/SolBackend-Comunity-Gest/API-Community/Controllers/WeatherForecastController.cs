@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace API_Community_Gest.Controllers
+namespace API_Community.Controllers
 {
     [ApiController]
     [Route("[controller]")]

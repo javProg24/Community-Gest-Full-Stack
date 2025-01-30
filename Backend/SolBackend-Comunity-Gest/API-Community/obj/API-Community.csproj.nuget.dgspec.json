@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\Community-Gest-EF\\SolBackend-Community\\API-Community-Gest\\API-Community-Gest.csproj": {}
+    "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\API-Community\\API-Community.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\Community-Gest-EF\\SolBackend-Community\\API-Community-Gest\\API-Community-Gest.csproj": {
+    "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\API-Community\\API-Community.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\Community-Gest-EF\\SolBackend-Community\\API-Community-Gest\\API-Community-Gest.csproj",
-        "projectName": "API-Community-Gest",
-        "projectPath": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\Community-Gest-EF\\SolBackend-Community\\API-Community-Gest\\API-Community-Gest.csproj",
+        "projectUniqueName": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\API-Community\\API-Community.csproj",
+        "projectName": "API-Community",
+        "projectPath": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\API-Community\\API-Community.csproj",
         "packagesPath": "C:\\Users\\ULTRA GAMING\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\Community-Gest-EF\\SolBackend-Community\\API-Community-Gest\\obj\\",
+        "outputPath": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\API-Community\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

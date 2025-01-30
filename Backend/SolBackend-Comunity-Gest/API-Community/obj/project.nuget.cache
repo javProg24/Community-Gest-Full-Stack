@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rc8Qpkk8t18=",
+  "dgSpecHash": "RWhErnzP+tk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\Community-Gest-EF\\SolBackend-Community\\API-Community-Gest\\API-Community-Gest.csproj",
+  "projectFilePath": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\API-Community\\API-Community.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ULTRA GAMING\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\ULTRA GAMING\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
