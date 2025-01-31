@@ -4,7 +4,7 @@ export interface Herramienta{
     ubicacion:string;
     descripcion:string;
     cantidad:number;
-    disponibilidad:string
+    disponibilidad:boolean
 }
 export class HerramientaTabla{
     id?=0;
@@ -12,5 +12,5 @@ export class HerramientaTabla{
     ubicacion='';
     descripcion='';
     cantidad=0;
-    disponibilidad=''
+    disponibilidad=false
 }
