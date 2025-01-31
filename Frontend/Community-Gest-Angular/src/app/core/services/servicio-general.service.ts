@@ -6,7 +6,7 @@ import { I_Metodos } from '../models/I_Metodos';
 @Injectable({
   providedIn: 'root'
 })
-export class ServicioGeneralService implements I_Metodos{
+export class GeneralService implements I_Metodos{
   private url = 'https://localhost:7040'
   constructor(private http:HttpClient) { }
   getService<T>(instancia: string): Observable<T[]> {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ServicioGeneralService } from '../../../core/services/servicio-general.service';
+import { GeneralService } from '../../../core/services/servicio-general.service';
 import { Observable } from 'rxjs';
 import { Instalacion } from '../../../core/models/Instalacion';
 import { Interfaces } from '../../../core/models/I_Metodos';
@@ -8,7 +8,7 @@ import { Interfaces } from '../../../core/models/I_Metodos';
   providedIn: 'root'
 })
 export class InstalacionService {
-  constructor(private service:ServicioGeneralService) { }
+  constructor(private service:GeneralService) { }
   addInstalacion(entidad:Instalacion):Observable<Instalacion>{
     return this.service.addService<Instalacion>(Interfaces.Instalacion,entidad)
   }
