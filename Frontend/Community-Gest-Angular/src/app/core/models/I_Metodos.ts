@@ -6,3 +6,11 @@ export interface I_Metodos{
     deleteService<T>(instancia:string, id:number):Observable<T>;
     updateService<T>(instancia: string, id: number,Entidad:any):Observable<T>;
 }
+
+export enum Interfaces{
+    Instalacion="Instalacion",
+    Herramienta="Herramienta",
+    Usuario="Usuario",
+    Reserva_Instalacion="Reserva_Instalacion",
+    Reserva_Herramienta="Reserva_Herramienta",
+}
