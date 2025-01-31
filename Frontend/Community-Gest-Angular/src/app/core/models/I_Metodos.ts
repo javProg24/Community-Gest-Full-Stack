@@ -13,4 +13,5 @@ export enum Interfaces{
     Usuario="Usuario",
     Reserva_Instalacion="Reserva_Instalacion",
     Reserva_Herramienta="Reserva_Herramienta",
+    Reporte="Reporte"
 }

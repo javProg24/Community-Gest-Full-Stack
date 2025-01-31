@@ -7,7 +7,7 @@ export interface Usuario{
     telefono:string;
     active:boolean
 }
-export class usuarioTabla{
+export class UsuarioTabla{
     id?=0;
     cedula='';
     nombre='';
