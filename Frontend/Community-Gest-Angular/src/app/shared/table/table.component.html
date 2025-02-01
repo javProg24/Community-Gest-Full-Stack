@@ -1,0 +1,42 @@
+<h1 class="title">
+    <strong>Registro de {{title}}</strong>
+</h1>
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                @for(column of columns; track $index){
+                    <th scope="col" class="px-6 py-3">
+                        {{column}}
+                    </th>
+                }
+                <th scope="col" class="px-6 py-3">
+                    Acciones
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(data of dataSource;track $index){
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" >
+                    @for(nombre of columns;track $index){
+                        <td class="px-6 py-4">
+                            {{nombre==='estado'?(data[nombre]|estadoTexto):data[nombre]}}
+                        </td>
+                    }
+                    <td class=" px-6 py-3 text-left action-buttond" width="auto">
+                        <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline pr-7" 
+                        mat-icon-button color="primary" (click)="onAccion('Editar', data)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button class="font-medium text-red-600 dark:text-blue-500 hover:underline pr-7"
+                        mat-icon-button color="primary" (click)="onAccion('Eliminar',data)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <mat-paginator [length]="200" [pageSize]="[10,7,20]" aria-label="Select page" showFirstLastButtons="">
+    </mat-paginator>
+</div>
