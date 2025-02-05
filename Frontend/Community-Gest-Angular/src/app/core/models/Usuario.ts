@@ -5,7 +5,7 @@ export interface Usuario{
     apellido:string;
     correo:string;
     telefono:string;
-    active:boolean
+    estado:boolean
 }
 export class UsuarioTabla{
     id?=0;
@@ -14,5 +14,5 @@ export class UsuarioTabla{
     apellido='';
     correo='';
     telefono='';
-    active='';
+    estado='';
 }

@@ -7,7 +7,7 @@ export interface Instalacion{
     dia:string,
     hora_Inicio:string,
     hora_Fin:string,
-    dispònibilidad:boolean
+    estado:boolean
 }  
 export class InstalacionTabla{
     id?=0;
@@ -18,5 +18,5 @@ export class InstalacionTabla{
     dia='';
     hora_Inicio='';
     hora_Fin='';
-    dispònibilidad=false;
+    estado=false;
 }
