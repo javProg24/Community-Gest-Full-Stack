@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { GeneralService } from '../../../core/services/servicio-general.service';
-import { Observable } from 'rxjs';
 import { Herramienta } from '../../../core/models/Herramienta';
+import { Observable } from 'rxjs';
 import { Interfaces } from '../../../core/models/I_Metodos';
 
 @Injectable({
@@ -26,3 +26,4 @@ export class HerramientaService {
     return this.service.getIdService<Herramienta>(Interfaces.Herramienta,id)
   }
 }
+

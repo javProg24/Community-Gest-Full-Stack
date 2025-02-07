@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { GeneralService } from '../../../core/services/servicio-general.service';
 import { Observable } from 'rxjs';
-import { Instalacion } from '../../../core/models/Instalacion';
 import { Interfaces } from '../../../core/models/I_Metodos';
+import { Instalacion } from '../../../core/models/Instalacion';
+import { GeneralService } from '../../../core/services/servicio-general.service';
 
 @Injectable({
   providedIn: 'root'
@@ -25,3 +25,4 @@ export class InstalacionService {
     return this.service.getIdService<Instalacion>(Interfaces.Instalacion,id)
   }
 }
+
