@@ -15,8 +15,8 @@ namespace Data.Models
         public int Capacidad { get; set; }
         public string Descripcion { get; set; }
         public string Dia { get; set;}
-        public TimeSpan hora_Inicio { get; set; }
-        public TimeSpan hora_Fin {  get; set; }
+        public TimeSpan Hora_Inicio { get; set; }
+        public TimeSpan Hora_Fin {  get; set; }
         public bool Estado { get; set; }
         [JsonIgnore]
         public virtual ICollection<Reserva_Instalacion> Reserva_Instalaciones {  get; set; }
