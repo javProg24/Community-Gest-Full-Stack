@@ -2,7 +2,7 @@ import { NgFor, NgIf, NgClass } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { SideNavToogle, navbarData } from '../../models/menu-data';
+import { SideNavToogle, menu } from '../../models/menu-data';
 
 @Component({
   selector: 'app-menu',
@@ -20,7 +20,7 @@ export class MenuComponent {
     })
   }
   screenWith=window.innerWidth
-  nav=navbarData
+  nav=menu
   
   collapsed=true
   closeSideNav() {

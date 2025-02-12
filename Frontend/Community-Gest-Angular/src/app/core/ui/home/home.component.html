@@ -6,8 +6,12 @@
             recursos compartidos</p>
     </section>
     <section class="cards">
-        <mat-card *ngFor="let item of entidades_card" class="card">
-            <img mat-card-image [src]="item.icon" alt="Photo" width="100px">
+        <mat-card *ngFor="let item of entidades_card" 
+        class="card">
+            <!-- <img  [src]="item.icon" alt="Photo" width="100px"> -->
+            <mat-icon class="img">
+                {{item.icon}}
+            </mat-icon>
             <h3>{{item.Title}}</h3>
             <button mat-raised-button 
             [routerLink]="item.RouterLink"

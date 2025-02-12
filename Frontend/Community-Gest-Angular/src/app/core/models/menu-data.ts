@@ -4,45 +4,45 @@ export interface SideNavToogle{
     screenWidth:number;
     collapsed:boolean;
 }
-export const navbarData =[
+export const menu =[
     {
-        routerLink:'Inicio',
+        Title:'Inicio',
         icon:'home',
-        label:'Inicio'
+        RouterLink:'Inicio',
     },
     {
-        routerLink:toStringEnum(Entidad.Usuario),
+        Title:'Usuarios',
         icon:'person',
-        label:'Usuarios'
+        RouterLink:toStringEnum(Entidad.Usuario),
     },
     {
-        routerLink:toStringEnum(Entidad.Instalacion),
+        Title:'Instalaciones',
         icon:'location_on',
-        label:'Instalaciones'
+        RouterLink:toStringEnum(Entidad.Instalacion),
     },
     // {
-    //     routerLink:'Time',
+    //     RouterLink:'Time',
     //     icon:'calendar_month',
-    //     label:'Horario'
+    //     Title:'Horario'
     // },
     {
-        routerLink:toStringEnum(Entidad.Herramienta),
+        Title:'Herramientas',
         icon:'construction',
-        label:'Herramientas'
+        RouterLink:toStringEnum(Entidad.Herramienta),
     },
     {
-        routerLink:toStringEnum(Entidad.Reserva),
+        Title:'Reservas',
         icon:'event',
-        label:'Reservas'
+        RouterLink:toStringEnum(Entidad.Reserva),
     },
     {
-        routerLink:toStringEnum(Entidad.Reporte),
+        Title:'Reportes',
         icon:'description',
-        label:'Reportes'
+        RouterLink:toStringEnum(Entidad.Reporte),   
     },
     {
-        routerLink:toStringEnum(Entidad.Historial),
+        Title:'Historial',
         icon:'history',
-        label:'Historial'
+        RouterLink:toStringEnum(Entidad.Historial),
     },
 ]
