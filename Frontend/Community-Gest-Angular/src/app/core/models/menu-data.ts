@@ -1,4 +1,4 @@
-import { Entidad, Interfaces, toStringEnum } from "./I_Metodos";
+import { Entidad, toStringEnum } from "./I_Metodos";
 
 export interface SideNavToogle{
     screenWidth:number;

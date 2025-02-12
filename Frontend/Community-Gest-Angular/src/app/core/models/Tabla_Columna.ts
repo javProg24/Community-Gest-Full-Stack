@@ -1,5 +1,5 @@
 import { HerramientaTabla } from "./Herramienta";
-import { Entidad, Interfaces, toStringEnum } from "./I_Metodos";
+import { Entidad } from "./I_Metodos";
 import { InstalacionTabla } from "./Instalacion";
 import { ReporteTabla } from "./Reporte";
 import { Reserva_Herramienta_Tabla } from "./Reserva-Herramienta";

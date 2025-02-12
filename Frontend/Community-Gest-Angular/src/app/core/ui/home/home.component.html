@@ -1,1 +1,20 @@
 <p>home works!</p>
+<div class="main-content">
+    <section class="bienvenida">
+        <img src="CommunityGest.png" alt="">
+        <h2>¡Bienvenido!</h2>
+        <p>Este es un sistema que permite a una comunidad o barrio gestionar
+            recursos compartidos</p>
+    </section>
+    <section class="cards">
+        <mat-card *ngFor="let item of entidades_card" class="card">
+            <img mat-card-image [src]="item.icon" alt="Photo" width="100px">
+            <h3>{{item.Title}}</h3>
+            <button mat-raised-button 
+            [routerLink]="item.RouterLink"
+            routerLinkActive="active">
+                Entrar
+            </button>
+        </mat-card>
+    </section>
+</div>

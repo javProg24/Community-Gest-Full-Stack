@@ -7,14 +7,14 @@ export interface I_Metodos{
     updateService<T>(instancia: string, id: number,Entidad:any):Observable<T>;
 }
 
-export enum Interfaces{
-    Instalacion="Instalacion",
-    Herramienta="Herramienta",
-    Usuario="Usuario",
-    Reserva_Instalacion="Reserva_Instalacion",
-    Reserva_Herramienta="Reserva_Herramienta",
-    Reporte="Reporte"
-}
+// export enum Interfaces{
+//     Instalacion="Instalacion",
+//     Herramienta="Herramienta",
+//     Usuario="Usuario",
+//     Reserva_Instalacion="Reserva_Instalacion",
+//     Reserva_Herramienta="Reserva_Herramienta",
+//     Reporte="Reporte"
+// }
 
 /**
  * The function `toStringEnum` takes an enum value as input and returns its string representation.
