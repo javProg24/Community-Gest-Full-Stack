@@ -16,32 +16,32 @@ export class HomeComponent {
     {
       Title:toStringEnum(Entidad.Usuario),
       icon:'/image/usuario.png',
-      RouterLink:toStringEnum(Entidad.Usuario)
+      RouterLink:`/${toStringEnum(Entidad.Usuario)}`
     },
     {
       Title:toStringEnum(Entidad.Instalacion),
       icon:'/image/instalacion.png',
-      RouterLink:toStringEnum(Entidad.Instalacion)
+      RouterLink:`/${toStringEnum(Entidad.Instalacion)}`
     },
     {
       Title:toStringEnum(Entidad.Herramienta),
       icon:'/image/herramienta.png',
-      RouterLink:toStringEnum(Entidad.Herramienta)
+      RouterLink:`/${toStringEnum(Entidad.Herramienta)}`
     },
     {
       Title:toStringEnum(Entidad.Reserva),
       icon:'/image/reserva.png',
-      RouterLink:toStringEnum(Entidad.Reserva)
+      RouterLink:`/${toStringEnum(Entidad.Reserva)}`
     },
     {
       Title:toStringEnum(Entidad.Reporte),
       icon:'/image/historial.png',
-      RouterLink:toStringEnum(Entidad.Reporte)
+      RouterLink:`/${toStringEnum(Entidad.Reporte)}`
     },
     {
       Title:toStringEnum(Entidad.Historial),
       icon:'/image/historial.png',
-      RouterLink:toStringEnum(Entidad.Historial)
+      RouterLink:`/${toStringEnum(Entidad.Historial)}`
     }
   ]
 }
