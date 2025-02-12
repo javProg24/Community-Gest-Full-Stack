@@ -1,0 +1,22 @@
+<!-- <p>menu works!</p> -->
+<nav [ngClass]="{sidebar:true,'sidenav-collapsed': !collapsed}">
+    <div class="logo-container" >
+        <button class="logo" (click)="toggleCollapse()">
+          <img src="/CommunityGest.png" alt="Logo">
+        </button>
+        <span class="logo-text" *ngIf="!collapsed">
+          CommunityGest
+        </span>
+        <button class="btn-close" (click)="closeSideNav()" @rotate *ngIf="!collapsed">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+      <ul class="sidenav-nav">
+        <li class="sidenav-nav-item" *ngFor="let item of nav">
+          <a [routerLink]="item.routerLink" routerLinkActive="active" class="sidenav-nav-link" [routerLinkActiveOptions]="{exact:true}">
+            <span class="sidenav-link-icon material-icons">{{item.icon}}</span>
+            <span class="sidenav-link-text" *ngIf="!collapsed">{{item.label}}</span>
+          </a>
+        </li>
+      </ul>
+</nav>

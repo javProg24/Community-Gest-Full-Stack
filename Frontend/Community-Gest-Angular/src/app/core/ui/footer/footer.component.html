@@ -1,0 +1,15 @@
+<!-- <p>footer works!</p> -->
+<footer>
+    <p>&copy; 2024 CommunityGest. Todos los derechos reservados.</p>
+    <ul class="social-icon">
+        <li *ngFor="let logo of icons" class="icon-elem">
+            <img [src]="logo.icon" alt="">
+        </li>
+    </ul>
+    <ul class="menu">
+        <li *ngFor="let item of menu" class="menu-item">
+            <a [routerLink]="item.routerLink" routerLinkActive="active">{{item.title}}</a>
+        </li>
+    </ul>
+    <p>Política de privacidad | Condiciones</p>
+</footer>

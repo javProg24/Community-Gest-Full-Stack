@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Interfaces } from '../../../core/models/I_Metodos';
+import { Entidad, Interfaces, toStringEnum } from '../../../core/models/I_Metodos';
 import { Reporte } from '../../../core/models/Reporte';
 import { GeneralService } from '../../../core/services/servicio-general.service';
 
@@ -8,22 +8,22 @@ import { GeneralService } from '../../../core/services/servicio-general.service'
   providedIn: 'root'
 })
 export class ReporteService {
-
+  private api=toStringEnum(Entidad.Reporte)
   constructor(private service:GeneralService) { }
   addReporte(entidad:Reporte):Observable<Reporte>{
-    return this.service.addService<Reporte>(Interfaces.Reporte,entidad)
+    return this.service.addService<Reporte>(this.api,entidad)
   }
   updateReporte(entidad:Reporte,id:number):Observable<Reporte>{
-    return this.service.updateService<Reporte>(Interfaces.Reporte,id,entidad)
+    return this.service.updateService<Reporte>(this.api,id,entidad)
   }
   deleteReporte(id:number):Observable<void>{
-    return this.service.deleteService<void>(Interfaces.Reporte,id)
+    return this.service.deleteService<void>(this.api,id)
   }
   getsReporte():Observable<Reporte[]>{
-    return this.service.getService<Reporte>(Interfaces.Reporte)
+    return this.service.getService<Reporte>(this.api)
   }
   getIdReporte(id:number):Observable<Reporte[]>{
-    return this.service.getIdService<Reporte>(Interfaces.Reporte,id)
+    return this.service.getIdService<Reporte>(this.api,id)
   }
 }
 

@@ -1,0 +1,24 @@
+<!-- <p>header works!</p> -->
+<header>
+    <div class="navbar-left">
+        <h1>CommunityGest</h1>
+    </div>
+    <nav class="navbar-right">
+        <ul>
+            <li>
+                <button mat-button routerLink="/Inicio"
+                routerLinkActive="Active"
+                [disabled]="isHomeActive()&& '/Inicio'">
+                    <span>Inicio</span>
+                </button>
+                <a href="/acerca.html">
+                    <button mat-button>
+                    <span>Acerca de</span>
+                </button>
+                </a>
+                
+                
+            </li>
+        </ul>
+    </nav>
+</header>
