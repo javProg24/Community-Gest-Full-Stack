@@ -8,9 +8,9 @@ import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   standalone: true,
-  imports: [MatCardModule,NgFor,
-    RouterLink,RouterLinkActive,
-    MatButtonModule,MatIconModule,MatCardImage],
+  imports: [MatCardModule, NgFor,
+    RouterLink, RouterLinkActive,
+    MatButtonModule, MatIconModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
