@@ -1,18 +1,18 @@
 export interface Usuario{
     id?:number;
-    cedula:string;
+    cedula:number;
     nombre:string;
     apellido:string;
     correo:string;
-    telefono:string;
+    telefono:number;
     estado:boolean
 }
 export class UsuarioTabla{
     id?=0;
-    cedula='';
+    cedula=0;
     nombre='';
     apellido='';
     correo='';
-    telefono='';
-    estado='';
+    telefono=0;
+    estado=false;
 }

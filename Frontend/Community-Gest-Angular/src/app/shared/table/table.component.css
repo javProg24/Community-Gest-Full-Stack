@@ -1,1 +1,58 @@
-@import "tailwindcss";
+.title {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    margin-left: 5px;
+    font-size: 20px;
+}
+
+th {
+    background-color: rgb(87, 238, 163);
+    font-weight: bold;
+}
+
+.action-buttons {
+    margin-top: 21px;
+    margin-bottom: 21px;
+     /* Activa flexbox para la celda */
+    align-items: center; /* Alinea verticalmente los elementos */
+    justify-content: center; /* Alinea los botones al inicio (izquierda) */
+    gap: 20px; /* Espaciado horizontal entre los botones */
+}
+
+.action-buttons button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background-color: transparent; /* Fondo transparente por defecto */
+}
+
+.action-buttons button:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+    transform: translateY(-4px); /* Levanta más el botón */
+    background-color: transparent; /* Mantiene el fondo transparente por defecto */
+}
+
+.action-buttons button:active {
+    transform: translateY(0); /* Restaura la posición al hacer clic */
+}
+
+.action-buttons button.edit-button:hover {
+    background-color: #0056b3; /* Cambia el color de fondo a azul */
+    color: #ffffff; /* Cambia el color del texto a blanco */
+}
+
+.action-buttons button.delete-button:hover {
+    background-color: #ff0000; /* Cambia el color de fondo a rojo */
+    color: #ffffff; /* Cambia el color del texto a blanco */
+}
+
+.action-buttons button.edit-button:hover .mat-icon,
+.action-buttons button.delete-button:hover .mat-icon {
+    color: white; /* Cambia el color del icono a blanco al pasar el cursor */
+}

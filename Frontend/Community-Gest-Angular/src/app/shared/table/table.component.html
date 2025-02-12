@@ -3,33 +3,31 @@
 </h1>
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <thead class="bg-[rgb(87,238,163)] text-xs text-black uppercase">
             <tr>
                 @for(column of columns; track $index){
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="bg-[rgb(87,238,163)] text-black px-6 py-3">
                         {{column}}
                     </th>
                 }
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="bg-[rgb(87,238,163)] text-black px-6 py-3">
                     Acciones
                 </th>
             </tr>
         </thead>
         <tbody>
             @for(data of dataSource;track $index){
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" >
+                <tr class="bg-white border-b">
                     @for(nombre of columns;track $index){
-                        <td class="px-6 py-4">
-                            {{nombre==='estado'?(data[nombre]|estadoTexto):data[nombre]}}
+                        <td class="px-6 py-4 text-black">
+                            {{data[nombre]}}
                         </td>
                     }
-                    <td class=" px-6 py-3 text-left action-buttond" width="auto">
-                        <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline pr-7" 
-                        mat-icon-button color="primary" (click)="onAccion('Editar', data)">
+                    <td class="px-6 py-3 text-left action-buttons" width="auto">
+                        <button class="font-medium text-blue-600 hover:bg-blue-600 hover:text-white pr-7 edit-button" mat-icon-button color="primary" (click)="onAccion('Editar', data)">
                             <mat-icon>edit</mat-icon>
                         </button>
-                        <button class="font-medium text-red-600 dark:text-blue-500 hover:underline pr-7"
-                        mat-icon-button color="primary" (click)="onAccion('Eliminar',data)">
+                        <button class="font-medium text-red-600 hover:bg-red-600 hover:text-white pr-7 delete-button" mat-icon-button color="warn" (click)="onAccion('Eliminar', data)">
                             <mat-icon>delete</mat-icon>
                         </button>
                     </td>

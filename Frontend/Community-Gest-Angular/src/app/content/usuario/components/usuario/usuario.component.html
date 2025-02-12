@@ -1,1 +1,16 @@
-<p>usuario works!</p>
+<div class="buttons">
+    <h1><strong>Modulo de Usuarios</strong></h1>
+    <button mat-flat-button color="acceent">
+        <mat-icon>add</mat-icon>
+        Nuevo
+    </button>
+</div>
+
+<div class="table-section">
+    <app-table
+    [Titulo]="title"
+    [Columnas]="columns"
+    [Datos]="usuarios"
+    (accion)="onAction($event)">
+    </app-table>
+</div>

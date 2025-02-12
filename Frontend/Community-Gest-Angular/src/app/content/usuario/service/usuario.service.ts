@@ -7,7 +7,7 @@ import { Entidad, toStringEnum } from '../../../core/models/I_Metodos';
   providedIn: 'root'
 })
 export class UsuarioService {
-  private api=toStringEnum(Entidad.Usuario);
+  private api:string=toStringEnum(Entidad.Usuario);
   constructor(private service:GeneralService) { }
   addUsuario(entidad:Usuario):Observable<Usuario>{
     return this.service.addService<Usuario>(this.api,entidad)

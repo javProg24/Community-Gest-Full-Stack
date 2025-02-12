@@ -7,8 +7,11 @@ import { I_Metodos } from '../models/I_Metodos';
   providedIn: 'root'
 })
 export class GeneralService implements I_Metodos{
-  private url = 'https://localhost:7040'
+  private url = 'https://localhost:7179/api'
   constructor(private http:HttpClient) { }
+  getu<T>(url:string):Observable<T[]>{
+    return this.http.get<T[]>(url)
+  }
   getService<T>(instancia: string): Observable<T[]> {
     const APIurl=`${this.url}/${instancia}`;
     return this.http.get<T[]>(APIurl);

@@ -13,17 +13,17 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<Context_DB>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
-
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularApp",
+        builder => builder.WithOrigins("http://localhost:4200")
+        .AllowAnyMethod().AllowAnyHeader());
+});
 
 var app = builder.Build();
 
 // Lo utilizan cuando crean las migraciones
-using (var scope = app.Services.CreateScope())
-{
-    var context = scope.ServiceProvider.GetRequiredService<Context_DB>();
-    context.Database.Migrate();
-}
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -33,7 +33,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors("AllowAngularApp");
 app.UseAuthorization();
 
 app.MapControllers();
