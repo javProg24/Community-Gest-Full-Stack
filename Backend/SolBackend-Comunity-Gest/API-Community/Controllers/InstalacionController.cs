@@ -99,7 +99,52 @@ namespace API_Community.Controllers
 
             return NoContent();
         }
-
+        [HttpPut("desactive{id}")]
+        public async Task<IActionResult>DesactiveInstalacion(int id)
+        {
+            var instalacion = await _context.Instalaciones.FindAsync(id);
+            if (instalacion == null){
+                return NotFound("Instalacion no encontrado");
+            }
+            instalacion.Estado = false;
+            try{
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException){
+                if (!InstalacionExists(id)){
+                    return NotFound();
+                }
+                else{
+                    throw;
+                }
+            }
+            return NoContent();
+        }
+        [HttpPut("active{id}")]
+        public async Task<IActionResult>ActiveInstalacion(int id) {
+            var instalacion = await _context.Instalaciones.FindAsync(id);
+            if (instalacion == null)
+            {
+                return NotFound("Instalacion no encontrado");
+            }
+            instalacion.Estado = true;
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!InstalacionExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return NoContent();
+        }
         private bool InstalacionExists(int id)
         {
             return _context.Instalaciones.Any(e => e.ID == id);

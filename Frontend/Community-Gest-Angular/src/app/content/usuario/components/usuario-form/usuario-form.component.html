@@ -9,6 +9,12 @@
                 <input matInput type="text" formControlName="cedula">
             </mat-form-field>
             <app-generic-form controlKey="datosUsuario"></app-generic-form>
+            <section appearance="fill" class="checkbox-right">
+                <mat-label>Estado</mat-label>
+                <mat-checkbox formControlName="estado">
+                    Activo
+                </mat-checkbox>
+            </section>
             <div class="form-buttons">
                 <button mat-raised-button color="primary" type="submit">
                     {{isEdit?'Actualizar':'Guardar'}}

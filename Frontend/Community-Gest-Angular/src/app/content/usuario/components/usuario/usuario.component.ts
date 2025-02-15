@@ -10,6 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../../../shared/dialog/dialog.component';
 import { UsuarioFormComponent } from '../usuario-form/usuario-form.component';
 import { DialogFormComponent } from '../../../../shared/dialog-form/dialog-form.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-usuario',
@@ -21,7 +22,7 @@ export class UsuarioComponent implements OnInit{
   title='Usuarios'
   columns:string[]=[]
   usuarios:Usuario[]=[]
-  constructor(private services:UsuarioService,private dialog:MatDialog){}
+  constructor(private services:UsuarioService,private dialog:MatDialog,private notificacion:ToastrService){}
   ngOnInit(): void {
     this.getUsuariosTabla()
   }
@@ -33,38 +34,49 @@ export class UsuarioComponent implements OnInit{
     })
   }
   onAction(accion:Accion){
-    if(accion.accion=='Editar'){
-      this.updateUsuario(accion.fila)
-    }
-    else if(accion.accion=='Eliminar'){
-      this.deleteUsuario(accion.fila.id)
-    }
+    accion.accion=='Editar'?this.updateUsuario(accion.fila):
+    accion.accion=='Eliminar'?this.desactivarUsuario(accion.fila.id):console.warn('Accion no reconocida',accion.accion)
   }
   updateUsuario(usuario:Usuario){
     const dialogRef=this.dialog.open(DialogFormComponent,{
       data:{
         component:UsuarioFormComponent,
         formData:usuario
-      }
+      },
+      width: '600px',
     })
     dialogRef.afterClosed().subscribe(()=>{
       this.getUsuariosTabla()
     })
   }
-  deleteUsuario(id:number){
-    
+  desactivarUsuario(id:number){
+    const dialogRef=this.dialog.open(DialogComponent,{
+      data:{
+        titulo:"Estas seguro de eliminar el usuario?"
+      }
+    })
+    dialogRef.afterClosed().subscribe({
+      next:()=>{
+        this.services.desactiveUsuario(id).subscribe(()=>{
+          this.notificacion.info("El usuario fue eliminado",'Informacion')
+          this.getUsuariosTabla();
+        })
+      },
+      error:(err)=>{
+        this.notificacion.error("El usuaio no se pudo eliminar",err)
+      }
+    })
   }
-  openDialog() {
+  agregarUsuario() {
     const dialogRef=this.dialog.open(DialogFormComponent,{
       data:{
         component:UsuarioFormComponent,
         formData:null
       },
       width: '600px',
-      
     })
-    dialogRef.afterClosed().subscribe(resut=>{
-      console.log("Se cerro",resut)
+    dialogRef.afterClosed().subscribe(()=>{
+      this.getUsuariosTabla();
     });
   }
 }

@@ -113,13 +113,15 @@ namespace API_Community.Controllers
             try
             {
                 await _context.SaveChangesAsync();
-            }catch(DbUpdateConcurrencyException)
+            }
+            catch(DbUpdateConcurrencyException)
             {
                 if (!UsuarioExists(id))
                 {
                     return NotFound();
                 }
-                else {
+                else 
+                {
                     throw;
                 }
             }

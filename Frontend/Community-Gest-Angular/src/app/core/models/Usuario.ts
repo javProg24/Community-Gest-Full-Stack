@@ -1,4 +1,4 @@
-import { FormControl, FormControlName, FormGroup } from "@angular/forms";
+import { FormControl, FormControlName, FormControlState, FormGroup } from "@angular/forms";
 
 export interface Usuario{
     id?:number;
@@ -22,9 +22,10 @@ interface UsuarioDataForm{
     nombre:FormControl<string>
     apellido:FormControl<string>
     correo:FormControl<string>
-    telefono:FormControl<string>
+    telefono: FormControl<number|null>; 
 }
-export interface UsuarioForm{
-    cedula:FormControl<string>
-    datosUsuario:FormGroup<UsuarioDataForm>
+export interface UsuarioForm {
+    cedula: FormControl<number|null>; // Ahora es `number`
+    datosUsuario: FormGroup<UsuarioDataForm>;
+    estado?: FormControl<boolean|null>;
 }
