@@ -25,7 +25,9 @@ namespace API_Community.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuarios()
         {
-            return await _context.Usuarios.ToListAsync();
+            return await _context.Usuarios
+                .Where(u=>u.Estado==true)
+                .ToListAsync();
         }
 
         // GET: api/Usuario/5
@@ -99,7 +101,30 @@ namespace API_Community.Controllers
 
             return NoContent();
         }
-
+        [HttpPut("desactive/{id}")]
+        public async Task<IActionResult> DesactiveUsuario(int id)
+        {
+            var usuario = await _context.Usuarios.FindAsync(id);
+            if (usuario == null)
+            {
+                return NotFound("Usuario no encontrado");
+            }
+            usuario.Estado = false;
+            try
+            {
+                await _context.SaveChangesAsync();
+            }catch(DbUpdateConcurrencyException)
+            {
+                if (!UsuarioExists(id))
+                {
+                    return NotFound();
+                }
+                else {
+                    throw;
+                }
+            }
+            return NoContent();
+        }
         private bool UsuarioExists(int id)
         {
             return _context.Usuarios.Any(e => e.ID == id);

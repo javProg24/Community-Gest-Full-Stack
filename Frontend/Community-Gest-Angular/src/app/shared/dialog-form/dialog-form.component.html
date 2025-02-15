@@ -1,0 +1,8 @@
+<div class="card">
+    <button (click)="closeDialog()" class="close-button" disableRipple>
+        <mat-icon >close</mat-icon>
+    </button>
+    <div class="mat-dialog-content">
+        <ng-container *ngComponentOutlet="data.component;injector:customInjector"></ng-container>
+    </div>
+</div>

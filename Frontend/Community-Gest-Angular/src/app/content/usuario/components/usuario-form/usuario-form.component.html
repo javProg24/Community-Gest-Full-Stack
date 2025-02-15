@@ -1,1 +1,20 @@
-<p>usuario-form works!</p>
+<mat-card class="register-card">
+    <mat-card-title class="title">
+        <strong>{{isEdit?'Editar Usuario':'Nuevo Usuario'}}</strong>
+    </mat-card-title>
+    <mat-card-content class="content">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Cedula</mat-label>
+                <input matInput type="text" formControlName="cedula">
+            </mat-form-field>
+            <app-generic-form controlKey="datosUsuario"></app-generic-form>
+            <div class="form-buttons">
+                <button mat-raised-button color="primary" type="submit">
+                    {{isEdit?'Actualizar':'Guardar'}}
+                </button>
+                <button mat-raised-button color="warn" type="reset" (click)="onCancel()">Cancelar</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

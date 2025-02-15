@@ -7,7 +7,7 @@ import { MatTableModule } from '@angular/material/table';
 import { Accion } from '../../core/models/Tabla_Columna';
 @Component({
   selector: 'app-table',
-  imports: [MatIconModule,NativeDateModule,EstadoTextoPipe,MatPaginatorModule,MatTableModule],
+  imports: [MatIconModule, NativeDateModule, MatPaginatorModule, MatTableModule],
   templateUrl: './table.component.html',
   styleUrl: './table.component.css'
 })

@@ -1,0 +1,32 @@
+.card{
+    position: relative;
+    padding: 20px;
+    background-color: #ffff;
+    width: 100%;    
+}
+.close-button{
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    background: transparent;
+    z-index: 1000;
+    cursor: pointer;
+    border: none;
+    border-radius: 25%;
+    padding: 8px;
+    transition: transform 0.2s,box-shadow 0.2s,background-color 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.close-button mat-icon{
+    font-size: 25px;
+    color: #000;
+    transition: color 0.2s;
+}
+.close-button:hover mat-icon{
+    color: #d32f2f;
+}
+.mat-dialog-content{
+    margin: 15px;
+}

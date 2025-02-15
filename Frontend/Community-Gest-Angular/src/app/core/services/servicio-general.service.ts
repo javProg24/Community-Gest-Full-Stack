@@ -9,8 +9,9 @@ import { I_Metodos } from '../models/I_Metodos';
 export class GeneralService implements I_Metodos{
   private url = 'https://localhost:7179/api'
   constructor(private http:HttpClient) { }
-  getu<T>(url:string):Observable<T[]>{
-    return this.http.get<T[]>(url)
+  desactiveService<T>(instancia: string, id: number): Observable<T> {
+    const ApiUrl=`${this.url}/${instancia}/desactive/`
+    return this.http.put<T>(ApiUrl,id)
   }
   getService<T>(instancia: string): Observable<T[]> {
     const APIurl=`${this.url}/${instancia}`;

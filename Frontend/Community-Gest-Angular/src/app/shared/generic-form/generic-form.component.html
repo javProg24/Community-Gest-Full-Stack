@@ -1,0 +1,20 @@
+<fieldset class="field" *ngIf="form" [formGroup]="form">
+    <section class="insured">
+        <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input matInput type="text" formControlName="nombre">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Apellido</mat-label>
+            <input matInput type="text" formControlName="apellido">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Correo</mat-label>
+            <input matInput type="email" formControlName="correo">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Telefono</mat-label>
+            <input matInput type="tel" formControlName="telefono">
+        </mat-form-field>
+    </section>
+</fieldset>

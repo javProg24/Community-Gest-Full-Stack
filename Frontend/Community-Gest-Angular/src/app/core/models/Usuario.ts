@@ -1,3 +1,5 @@
+import { FormControl, FormControlName, FormGroup } from "@angular/forms";
+
 export interface Usuario{
     id?:number;
     cedula:number;
@@ -15,4 +17,14 @@ export class UsuarioTabla{
     correo='';
     telefono=0;
     estado=false;
+}
+interface UsuarioDataForm{
+    nombre:FormControl<string>
+    apellido:FormControl<string>
+    correo:FormControl<string>
+    telefono:FormControl<string>
+}
+export interface UsuarioForm{
+    cedula:FormControl<string>
+    datosUsuario:FormGroup<UsuarioDataForm>
 }

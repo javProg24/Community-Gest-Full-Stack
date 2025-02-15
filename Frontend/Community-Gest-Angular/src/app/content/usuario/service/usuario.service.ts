@@ -24,4 +24,7 @@ export class UsuarioService {
   getIdUsuario(id:number):Observable<Usuario[]>{
     return this.service.getIdService<Usuario>(this.api,id)
   }
+  desactiveUsuario(id:number):Observable<Usuario>{
+    return this.service.desactiveService<Usuario>(this.api,id)
+  }
 }
