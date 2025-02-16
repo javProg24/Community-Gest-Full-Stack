@@ -9,6 +9,6 @@
 Este tipo de sistema facilita la **organización, optimización y control** de los recursos compartidos dentro de una comunidad, asegurando su **uso eficiente y equitativo**. 🚀
 
 Este sistema esta dividido en 2 proyectos:
-- [Backend](Backend.md)
+- [BackEnd](BackEnd.md)
 - [Frontend](Frontend.md)
 
