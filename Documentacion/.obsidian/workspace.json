@@ -175,15 +175,16 @@
       "command-palette:Abrir paleta de comandos": false
     }
   },
-  "active": "d17128812ef070c3",
+  "active": "11924a0a43505013",
   "lastOpenFiles": [
+    "Conceptos",
     "Proyecto Community-Gest/Frontend.md",
-    "Entity Framework.md",
-    "ASP.NET Core Web.md",
+    "Conceptos/Entity Framework.md",
+    "Conceptos/ASP.NET Core Web.md",
     "Proyecto Community-Gest/BackEnd.md",
     "Community-Gest.md",
     "Proyecto Community-Gest",
-    "Biblioteca de clases.md",
+    "Conceptos/Biblioteca de clases.md",
     "Proyecto Community-Gest/Creacion de API Web.md",
     "().md",
     "Backend.md",
