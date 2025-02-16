@@ -1,20 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|c:\\users\\ultra gaming\\documents\\full-stack\\community-gest\\backend\\solbackend-comunity-gest\\data\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|solutionrelative:data\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DED5D0A2-8EEA-4667-8F53-7426FF203271}|API-Community\\API-Community.csproj|c:\\users\\ultra gaming\\documents\\full-stack\\community-gest\\backend\\solbackend-comunity-gest\\api-community\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DED5D0A2-8EEA-4667-8F53-7426FF203271}|API-Community\\API-Community.csproj|solutionrelative:api-community\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|c:\\users\\ultra gaming\\documents\\full-stack\\community-gest\\backend\\solbackend-comunity-gest\\data\\models\\herramienta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|solutionrelative:data\\models\\herramienta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -22,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 214,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -39,44 +26,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Models\\Usuario.cs",
-              "RelativeDocumentMoniker": "Data\\Models\\Usuario.cs",
-              "ToolTip": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Models\\Usuario.cs",
-              "RelativeToolTip": "Data\\Models\\Usuario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAB+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T21:44:06.582Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Herramienta.cs",
-              "DocumentMoniker": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Models\\Herramienta.cs",
-              "RelativeDocumentMoniker": "Data\\Models\\Herramienta.cs",
-              "ToolTip": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Models\\Herramienta.cs",
-              "RelativeToolTip": "Data\\Models\\Herramienta.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAawBMAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T21:43:50.77Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UsuarioController.cs",
-              "DocumentMoniker": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\API-Community\\Controllers\\UsuarioController.cs",
-              "RelativeDocumentMoniker": "API-Community\\Controllers\\UsuarioController.cs",
-              "ToolTip": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\API-Community\\Controllers\\UsuarioController.cs",
-              "RelativeToolTip": "API-Community\\Controllers\\UsuarioController.cs",
-              "ViewState": "AgIAAGMAAAAAAAAAAAAAAGwAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T04:27:09.041Z",
-              "EditorCaption": ""
             }
           ]
         },
