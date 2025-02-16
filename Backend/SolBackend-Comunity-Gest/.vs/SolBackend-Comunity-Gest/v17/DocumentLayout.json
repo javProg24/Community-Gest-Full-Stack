@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DED5D0A2-8EEA-4667-8F53-7426FF203271}|API-Community\\API-Community.csproj|c:\\users\\ultra gaming\\documents\\full-stack\\community-gest\\backend\\solbackend-comunity-gest\\api-community\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DED5D0A2-8EEA-4667-8F53-7426FF203271}|API-Community\\API-Community.csproj|solutionrelative:api-community\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|c:\\users\\ultra gaming\\documents\\full-stack\\community-gest\\backend\\solbackend-comunity-gest\\data\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|solutionrelative:data\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DED5D0A2-8EEA-4667-8F53-7426FF203271}|API-Community\\API-Community.csproj|c:\\users\\ultra gaming\\documents\\full-stack\\community-gest\\backend\\solbackend-comunity-gest\\api-community\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DED5D0A2-8EEA-4667-8F53-7426FF203271}|API-Community\\API-Community.csproj|solutionrelative:api-community\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|c:\\users\\ultra gaming\\documents\\full-stack\\community-gest\\backend\\solbackend-comunity-gest\\data\\models\\herramienta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 214,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,7 +42,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Models\\Usuario.cs",
               "RelativeDocumentMoniker": "Data\\Models\\Usuario.cs",
@@ -63,12 +63,11 @@
               "RelativeToolTip": "Data\\Models\\Herramienta.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAawBMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T21:43:50.77Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-15T21:43:50.77Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "UsuarioController.cs",
               "DocumentMoniker": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\API-Community\\Controllers\\UsuarioController.cs",
               "RelativeDocumentMoniker": "API-Community\\Controllers\\UsuarioController.cs",

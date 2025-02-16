@@ -42,7 +42,7 @@
               "type": "markdown",
               "state": {
                 "file": "Backend.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -102,12 +102,24 @@
               "icon": "lucide-bookmark",
               "title": "Marcadores"
             }
+          },
+          {
+            "id": "845223fe45380120",
+            "type": "leaf",
+            "state": {
+              "type": "mk-path-view",
+              "state": {},
+              "icon": "layout-grid",
+              "title": "Navigator"
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "4db0006a17cd3f63",
@@ -196,9 +208,9 @@
   },
   "active": "eef199a555e88135",
   "lastOpenFiles": [
+    "Backend.md",
     "Creacion del Modelo.md",
     "Creacion de API Web.md",
-    "Backend.md",
     "Asignacion de Framework.md",
     "Tags"
   ]
