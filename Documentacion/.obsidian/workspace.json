@@ -4,77 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "93b44bcb64c652f6",
+        "id": "148bb72a4f1d7392",
         "type": "tabs",
         "children": [
           {
-            "id": "83aa4d9e1fa4635e",
+            "id": "d17128812ef070c3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "BackEnd.md",
+                "file": "Community-Gest.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "BackEnd"
-            }
-          },
-          {
-            "id": "a61cec186ba35a70",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ASP.NET Core Web.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "ASP.NET Core Web"
-            }
-          },
-          {
-            "id": "4ec14530c285f3ce",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Creacion de API Web.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Creacion de API Web"
-            }
-          },
-          {
-            "id": "eb52f42ff60388ea",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Entity Framework.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Entity Framework"
-            }
-          },
-          {
-            "id": "6c9232b29fd4619f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Creacion de API Web.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Creacion de API Web"
+              "title": "Community-Gest"
             }
           }
         ]
@@ -144,8 +88,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "4db0006a17cd3f63",
@@ -232,17 +175,18 @@
       "command-palette:Abrir paleta de comandos": false
     }
   },
-  "active": "83aa4d9e1fa4635e",
+  "active": "d17128812ef070c3",
   "lastOpenFiles": [
-    "Biblioteca de clases.md",
-    "BackEnd.md",
-    "Creacion de API Web.md",
-    "ASP.NET Core Web.md",
-    "Community-Gest.md",
+    "Proyecto Community-Gest/Frontend.md",
     "Entity Framework.md",
+    "ASP.NET Core Web.md",
+    "Proyecto Community-Gest/BackEnd.md",
+    "Community-Gest.md",
+    "Proyecto Community-Gest",
+    "Biblioteca de clases.md",
+    "Proyecto Community-Gest/Creacion de API Web.md",
     "().md",
     "Backend.md",
-    "Asignacion de Framework.md",
     "Tags"
   ]
 }

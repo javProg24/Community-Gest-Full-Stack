@@ -11,7 +11,7 @@ Dicho esto podemos describir que para poder realizar dichas peticiones se utiliz
 
 En esta parte se describirá como se llevo a a cabo la tarea de conectar la base de datos y a la vez por medio de las *Clases* dentro de la **Biblioteca de clases** poder crear nuestras tablas con sus propiedades sin necesidad de crearlas dentro de un **Gestor de Bases de Datos (DBMS)** 
 
-La herramienta es **[[Entity Framework.md|Entity Framework]]**, dicha herramienta esta disponible dentro del IDE de **Visual Studio** con la finalidad de hacer conexión con las siguientes base de datos: 
+La herramienta es **[[Entity Framework|Entity Framework]]**, dicha herramienta esta disponible dentro del IDE de **Visual Studio** con la finalidad de hacer conexión con las siguientes base de datos: 
 ![![/#*Table2]]
 | Base de datos | Proveedor de EF Core |
 |----------|------|
@@ -27,7 +27,7 @@ La herramienta es **[[Entity Framework.md|Entity Framework]]**, dicha herramient
 La base de datos que se utilizo es **PostgreSQL** que nos permitira almacenar nuestros datos de manera sincrónica.
 Para poder realizar la conexion se realizo la estructura que nos permitira tanto acceder y ejecutar las acciones necesarias que seran enviadas a la base de datos.
 Entity Framework nos ofrece dicha conexion con la base de datos que se ha especificado pero para hacerlo el proyecto de Backend esta dividido 2 proyectos:
-- [[ASP.NET Core Web.md|ASP.NET Core Web]]: 
+- [[ASP.NET Core Web|ASP.NET Core Web]]: 
 - [[Biblioteca de clases|Biblioteca de clases]]
 Ambos estan dentro de un **Proyecto en Blanco** pero cada uno referenciado
 pero porque en un **Proyecto en Blanco**:
