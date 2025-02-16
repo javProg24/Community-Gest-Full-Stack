@@ -20,8 +20,51 @@
               "icon": "lucide-file",
               "title": "Creacion de API Web"
             }
+          },
+          {
+            "id": "6c9232b29fd4619f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Creacion de API Web.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Creacion de API Web"
+            }
+          },
+          {
+            "id": "eef199a555e88135",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Creacion del Modelo.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Creacion del Modelo"
+            }
+          },
+          {
+            "id": "e29d579fbf716602",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "BackEnd.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "BackEnd"
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -176,9 +219,12 @@
       "dbfolder:Crear una nueva tabla de base de datos": false
     }
   },
-  "active": "83aa4d9e1fa4635e",
+  "active": "e29d579fbf716602",
   "lastOpenFiles": [
+    "Creacion del Modelo.md",
+    "BackEnd.md",
     "Creacion de API Web.md",
+    "Asignacion de Framework.md",
     "Tags"
   ]
 }
