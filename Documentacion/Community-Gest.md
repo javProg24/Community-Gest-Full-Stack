@@ -9,6 +9,6 @@
 Este tipo de sistema facilita la **organización, optimización y control** de los recursos compartidos dentro de una comunidad, asegurando su **uso eficiente y equitativo**. 🚀
 
 Este sistema esta dividido en 2 proyectos:
-- [Backend](obsidian://open?vault=Documentacion&file=Proyecto%20Community-Gest%2FBackEnd)
-- [Frontend](obsidian://open?vault=Documentacion&file=Proyecto%20Community-Gest%2FFrontend)
+- [Backend](Backend.md)
+- [Frontend](Frontend.md)
 
