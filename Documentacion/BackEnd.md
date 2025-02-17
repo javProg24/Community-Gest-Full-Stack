@@ -11,7 +11,7 @@ Dicho esto podemos describir que para poder realizar dichas peticiones se utiliz
 
 En esta parte se describirá como se llevo a a cabo la tarea de conectar la base de datos y a la vez por medio de las *Clases* dentro de la **Biblioteca de clases** poder crear nuestras tablas con sus propiedades sin necesidad de crearlas dentro de un **Gestor de Bases de Datos (DBMS)** 
 
-La herramienta es **[Entity Framework](obsidian://open?vault=Documentacion&file=Entity%20Framework)**, dicha herramienta esta disponible dentro del IDE de **Visual Studio** con la finalidad de hacer conexión con las siguientes base de datos: 
+La herramienta es **[Entity Framework](Entity%20Framework.md)**, dicha herramienta esta disponible dentro del IDE de **Visual Studio** con la finalidad de hacer conexión con las siguientes base de datos: 
 ![![/#*Table2]]
 | Base de datos | Proveedor de EF Core |
 |----------|------|
