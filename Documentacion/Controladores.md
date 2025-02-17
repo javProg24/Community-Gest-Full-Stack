@@ -1,0 +1,2 @@
+Contiene **controladores (`Controllers`)** que manejan las peticiones.
+Los **controladores** son responsables de manejar las solicitudes HTTP. Cada controlador suele estar asociado a un **recurso** o **entidad** (por ejemplo, "Usuarios", "Productos", etc.) y contiene métodos que responden a solicitudes HTTP específicas. Estos métodos son los que manejan la lógica de la aplicación y ejecutan las acciones correspondientes.

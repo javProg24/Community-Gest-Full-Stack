@@ -19,7 +19,7 @@ import { UsuarioService } from '../../service/usuario.service';
 })
 export class UsuarioFormComponent implements OnInit{
   isEdit=false
-  currentID?:number
+  private currentID?:number
   form!:FormGroup
   private formBuilder = inject(NonNullableFormBuilder);
   constructor(private fb:FormBuilder,private dialogRef: MatDialogRef<UsuarioFormComponent>,
@@ -37,7 +37,6 @@ export class UsuarioFormComponent implements OnInit{
         }),
         estado:this.formBuilder.control(null,{validators:[Validators.required]}),
       })
-    
       if (this.formData) {
         this.isEdit = true;
         this.currentID = this.formData.id;
@@ -55,7 +54,6 @@ export class UsuarioFormComponent implements OnInit{
         this.isEdit = false;
       }
     }
-    
   onSubmit() {
     const { datosUsuario, ...formValues } = this.form.value; //tuve que pedir a ia que me destruyera el arreglo
     const usuario:Usuario={
@@ -71,8 +69,7 @@ export class UsuarioFormComponent implements OnInit{
     this.isEdit?this.actualizarUsuario(usuario):this.agregarUsuario(usuario)
   }
   actualizarUsuario(usuario:Usuario){
-    if(!this.currentID)
-      return
+    if(!this.currentID)return
     this.service.updateUsuario(this.currentID,usuario).subscribe({
       next:()=>{
         this.notificacion.info("El usuario fue actualizado",'Informacion')

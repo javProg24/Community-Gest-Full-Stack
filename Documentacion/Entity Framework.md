@@ -1,3 +1,4 @@
+# Entity Framework
 Entity Framework (EF) es un **ORM (Object-Relational Mapper)** para .NET que facilita la interacción con bases de datos mediante código en C#. Permite trabajar con datos como si fueran objetos de C# en lugar de escribir consultas SQL directamente.
 ### **Características principales de Entity Framework**
 
