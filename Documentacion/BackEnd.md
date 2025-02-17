@@ -29,6 +29,7 @@ Para poder realizar la conexion se realizo la estructura que nos permitira tanto
 Entity Framework nos ofrece dicha conexion con la base de datos que se ha especificado pero para hacerlo el proyecto de Backend esta dividido 2 proyectos:
 - [ASP.NET Core Web API](ASP.NET%20Core%20Web%20API.md) 
 - [Biblioteca de clases](Biblioteca%20de%20clases.md)
+
 Ambos estan dentro de un **Proyecto en Blanco** pero cada uno referenciado y esta denominado "**SolBackend-Community-Gest**"
 pero porque en un **Proyecto en Blanco**:
 1. **Mayor Control**: No tienes configuraciones predefinidas, lo que te permite personalizar la estructura desde cero.
