@@ -28,7 +28,7 @@ La base de datos que se utilizo es **PostgreSQL** que nos permitira almacenar nu
 Para poder realizar la conexion se realizo la estructura que nos permitira tanto acceder y ejecutar las acciones necesarias que seran enviadas a la base de datos.
 Entity Framework nos ofrece dicha conexion con la base de datos que se ha especificado pero para hacerlo el proyecto de Backend esta dividido 2 proyectos:
 - [ASP.NET Core Web API](ASP.NET%20Core%20Web%20API.md) 
-- [[Biblioteca de clases|Biblioteca de clases]]
+- [Biblioteca de clases](Biblioteca%20de%20clases.md)
 Ambos estan dentro de un **Proyecto en Blanco** pero cada uno referenciado y esta denominado "**SolBackend-Community-Gest**"
 pero porque en un **Proyecto en Blanco**:
 1. **Mayor Control**: No tienes configuraciones predefinidas, lo que te permite personalizar la estructura desde cero.
@@ -38,5 +38,5 @@ pero porque en un **Proyecto en Blanco**:
 Esto permite que la API use la base de datos sin definir modelos dentro del mismo proyecto. 🚀
 
 Dicho esto se procederá a describir como se elaboro el proyecto a traves de las siguientes estructuras que se explico:
-- [[ASP.NET Core Web API|ASP.NET Core Web API]]: [Creacion de la API Web](Creacion%20de%20la%20API%20Web.md) 
-- [[Biblioteca de clases|Biblioteca de clases]]: [Creacion de la Biblioteca](Creacion%20de%20la%20Biblioteca.md)
+- [ASP.NET Core Web API](ASP.NET%20Core%20Web%20API.md): [Creacion de la API Web](Creacion%20de%20la%20API%20Web.md) 
+- [Biblioteca de clases](Biblioteca%20de%20clases.md): [Creacion de la Biblioteca](Creacion%20de%20la%20Biblioteca.md)
