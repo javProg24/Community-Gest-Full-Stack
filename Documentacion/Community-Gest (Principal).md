@@ -1,5 +1,6 @@
+# Community-Gest
 **Community Gest** es el nombre de un **sistema de gestión comunitaria** destinado a la administración y reserva de recursos dentro de una comunidad. Su objetivo principal es **optimizar el uso de instalaciones, herramientas compartidas y otros bienes comunitarios**, permitiendo a los usuarios realizar reservas, gestionar disponibilidad y mantener un control adecuado de los recursos.
-# Características principales:
+## Características principales:
 🔹 **Instalaciones comunitarias** 🏢 (salones comunales, áreas deportivas, auditorios).  
 🔹 **Herramientas compartidas** 🔧 (equipos, utensilios, materiales).  
 🔹 **Reservas y uso de recursos** 📅 (control de disponibilidad y asignación de espacios o equipos).  
