@@ -8,7 +8,23 @@
 
 Este tipo de sistema facilita la **organización, optimización y control** de los recursos compartidos dentro de una comunidad, asegurando su **uso eficiente y equitativo**. 🚀
 
-Este sistema esta dividido en 2 proyectos:
-- [BackEnd](BackEnd.md)
-- [Frontend](Frontend.md)
+Este sistema esta desarrollado al nivel de "**Desarrollo Web**" y se han utilizado los siguientes frameworks, por parte del
+- [BackEnd](BackEnd.md): [Entity Framework](Entity%20Framework.md)
+- [Frontend](Frontend.md): [Angular](Angular.md)
 
+El framework de **Entity Framework**  se trabajo en el IDE de **Visual Studio** y el de **Angular** se trabajo en **Visual Studio Code**.
+
+Dentro del **Backend** el proyecto esta estructurado de la siguiente manera:
+- **[Proyecto en Blanco](Proyecto%20en%20blanco.md)** denominado "**SolBackend-Community-Gest**":
+	- [ASP.NET Core Web API](ASP.NET%20Core%20Web%20API.md) 
+	- [Biblioteca de clases](Biblioteca%20de%20clases.md)
+
+Tambien cabe destacar que los datos son almacenados en el **Gestor de Bases de Datos (DBMS)** que es **PostgreSQL**.
+
+En el **Frontend** el proyecto esta basado en **Angular** lo que implica en la utilización de:
+- Componentes
+- Servicios
+
+Dado el caso se explicara como se implemento y se creo el proyecto en la parte del **Backend**, es decir, su estructura que en este caso es la utilización de **ASP.NET Core Web API** y **Biblioteca de clases**.
+- **ASP.NET Core Web API**: [Creacion de la API Web](Creacion%20de%20la%20API%20Web.md)
+- **Biblioteca de clases**: [Creacion de la Biblioteca](Creacion%20de%20la%20Biblioteca.md)

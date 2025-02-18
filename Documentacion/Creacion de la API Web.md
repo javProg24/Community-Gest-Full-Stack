@@ -1,9 +1,13 @@
+# Creacion de la API Web
+Primero hay que describir que los datos seran almacenados en la base de datos de **PostgreSQL** de manera sincrónica, es decir, que se esperara una instruccion o accion a ejecutar para poder realizarla, con la finalidad de crear, actualizar, eliminar o ver los datos respectivos.
+A la vez, podemos por medio de medio de **Entity Framework** crear las tablas con sus respectivos campos a traves de las '*Clases*' dentro de la **Biblioteca de clases** y solo se necesitara la '*Cadena de conexion*' sin necesidad de crearlas dentro de un **Gestor de Bases de Datos (DBMS)**.
+
 Para poder ejecutar nuestra API Web primero hay que describir su creacion. Para poder crearla dentro de nuestro **Proyecto en Blanco** primero hay que crearla con las siguientes opciones dentro del IDE de **Visual Studio**:
 - Seleccionar proyecto en Blanco: **SolBackend-Community-Gest**
-- Clic derecho y buscar la opcion **Agregar**>**Nuevo Proyecto**>[ASP.NET Core Web API](ASP.NET%20Core%20Web%20API.md)
+- Clic derecho y buscar la opcion **Agregar**>**Nuevo Proyecto**>**ASP.NET Core Web API**
 - Digitar el nombre y se le ha denominado "**API-Community**"
 
-Con esto se ha creado nuestra API con los [controladores](Controladores.md), [metodos HTTP](Métodos%20HTTP.md) y [Swagger](Swagger.md). 
+Con esto se ha creado nuestra API con los 'controladores', 'metodos HTTP' y 'Swagger'. 
 Luego de esto se debe establecer las siguientes extensiones o paquetes que nos permitira trabajar con nuestra API:
 - `Microsoft.EntityFrameworkCore.Design`
 - `Microsoft.EntityFrameworkCore.Tools`

@@ -20,63 +20,21 @@
             }
           },
           {
-            "id": "660b87edd6f40afb",
+            "id": "44f08c76c7118e36",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Creacion de la Biblioteca.md",
+                "file": "Community-Gest (Principal).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Creacion de la Biblioteca"
+              "title": "Community-Gest (Principal)"
             }
           },
           {
-            "id": "5e8d39b9bd8c186d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Creacion de la API Web.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Creacion de la API Web"
-            }
-          },
-          {
-            "id": "312412a447b8343b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "BackEnd.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "BackEnd"
-            }
-          },
-          {
-            "id": "11c745227dd8004c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Biblioteca de clases.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Biblioteca de clases"
-            }
-          },
-          {
-            "id": "b4da03241dd34083",
+            "id": "96f88ac8964f6447",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -90,7 +48,7 @@
             }
           },
           {
-            "id": "521e5aebff8c5ec4",
+            "id": "a209d63243551f66",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -102,9 +60,23 @@
               "icon": "lucide-file",
               "title": "Creacion de la API Web"
             }
+          },
+          {
+            "id": "3c6738ad5447a6d1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Creacion de la Biblioteca.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Creacion de la Biblioteca"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -171,7 +143,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "4db0006a17cd3f63",
@@ -258,19 +231,21 @@
       "command-palette:Abrir paleta de comandos": false
     }
   },
-  "active": "312412a447b8343b",
+  "active": "3c6738ad5447a6d1",
   "lastOpenFiles": [
-    "Biblioteca de clases.md",
-    "BackEnd.md",
-    "ASP.NET Core Web API.md",
-    "Creacion de la API Web.md",
-    "Swagger.md",
+    "Entity Framework.md",
     "Creacion de la Biblioteca.md",
+    "Creacion de la API Web.md",
+    "ASP.NET Core Web API.md",
+    "Community-Gest (Principal).md",
+    "BackEnd.md",
+    "Proyecto en blanco.md",
+    "Angular.md",
+    "Biblioteca de clases.md",
+    "Swagger.md",
     "Métodos HTTP.md",
     "Controladores.md",
     "ASP.NET Core20Web20API.md",
-    "Community-Gest (Principal).md",
-    "Entity Framework.md",
     "Entity_Framework.md",
     "Entity.md",
     "Proyecto.md",

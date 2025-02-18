@@ -7,5 +7,3 @@ Los elementos de la API son:
 - [Controladores](Controladores.md)
 - [Métodos HTTP en la API Web](Métodos%20HTTP.md)
 - [Swagger](Swagger.md)
-
-
