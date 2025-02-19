@@ -10,8 +10,6 @@ export interface Accion<T=any>{
     accion:string;
     fila?:T;
 }
-
-
 const entidadesMapeadas:{[key in Entidad]?:any}={
     [Entidad.Instalacion]:InstalacionTabla,
     [Entidad.Herramienta]:HerramientaTabla,
@@ -20,7 +18,6 @@ const entidadesMapeadas:{[key in Entidad]?:any}={
     [Entidad.Reserva_Herramienta]:Reserva_Herramienta_Tabla,
     [Entidad.Reserva_Instalacion]:Reserva_Instalacion_Tabla
 }
-
 export const getColumnasEntidades=(entidad:Entidad):Array<string>=>{
     const EntidadesClases=entidadesMapeadas[entidad];
     if(!EntidadesClases){
@@ -29,15 +26,13 @@ export const getColumnasEntidades=(entidad:Entidad):Array<string>=>{
     const instancia = new EntidadesClases()
     return Object.keys(instancia)
 }
-
 const listaCamposEntidades:{[key in Entidad]?:any}={
     [Entidad.Usuario]:Usuario_Response,
     [Entidad.Instalacion]:Instalacion_Response,
     [Entidad.Herramienta]:Herramienta_Response,
     [Entidad.Reporte]:Reporte_Response,
     [Entidad.Reserva_Herramienta]:Reserva_Herramienta_Response,
-    [Entidad.Reserva_Instalacion]:Reserva_Instalacion_Response
-
+    [Entidad.Reserva_Instalacion]:Reserva_Instalacion_Response,
 }
 export const columnsEntidades=(entidad:Entidad):Array<string>=>{
     const campoColumnas=listaCamposEntidades[entidad];

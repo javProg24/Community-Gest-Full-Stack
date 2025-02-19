@@ -4,7 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { GenericFormComponent } from "../../../../shared/generic-form/generic-form.component";
 import { MatButton, MatButtonModule } from '@angular/material/button';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Usuario, UsuarioForm } from '../../../../core/models/Usuario';
 import { MatInputModule } from '@angular/material/input';
 import { ToastrService } from 'ngx-toastr';
@@ -22,40 +22,38 @@ export class UsuarioFormComponent implements OnInit{
   private currentID?:number
   form!:FormGroup
   private formBuilder = inject(NonNullableFormBuilder);
-  constructor(private fb:FormBuilder,private dialogRef: MatDialogRef<UsuarioFormComponent>,
-    @Inject('formData')public formData:Usuario|null,private notificacion:ToastrService,
-    private service:UsuarioService)
-    {}
-    ngOnInit(): void {
-      this.form=this.fb.group<UsuarioForm>({
-        cedula:this.formBuilder.control(null,{validators:[Validators.required]}),
-        datosUsuario:this.formBuilder.group({
-          nombre:this.formBuilder.control('',{validators:[Validators.required]}),
-          apellido:this.formBuilder.control('',{validators:[Validators.required]}),
-          correo:this.formBuilder.control('',{validators:[Validators.required]}),
-          telefono:this.formBuilder.control<number | null>(null,{validators:[Validators.required]}),
-        }),
-        estado:this.formBuilder.control(null,{validators:[Validators.required]}),
-      })
-      if (this.formData) {
-        this.isEdit = true;
-        this.currentID = this.formData.id;
-        this.form.setValue({
-          cedula: this.formData.cedula || null, // Si no existe cedula, asignamos null
-          datosUsuario: {
-            nombre: this.formData.nombre,
-            apellido: this.formData.apellido,
-            correo: this.formData.correo,
-            telefono: this.formData.telefono || null // Si no existe telefono, asignamos null
-          },
-          estado: this.formData.estado
-        });
-      } else {
-        this.isEdit = false;
-      }
+  constructor(private fb:FormBuilder,private dialogRef: MatDialogRef<UsuarioFormComponent>,@Inject('formData')public formData:Usuario|null,private notificacion:ToastrService,private service:UsuarioService)
+  {}
+  ngOnInit(): void {
+    this.form=this.fb.group<UsuarioForm>({
+      cedula:this.formBuilder.control(null,{validators:[Validators.required]}),
+      datosUsuario:this.formBuilder.group({
+        nombre:this.formBuilder.control('',{validators:[Validators.required]}),
+        apellido:this.formBuilder.control('',{validators:[Validators.required]}),
+        correo:this.formBuilder.control('',{validators:[Validators.required]}),
+        telefono:this.formBuilder.control<number | null>(null,{validators:[Validators.required]}),
+      }),
+      estado:this.formBuilder.control(true,{validators:[Validators.required]}),
+    })
+    if(this.formData) {
+      this.isEdit = true;
+      this.currentID = this.formData.id;
+      this.form.setValue({
+        cedula: this.formData.cedula || null, // Si no existe cedula, asignamos null
+        datosUsuario: {
+          nombre: this.formData.nombre,
+          apellido: this.formData.apellido,
+          correo: this.formData.correo,
+          telefono: this.formData.telefono || null // Si no existe telefono, asignamos null
+        },
+        estado: this.formData.estado
+      });
+    }else {
+      this.isEdit = false;
     }
-  onSubmit() {
-    const { datosUsuario, ...formValues } = this.form.value; //tuve que pedir a ia que me destruyera el arreglo
+  }
+  private constructorUsuario():Usuario{
+    const { datosUsuario, ...formValues } = this.form.value;
     const usuario:Usuario={
       ...formValues,
       id:this.isEdit?this.currentID:0,
@@ -66,7 +64,10 @@ export class UsuarioFormComponent implements OnInit{
       telefono: this.form.value.datosUsuario.telefono,  // Accediendo explícitamente a los valores dentro de datosUsuario
       estado: this.form.value.estado
     }
-    this.isEdit?this.actualizarUsuario(usuario):this.agregarUsuario(usuario)
+    return usuario
+  }
+  onSubmit() {
+    this.isEdit?this.actualizarUsuario(this.constructorUsuario()):this.agregarUsuario(this.constructorUsuario())
   }
   actualizarUsuario(usuario:Usuario){
     if(!this.currentID)return
@@ -80,7 +81,6 @@ export class UsuarioFormComponent implements OnInit{
     })
   }
   agregarUsuario(usuario:Usuario){
-    console.log(usuario)
     this.service.addUsuario(usuario).subscribe({
       next:()=>{
         this.notificacion.success("El usuario fue agregado",'Exito!')
