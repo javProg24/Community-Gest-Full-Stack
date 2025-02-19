@@ -36,11 +36,3 @@ export enum Entidad{
     Reserva,//6
     Historial//7
 }
-export enum Estado_Usuario{
-    Activo,
-    Inactivo
-}
-export enum Estado_Reporte{
-    Solucionado,
-    Pendiente
-}
