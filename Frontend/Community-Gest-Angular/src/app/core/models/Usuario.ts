@@ -1,4 +1,4 @@
-import { FormControl, FormControlName, FormControlState, FormGroup } from "@angular/forms";
+import { FormControl, FormGroup } from "@angular/forms";
 
 export interface Usuario{
     id?:number;
@@ -18,6 +18,17 @@ export class UsuarioTabla{
     telefono=0;
     estado=false;
 }
+
+export const Usuario_Response={
+    id:'id',
+    cedula:'cedula',
+    nombre:'nombre',
+    apellido:'apellido',
+    correo:'correo',
+    telefono:'telefono',
+    estado:'estado'
+}as const;
+
 interface UsuarioDataForm{
     nombre:FormControl<string>
     apellido:FormControl<string>

@@ -16,6 +16,6 @@ namespace Data.Models
         public int Cantidad { get; set; }
         public bool Estado { get; set; }
         [JsonIgnore]
-        public virtual ICollection<Reserva_Herramienta> Reservas_Herramientas { get; set; }
+        public virtual ICollection<Reserva_Herramienta> Reservas_Herramientas { get; set; } = new List<Reserva_Herramienta>();
     }
 }

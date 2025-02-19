@@ -19,6 +19,6 @@ namespace Data.Models
         public TimeSpan Hora_Fin {  get; set; }
         public bool Estado { get; set; }
         [JsonIgnore]
-        public virtual ICollection<Reserva_Instalacion> Reserva_Instalaciones {  get; set; }
+        public virtual ICollection<Reserva_Instalacion> Reserva_Instalaciones {  get; set; } = new List<Reserva_Instalacion>();
     }
 }

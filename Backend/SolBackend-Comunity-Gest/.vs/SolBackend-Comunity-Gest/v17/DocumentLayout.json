@@ -1,15 +1,44 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DED5D0A2-8EEA-4667-8F53-7426FF203271}|API-Community\\API-Community.csproj|c:\\users\\ultra gaming\\documents\\full-stack\\community-gest\\backend\\solbackend-comunity-gest\\api-community\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DED5D0A2-8EEA-4667-8F53-7426FF203271}|API-Community\\API-Community.csproj|solutionrelative:api-community\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|c:\\users\\ultra gaming\\documents\\full-stack\\community-gest\\backend\\solbackend-comunity-gest\\data\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|solutionrelative:data\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|c:\\users\\ultra gaming\\documents\\full-stack\\community-gest\\backend\\solbackend-comunity-gest\\data\\models\\herramienta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|solutionrelative:data\\models\\herramienta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|c:\\users\\ultra gaming\\documents\\full-stack\\community-gest\\backend\\solbackend-comunity-gest\\data\\models\\instalacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|solutionrelative:data\\models\\instalacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|c:\\users\\ultra gaming\\documents\\full-stack\\community-gest\\backend\\solbackend-comunity-gest\\data\\models\\reserva_instalacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|solutionrelative:data\\models\\reserva_instalacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|c:\\users\\ultra gaming\\documents\\full-stack\\community-gest\\backend\\solbackend-comunity-gest\\data\\models\\reporte.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|solutionrelative:data\\models\\reporte.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|c:\\users\\ultra gaming\\documents\\full-stack\\community-gest\\backend\\solbackend-comunity-gest\\data\\models\\reserva_herramienta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|solutionrelative:data\\models\\reserva_herramienta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 214,
-          "SelectedChildIndex": -1,
+          "DockedWidth": 194,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,11 +55,96 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsuarioController.cs",
+              "DocumentMoniker": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\API-Community\\Controllers\\UsuarioController.cs",
+              "RelativeDocumentMoniker": "API-Community\\Controllers\\UsuarioController.cs",
+              "ToolTip": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\API-Community\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "API-Community\\Controllers\\UsuarioController.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T20:24:08.047Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Herramienta.cs",
+              "DocumentMoniker": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Models\\Herramienta.cs",
+              "RelativeDocumentMoniker": "Data\\Models\\Herramienta.cs",
+              "ToolTip": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Models\\Herramienta.cs",
+              "RelativeToolTip": "Data\\Models\\Herramienta.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T19:46:49.52Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Instalacion.cs",
+              "DocumentMoniker": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Models\\Instalacion.cs",
+              "RelativeDocumentMoniker": "Data\\Models\\Instalacion.cs",
+              "ToolTip": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Models\\Instalacion.cs",
+              "RelativeToolTip": "Data\\Models\\Instalacion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T19:46:48.769Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Reporte.cs",
+              "DocumentMoniker": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Models\\Reporte.cs",
+              "RelativeDocumentMoniker": "Data\\Models\\Reporte.cs",
+              "ToolTip": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Models\\Reporte.cs",
+              "RelativeToolTip": "Data\\Models\\Reporte.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T19:46:47.911Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Reserva_Herramienta.cs",
+              "DocumentMoniker": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Models\\Reserva_Herramienta.cs",
+              "RelativeDocumentMoniker": "Data\\Models\\Reserva_Herramienta.cs",
+              "ToolTip": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Models\\Reserva_Herramienta.cs",
+              "RelativeToolTip": "Data\\Models\\Reserva_Herramienta.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T19:46:47.199Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Reserva_Instalacion.cs",
+              "DocumentMoniker": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Models\\Reserva_Instalacion.cs",
+              "RelativeDocumentMoniker": "Data\\Models\\Reserva_Instalacion.cs",
+              "ToolTip": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Models\\Reserva_Instalacion.cs",
+              "RelativeToolTip": "Data\\Models\\Reserva_Instalacion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T19:46:46.261Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "Data\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Models\\Usuario.cs",
+              "RelativeToolTip": "Data\\Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAB+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T19:46:44.577Z"
             }
           ]
         },
         {
-          "DockedWidth": 174,
+          "DockedWidth": 220,
           "SelectedChildIndex": -1,
           "Children": [
             {

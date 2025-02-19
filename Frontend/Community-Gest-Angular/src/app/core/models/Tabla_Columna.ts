@@ -4,7 +4,7 @@ import { InstalacionTabla } from "./Instalacion";
 import { ReporteTabla } from "./Reporte";
 import { Reserva_Herramienta_Tabla } from "./Reserva-Herramienta";
 import { Reserva_Instalacion_Tabla } from "./Reserva-Instalacion";
-import { UsuarioTabla } from "./Usuario";
+import { Usuario_Response, UsuarioTabla } from "./Usuario";
 
 export interface Accion<T=any>{
     accion:string;
@@ -21,7 +21,7 @@ const entidadesMapeadas:{[key in Entidad]?:any}={
     [Entidad.Reserva_Instalacion]:Reserva_Instalacion_Tabla
 }
 
-export const getEntidadesPropiedades=(entidad:Entidad):Array<string>=>{
+export const getColumnasEntidades=(entidad:Entidad):Array<string>=>{
     const EntidadesClases=entidadesMapeadas[entidad];
     if(!EntidadesClases){
         return []
@@ -29,3 +29,25 @@ export const getEntidadesPropiedades=(entidad:Entidad):Array<string>=>{
     const instancia = new EntidadesClases()
     return Object.keys(instancia)
 }
+
+const listaCamposEntidades:{[key in Entidad]?:any}={
+    [Entidad.Usuario]:Usuario_Response,
+}
+export const columnsEnti=(entidad:Entidad):Array<string>=>{
+    const campoColumnas=listaCamposEntidades[entidad];
+    if(!campoColumnas)return[]
+    return Object.values(campoColumnas)
+}
+
+// const listaCamposEntidades:{[key in Entidad]?:any}={
+//     [Entidad.Usuario]:typeof(Campos_Usuario),
+// }
+
+// export const columnsEnti=(entidad:Entidad):Array<string>=>{
+//     const campoColumnas=listaCamposEntidades[entidad];
+//     if(!campoColumnas){
+//         return []
+//     }
+//     return Object.keys(campoColumnas).filter(key=>isNaN(Number(key)))
+// }
+
