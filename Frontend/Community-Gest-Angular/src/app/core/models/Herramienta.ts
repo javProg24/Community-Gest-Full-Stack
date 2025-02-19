@@ -14,3 +14,11 @@ export class HerramientaTabla{
     cantidad=0;
     estado=false
 }
+export const Herramienta_Response={
+    id:'id',
+    nombre:'nombre',
+    ubicacion:'ubicacion',
+    descripcion:'descripcion',
+    cantidad:'cantidad',
+    estado:'estado'
+}as const;

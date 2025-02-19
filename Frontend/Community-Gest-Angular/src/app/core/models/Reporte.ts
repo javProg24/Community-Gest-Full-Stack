@@ -12,3 +12,10 @@ export class ReporteTabla{
     recurso_Afectado = '';
     estado = false;
 }
+export const Reporte_Response={
+    id: 'id',
+    titulo: 'titulo',
+    descripcion: 'descripcion',
+    recurso_Afectado: 'recurso_Afectado', 
+    estado: 'estado',
+}as const;

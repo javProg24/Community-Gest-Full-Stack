@@ -19,7 +19,17 @@ export class Reserva_Herramienta_Tabla{
     herramienta="";
     dia="";
     fecha=""
-    horaInicio="";
-    horaFin=""
+    hora_Inicio="";
+    hora_Fin=""
     disponibilidad=""
 }
+export const Reserva_Herramienta_Response={
+    id: 'id',
+    usuario: 'usuario',
+    herramienta:'herramienta',
+    dia:'dia',
+    fecha:'fecha',
+    hora_Inicio:'hora_Inicio',
+    hora_Fin:'hora_Fin',
+    disponibilidad:'disponibilidad'
+}as const;

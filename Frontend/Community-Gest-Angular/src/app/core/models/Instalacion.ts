@@ -20,3 +20,14 @@ export class InstalacionTabla{
     hora_Fin='';
     estado=false;
 }
+export const Instalacion_Response={
+    id:'id',
+    nombre:'nombre',
+    tipo:'tipo',
+    capacidad:'capacidad',
+    descripcion:'descripcion',
+    dia:'dia',
+    hora_Inicio:'hora_Inicio',
+    hora_Fin:'hora_Fin',
+    estado:'estado'
+}as const;
