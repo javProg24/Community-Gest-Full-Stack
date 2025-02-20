@@ -29,7 +29,6 @@ export class UsuarioComponent implements OnInit{
   getUsuariosTabla(){
     this.columns=columnsEntidades(Entidad.Usuario)
     this.services.getUsuarios().subscribe((data)=>{
-      console.log(data)
       this.usuarios=data
     })
   }

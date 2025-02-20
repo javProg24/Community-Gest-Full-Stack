@@ -27,6 +27,7 @@ namespace API_Community.Controllers
         {
             return await _context.Usuarios
                 .Where(u=>u.Estado==true)
+                .OrderBy(u=>u.ID)
                 .ToListAsync();
         }
 

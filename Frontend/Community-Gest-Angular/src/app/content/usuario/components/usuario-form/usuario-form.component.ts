@@ -1,5 +1,5 @@
 import { Component, inject, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Form, FormBuilder, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { GenericFormComponent } from "../../../../shared/generic-form/generic-form.component";
@@ -35,22 +35,21 @@ export class UsuarioFormComponent implements OnInit{
       }),
       estado:this.formBuilder.control(true,{validators:[Validators.required]}),
     })
-    if(this.formData) {
-      this.isEdit = true;
-      this.currentID = this.formData.id;
-      this.form.setValue({
-        cedula: this.formData.cedula || null, // Si no existe cedula, asignamos null
-        datosUsuario: {
-          nombre: this.formData.nombre,
-          apellido: this.formData.apellido,
-          correo: this.formData.correo,
-          telefono: this.formData.telefono || null // Si no existe telefono, asignamos null
-        },
-        estado: this.formData.estado
-      });
-    }else {
-      this.isEdit = false;
-    }
+    this.formData?this.editarUsuario(this.formData):this.isEdit = false;
+  }
+  private editarUsuario(datos:Usuario) {
+    this.isEdit = true;
+    this.currentID=datos.id
+    this.form.setValue({
+      cedula: datos.cedula, 
+      datosUsuario: {
+        nombre: datos.nombre,
+        apellido: datos.apellido,
+        correo: datos.correo,
+        telefono: datos.telefono
+      },
+      estado: datos.estado
+    })
   }
   private constructorUsuario():Usuario{
     const { datosUsuario, ...formValues } = this.form.value;
@@ -59,9 +58,9 @@ export class UsuarioFormComponent implements OnInit{
       id:this.isEdit?this.currentID:0,
       cedula: this.form.value.cedula,
       nombre: this.form.value.datosUsuario.nombre,  // Accediendo explícitamente a los valores dentro de datosUsuario
-      apellido: this.form.value.datosUsuario.apellido,  // Accediendo explícitamente a los valores dentro de datosUsuario
-      correo: this.form.value.datosUsuario.correo,  // Accediendo explícitamente a los valores dentro de datosUsuario
-      telefono: this.form.value.datosUsuario.telefono,  // Accediendo explícitamente a los valores dentro de datosUsuario
+      apellido: this.form.value.datosUsuario.apellido,  
+      correo: this.form.value.datosUsuario.correo, 
+      telefono: this.form.value.datosUsuario.telefono,  
       estado: this.form.value.estado
     }
     return usuario
@@ -74,6 +73,7 @@ export class UsuarioFormComponent implements OnInit{
     this.service.updateUsuario(this.currentID,usuario).subscribe({
       next:()=>{
         this.notificacion.info("El usuario fue actualizado",'Informacion')
+        this.dialogRef.close("Cerrado");
       },
       error:(err)=>{
         this.notificacion.error("El usuario no se actualizo",err)
@@ -84,7 +84,7 @@ export class UsuarioFormComponent implements OnInit{
     this.service.addUsuario(usuario).subscribe({
       next:()=>{
         this.notificacion.success("El usuario fue agregado",'Exito!')
-        this.dialogRef.close(true);
+        this.dialogRef.close("Cerrado");
       },
       error:(err)=>{
         this.notificacion.error("El usuario no se agrego",err)
