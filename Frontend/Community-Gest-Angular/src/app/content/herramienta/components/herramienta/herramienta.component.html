@@ -1,1 +1,15 @@
-<p>herramienta works!</p>
+<div class="buttons">
+    <h1><strong>Modulo de {{title}}</strong></h1>
+    <button mat-flat-button color="acceent" (click)="agregarHerramienta()">
+        <mat-icon>add</mat-icon>
+        Nuevo
+    </button>
+</div>
+<div class="table-section">
+    <app-table
+    [Titulo]="title+'s'"
+    [Columnas]="columns"
+    [Datos]="herramientas"
+    (accion)="onAction($event)">
+    </app-table>
+</div>

@@ -1,10 +1,10 @@
-import { Herramienta_Response, HerramientaTabla } from "./Herramienta";
-import { Entidad } from "./I_Metodos";
-import { Instalacion_Response, InstalacionTabla } from "./Instalacion";
-import { Reporte_Response, ReporteTabla } from "./Reporte";
-import { Reserva_Herramienta_Response, Reserva_Herramienta_Tabla } from "./Reserva-Herramienta";
-import { Reserva_Instalacion_Response, Reserva_Instalacion_Tabla } from "./Reserva-Instalacion";
-import { Usuario_Response, UsuarioTabla } from "./Usuario";
+import { Entidad } from "./Enums";
+import { Herramienta_Response } from "./Herramienta";
+import { Instalacion_Response } from "./Instalacion";
+import { Reporte_Response } from "./Reporte";
+import { Reserva_Herramienta_Response } from "./Reserva-Herramienta";
+import { Reserva_Instalacion_Response } from "./Reserva-Instalacion";
+import { Usuario_Response } from "./Usuario";
 
 export interface Accion<T=any>{
     accion:string;

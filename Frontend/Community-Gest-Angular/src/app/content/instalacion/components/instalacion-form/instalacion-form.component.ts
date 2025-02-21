@@ -1,7 +1,6 @@
-import { Component, Inject, inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { ToastrService } from 'ngx-toastr';
 import { days, Instalacion } from '../../../../core/models/Instalacion';
 import { InstalacionService } from '../../service/instalacion.service';
 import { MatCardModule } from '@angular/material/card';
@@ -12,8 +11,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import {MatTimepickerModule} from '@angular/material/timepicker';
-import { NgFor, NgIf } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { NotificationService } from '../../../../core/services/notification/notification.service';
+import { Entidad, toStringEnum } from '../../../../core/models/Enums';
 @Component({
   selector: 'app-instalacion-form',
   imports: [MatCardModule,MatLabel,ReactiveFormsModule,MatButtonModule,MatFormFieldModule,MatInputModule,MatTimepickerModule,MatCheckboxModule,MatOptionModule,MatSelectModule,MatNativeDateModule,NgFor],
@@ -21,6 +21,7 @@ import { NotificationService } from '../../../../core/services/notification/noti
   styleUrl: './instalacion-form.component.css'
 })
 export class InstalacionFormComponent implements OnInit {
+  protected titulo = toStringEnum(Entidad.Instalacion);
   protected isEdit = false;
   dias=days
   currentID?: number;
@@ -61,15 +62,16 @@ export class InstalacionFormComponent implements OnInit {
     return instalacion
   }
   onSubmit() {
+    this.titulo.toLowerCase()
     this.isEdit?this.actualizarInstalacion(this.Instalacion()):this.agregarInstalacion(this.Instalacion())
   }
   private agregarInstalacion(instalacion: Instalacion) {
     this.service.addInstalacion(instalacion).subscribe({
       next:()=>{
-        this.notificacion.showAgregado("El usuario fue agregado",this.dialogRef)
+        this.notificacion.showAgregado(`La ${this.titulo} fue agregada`,this.dialogRef)
       },
       error:(err)=>{
-        this.notificacion.showError("El usuario no se agrego",err)
+        this.notificacion.showError(`La ${this.titulo} no fue agregada`,err)
       }
     })
   }
@@ -77,10 +79,10 @@ export class InstalacionFormComponent implements OnInit {
     if(!this.currentID)return
     this.service.updateInstalacion(this.currentID,instalacion).subscribe({
       next:()=>{
-        this.notificacion.showActualizado("El usuario fue actualizado",this.dialogRef)
+        this.notificacion.showActualizado(`La ${this.titulo} fue actualizada`,this.dialogRef)
       },
       error:(err)=>{
-        this.notificacion.showError("El usuario no se actualizo",err)
+        this.notificacion.showError(`La ${this.titulo} no fue actualizada`,err)
       }
     })
   }

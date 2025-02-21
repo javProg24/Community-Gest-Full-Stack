@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { InstalacionService } from '../../service/instalacion.service';
 import { Instalacion } from '../../../../core/models/Instalacion';
 import { Accion, columnsEntidades } from '../../../../core/models/Tabla_Columna';
-import { Entidad } from '../../../../core/models/I_Metodos';
 import { DialogFormComponent } from '../../../../shared/dialog-form/dialog-form.component';
 import { InstalacionFormComponent } from '../instalacion-form/instalacion-form.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -13,15 +12,16 @@ import { CapitalizePipe } from "../../../../core/pipe/capitalize/capitalize.pipe
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { TableComponent } from "../../../../shared/table/table.component";
+import { Entidad, toStringEnum } from '../../../../core/models/Enums';
 
 @Component({
   selector: 'app-instalacion',
-  imports: [CapitalizePipe, MatIconModule, MatButtonModule, TableComponent],
+  imports: [MatIconModule, MatButtonModule, TableComponent],
   templateUrl: './instalacion.component.html',
   styleUrl: './instalacion.component.css'
 })
 export class InstalacionComponent implements OnInit {
-  title = 'instalacion';
+  title = toStringEnum(Entidad.Instalacion);
   columns: string[] = columnsEntidades(Entidad.Instalacion);
   instalaciones: Instalacion[] = [];
   constructor(private service: InstalacionService,private dialog:MatDialog,private notificacion:NotificationService) {}
@@ -48,18 +48,22 @@ export class InstalacionComponent implements OnInit {
     })
   }
   private desactivarInstalacion(id: number){
+    this.title.toLowerCase()
     const dialogRef=this.dialog.open(DialogComponent,{
       data:{
-        titulo:"Estas seguro de eliminar la instalacion?"
+        titulo:`Estas seguro de deshabilitar la ${this.title}?`
       }
     })
     dialogRef.afterClosed().subscribe({
       next:()=>{
         this.service.desactiveInstalacion(id).subscribe(()=>{
-          this.notificacion.showEliminar("La instalacion fue eliminada")
+          this.notificacion.showEliminar(`La ${this.title}? fue deshabilitada`)
           this.getInstalacionesTabla();
         })
       },
+      error:(err)=>{
+        this.notificacion.showError(`La ${this.title}? no fue deshabilitada`,err)
+      }
     })
   }
   protected agregarInstalacion(){

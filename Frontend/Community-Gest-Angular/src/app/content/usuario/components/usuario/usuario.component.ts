@@ -4,26 +4,25 @@ import { MatIconModule } from '@angular/material/icon';
 import { TableComponent } from "../../../../shared/table/table.component";
 import { UsuarioService } from '../../service/usuario.service';
 import { Accion, columnsEntidades } from '../../../../core/models/Tabla_Columna';
-import { Entidad } from '../../../../core/models/I_Metodos';
 import { Usuario } from '../../../../core/models/Usuario';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../../../shared/dialog/dialog.component';
 import { UsuarioFormComponent } from '../usuario-form/usuario-form.component';
 import { DialogFormComponent } from '../../../../shared/dialog-form/dialog-form.component';
-import { ToastrService } from 'ngx-toastr';
-import { CapitalizePipe } from "../../../../core/pipe/capitalize/capitalize.pipe";
+import { NotificationService } from '../../../../core/services/notification/notification.service';
+import { Entidad, toStringEnum } from '../../../../core/models/Enums';
 
 @Component({
   selector: 'app-usuario',
-  imports: [MatButtonModule, MatIconModule, TableComponent, CapitalizePipe],
+  imports: [MatButtonModule, MatIconModule, TableComponent],
   templateUrl: './usuario.component.html',
   styleUrl: './usuario.component.css'
 })
 export class UsuarioComponent implements OnInit{
-  title='usuario'
+  title=toStringEnum(Entidad.Usuario)
   columns:string[]=columnsEntidades(Entidad.Usuario)
   usuarios:Usuario[]=[]
-  constructor(private services:UsuarioService,private dialog:MatDialog,private notificacion:ToastrService){}
+  constructor(private services:UsuarioService,private dialog:MatDialog,private notificacion:NotificationService){}
   ngOnInit(): void {
     this.getUsuariosTabla()
   }
@@ -51,18 +50,18 @@ export class UsuarioComponent implements OnInit{
   private eliminarUsuario(id:number){
     const dialogRef=this.dialog.open(DialogComponent,{
       data:{
-        titulo:"Estas seguro de eliminar el usuario?"
+        titulo:`Estas seguro de deshabilitar la ${this.title}?`
       }
     })
     dialogRef.afterClosed().subscribe({
       next:()=>{
         this.services.desactiveUsuario(id).subscribe(()=>{
-          this.notificacion.info("El usuario fue eliminado",'Informacion')
+          this.notificacion.showEliminar(`La ${this.title}? fue eliminada`)
           this.getUsuariosTabla();
         })
       },
       error:(err)=>{
-        this.notificacion.error("El usuaio no se pudo eliminar",err)
+        this.notificacion.showError(`La ${this.title}? no fue eliminada`,err)
       }
     })
   }

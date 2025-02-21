@@ -1,6 +1,6 @@
 <mat-card class="register-card">
     <mat-card-title class="title">
-        <strong>{{isEdit?'Editar Usuario':'Nuevo Usuario'}}</strong>
+        <strong>{{isEdit?'Editar':'Nuevo'}} {{titulo}}</strong>
     </mat-card-title>
     <mat-card-content class="content">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">

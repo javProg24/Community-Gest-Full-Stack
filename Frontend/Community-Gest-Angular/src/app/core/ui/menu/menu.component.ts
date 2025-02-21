@@ -21,7 +21,6 @@ export class MenuComponent {
   }
   screenWith=window.innerWidth
   nav=menu
-  
   collapsed=true
   closeSideNav() {
     this.collapsed=true

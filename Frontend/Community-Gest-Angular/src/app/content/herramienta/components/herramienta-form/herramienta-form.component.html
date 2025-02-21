@@ -1,1 +1,31 @@
-<p>herramienta-form works!</p>
+<mat-card class="register-card">
+    <mat-card-title class="title">
+        <strong>{{isEdit?'Editar':'Nueva'}} {{titulo}}</strong>
+    </mat-card-title>
+    <mat-card-content class="content">
+        <form [formGroup]="form" (ngSubmit)="onsubmit()">
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Nombre</mat-label>
+                <input matInput type="text" formControlName="nombre">
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Ubicacion</mat-label>
+                <input matInput type="text" formControlName="ubicacion">
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Descripcion</mat-label>
+                <input matInput type="text" formControlName="descripcion">
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Cantidad</mat-label>
+                <input matInput type="number" formControlName="cantidad">
+            </mat-form-field>
+            <section appearance="fill" class="checkbox-right">
+                <mat-label>Estado</mat-label>
+                <mat-checkbox formControlName="estado">
+                    Habilitado
+                </mat-checkbox>
+            </section>
+        </form>
+    </mat-card-content>
+</mat-card>

@@ -1,4 +1,4 @@
-import { Entidad, toStringEnum } from "./I_Metodos";
+import { toStringEnum, Entidad } from "./Enums";
 
 export interface SideNavToogle{
     screenWidth:number;
@@ -11,12 +11,12 @@ export const menu =[
         RouterLink:'Inicio',
     },
     {
-        Title:'Usuarios',
+        Title:toStringEnum(Entidad.Usuario)+'s',
         icon:'person',
         RouterLink:toStringEnum(Entidad.Usuario),
     },
     {
-        Title:'Instalaciones',
+        Title:toStringEnum(Entidad.Instalacion)+'es',
         icon:'location_on',
         RouterLink:toStringEnum(Entidad.Instalacion),
     },
@@ -26,22 +26,22 @@ export const menu =[
     //     Title:'Horario'
     // },
     {
-        Title:'Herramientas',
+        Title:toStringEnum(Entidad.Herramienta)+'s',
         icon:'construction',
         RouterLink:toStringEnum(Entidad.Herramienta),
     },
     {
-        Title:'Reservas',
+        Title:toStringEnum(Entidad.Reserva)+'s',
         icon:'event',
         RouterLink:toStringEnum(Entidad.Reserva),
     },
     {
-        Title:'Reportes',
+        Title:toStringEnum(Entidad.Reporte)+'s',
         icon:'description',
         RouterLink:toStringEnum(Entidad.Reporte),   
     },
     {
-        Title:'Historial',
+        Title:toStringEnum(Entidad.Historial),
         icon:'history',
         RouterLink:toStringEnum(Entidad.Historial),
     },

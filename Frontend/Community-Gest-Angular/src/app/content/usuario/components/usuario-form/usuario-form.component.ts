@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { UsuarioService } from '../../service/usuario.service';
 import { NotificationService } from '../../../../core/services/notification/notification.service';
+import { Entidad, toStringEnum } from '../../../../core/models/Enums';
 
 @Component({
   selector: 'app-usuario-form',
@@ -22,6 +23,7 @@ export class UsuarioFormComponent implements OnInit{
   protected isEdit=false
   private currentID?:number
   form!:FormGroup
+  protected titulo=toStringEnum(Entidad.Usuario)
   private formBuilder = inject(NonNullableFormBuilder);
   constructor(private fb:FormBuilder,private dialogRef: MatDialogRef<UsuarioFormComponent>,@Inject('formData')public formData:Usuario|null,private service:UsuarioService,private notificacion:NotificationService)
   {}
@@ -67,26 +69,27 @@ export class UsuarioFormComponent implements OnInit{
     return usuario
   }
   onSubmit() {
+    this.titulo.toLowerCase()
     this.isEdit?this.actualizarUsuario(this.constructorUsuario()):this.agregarUsuario(this.constructorUsuario())
   }
   private actualizarUsuario(usuario:Usuario){
     if(!this.currentID)return
     this.service.updateUsuario(this.currentID,usuario).subscribe({
       next:()=>{
-        this.notificacion.showActualizado("El usuario fue actualizado",this.dialogRef)
+        this.notificacion.showActualizado(`El ${this.titulo} fue actualizado`,this.dialogRef)
       },
       error:(err)=>{
-        this.notificacion.showError("El usuario no se actualizo",err)
+        this.notificacion.showError(`El ${this.titulo} no fue actualizado`,err)
       }
     })
   }
   private agregarUsuario(usuario:Usuario){
     this.service.addUsuario(usuario).subscribe({
       next:()=>{
-        this.notificacion.showAgregado("El usuario fue agregado",this.dialogRef)
+        this.notificacion.showAgregado(`El ${this.titulo} fue agregado`,this.dialogRef)
       },
       error:(err)=>{
-        this.notificacion.showError("El usuario no se agrego",err)
+        this.notificacion.showError(`El ${this.titulo} no fue agregado`,err)
       }
     })
   }
