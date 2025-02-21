@@ -8,11 +8,15 @@ import { InstalacionFormComponent } from '../instalacion-form/instalacion-form.c
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { DialogComponent } from '../../../../shared/dialog/dialog.component';
-import { NotificationService } from '../../../../shared/notification/notification.service';
+import { NotificationService } from '../../../../core/services/notification/notification.service';
+import { CapitalizePipe } from "../../../../core/pipe/capitalize/capitalize.pipe";
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { TableComponent } from "../../../../shared/table/table.component";
 
 @Component({
   selector: 'app-instalacion',
-  imports: [],
+  imports: [CapitalizePipe, MatIconModule, MatButtonModule, TableComponent],
   templateUrl: './instalacion.component.html',
   styleUrl: './instalacion.component.css'
 })

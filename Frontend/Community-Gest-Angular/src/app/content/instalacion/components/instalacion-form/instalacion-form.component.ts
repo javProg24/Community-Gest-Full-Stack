@@ -1,21 +1,31 @@
 import { Component, Inject, inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
-import { Instalacion } from '../../../../core/models/Instalacion';
+import { days, Instalacion } from '../../../../core/models/Instalacion';
 import { InstalacionService } from '../../service/instalacion.service';
-
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import {MatTimepickerModule} from '@angular/material/timepicker';
+import { NgFor, NgIf } from '@angular/common';
+import { NotificationService } from '../../../../core/services/notification/notification.service';
 @Component({
   selector: 'app-instalacion-form',
-  imports: [],
+  imports: [MatCardModule,MatLabel,ReactiveFormsModule,MatButtonModule,MatFormFieldModule,MatInputModule,MatTimepickerModule,MatCheckboxModule,MatOptionModule,MatSelectModule,MatNativeDateModule,NgFor],
   templateUrl: './instalacion-form.component.html',
   styleUrl: './instalacion-form.component.css'
 })
 export class InstalacionFormComponent implements OnInit {
   protected isEdit = false;
+  dias=days
   currentID?: number;
   form!: FormGroup;
-  constructor(private fb: FormBuilder, private dialogRef: MatDialogRef<InstalacionFormComponent>, @Inject('formData') public formData: Instalacion | null, private notificacion: ToastrService, private service: InstalacionService) {}
+  constructor(private fb: FormBuilder, private dialogRef: MatDialogRef<InstalacionFormComponent>, @Inject('formData') public formData: Instalacion | null, private notificacion: NotificationService, private service: InstalacionService) {}
   ngOnInit() {
     this.form=this.fb.group({
       nombre:["",[Validators.required]],
@@ -25,7 +35,7 @@ export class InstalacionFormComponent implements OnInit {
       dia:["",[Validators.required]],
       hora_Inicio:["",[Validators.required]],
       hora_Fin:["",[Validators.required]],
-      estado:["",[Validators.required]],
+      estado:[true,[Validators.required]],
     })
     this.formData ? this.editarInstalacion(this.formData) : this.isEdit = false;
   }
@@ -56,11 +66,10 @@ export class InstalacionFormComponent implements OnInit {
   private agregarInstalacion(instalacion: Instalacion) {
     this.service.addInstalacion(instalacion).subscribe({
       next:()=>{
-        this.notificacion.success('Instalacion creada', 'Exito')
-        this.dialogRef.close("Cerrado")
+        this.notificacion.showAgregado("El usuario fue agregado",this.dialogRef)
       },
       error:(err)=>{
-        this.notificacion.error('No se pudo crear la instalacion', err)
+        this.notificacion.showError("El usuario no se agrego",err)
       }
     })
   }
@@ -68,12 +77,14 @@ export class InstalacionFormComponent implements OnInit {
     if(!this.currentID)return
     this.service.updateInstalacion(this.currentID,instalacion).subscribe({
       next:()=>{
-        this.notificacion.success('Instalacion actualizada', 'Exito')
-        this.dialogRef.close("Cerrado")
+        this.notificacion.showActualizado("El usuario fue actualizado",this.dialogRef)
       },
       error:(err)=>{
-        this.notificacion.error('No se pudo actualizar la instalacion', err)
+        this.notificacion.showError("El usuario no se actualizo",err)
       }
     })
+  }
+  onCancel() {
+    this.notificacion.showWarning("Operacion cancelada",this.dialogRef)
   }
 }

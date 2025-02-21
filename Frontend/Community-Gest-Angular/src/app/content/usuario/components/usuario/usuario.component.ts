@@ -11,15 +11,16 @@ import { DialogComponent } from '../../../../shared/dialog/dialog.component';
 import { UsuarioFormComponent } from '../usuario-form/usuario-form.component';
 import { DialogFormComponent } from '../../../../shared/dialog-form/dialog-form.component';
 import { ToastrService } from 'ngx-toastr';
+import { CapitalizePipe } from "../../../../core/pipe/capitalize/capitalize.pipe";
 
 @Component({
   selector: 'app-usuario',
-  imports: [MatButtonModule, MatIconModule, TableComponent],
+  imports: [MatButtonModule, MatIconModule, TableComponent, CapitalizePipe],
   templateUrl: './usuario.component.html',
   styleUrl: './usuario.component.css'
 })
 export class UsuarioComponent implements OnInit{
-  title='Usuarios'
+  title='usuario'
   columns:string[]=columnsEntidades(Entidad.Usuario)
   usuarios:Usuario[]=[]
   constructor(private services:UsuarioService,private dialog:MatDialog,private notificacion:ToastrService){}

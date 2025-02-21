@@ -10,7 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ToastrService } from 'ngx-toastr';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { UsuarioService } from '../../service/usuario.service';
-import { NotificationService } from '../../../../shared/notification/notification.service';
+import { NotificationService } from '../../../../core/services/notification/notification.service';
 
 @Component({
   selector: 'app-usuario-form',

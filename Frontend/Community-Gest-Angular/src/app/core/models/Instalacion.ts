@@ -31,3 +31,13 @@ export const Instalacion_Response={
     hora_Fin:'hora_Fin',
     estado:'estado'
 }as const;
+export const days=[
+    {value:'Lunes',label:'Lunes'},
+    {value:'Martes',label:'Martes'},
+    {value:'Miercoles',label:'Miercoles'},
+    {value:'Jueves',label:'Jueves'},
+    {value:'Viernes',label:'Viernes'},
+    {value:'Sabado',label:'Sabado'},
+    {value:'Domingo',label:'Domingo'}
+]
+    

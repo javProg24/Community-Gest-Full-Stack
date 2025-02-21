@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Entidad, toStringEnum } from '../../../core/models/I_Metodos';
 import { Instalacion } from '../../../core/models/Instalacion';
-import { GeneralService } from '../../../core/services/servicio-general.service';
+import { GeneralService } from '../../../core/services/general-service/servicio-general.service';
 
 @Injectable({
   providedIn: 'root'

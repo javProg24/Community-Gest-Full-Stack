@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Entidad, toStringEnum } from '../../../core/models/I_Metodos';
-import { GeneralService } from '../../../core/services/servicio-general.service';
 import { Reserva_Instalacion } from '../../../core/models/Reserva-Instalacion';
 import { Observable } from 'rxjs';
+import { GeneralService } from '../../../core/services/general-service/servicio-general.service';
 
 @Injectable({
   providedIn: 'root'

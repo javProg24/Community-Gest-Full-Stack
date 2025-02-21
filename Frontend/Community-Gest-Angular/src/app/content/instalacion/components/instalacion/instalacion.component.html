@@ -1,1 +1,15 @@
-<p>instalacion works!</p>
+<div class="buttons">
+    <h1><strong>Modulo de {{title|capitalize}}</strong></h1>
+    <button mat-flat-button color="acceent" (click)="agregarInstalacion()">
+        <mat-icon>add</mat-icon>
+        Nuevo
+    </button>
+</div>
+<div class="table-section">
+    <app-table
+    [Titulo]="title+'s'"
+    [Columnas]="columns"
+    [Datos]="instalaciones"
+    (accion)="onAction($event)">
+    </app-table>
+</div>

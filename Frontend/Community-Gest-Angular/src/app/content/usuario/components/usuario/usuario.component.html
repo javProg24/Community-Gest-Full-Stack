@@ -1,14 +1,13 @@
 <div class="buttons">
-    <h1><strong>Modulo de Usuarios</strong></h1>
+    <h1><strong>Modulo de {{title|capitalize}}</strong></h1>
     <button mat-flat-button color="acceent" (click)="agregarUsuario()">
         <mat-icon>add</mat-icon>
         Nuevo
     </button>
 </div>
-
 <div class="table-section">
     <app-table
-    [Titulo]="title"
+    [Titulo]="title+'s'"
     [Columnas]="columns"
     [Datos]="usuarios"
     (accion)="onAction($event)">
