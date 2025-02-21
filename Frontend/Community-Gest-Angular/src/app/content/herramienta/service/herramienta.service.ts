@@ -10,6 +10,8 @@ import { GeneralService } from '../../../core/services/general-service/servicio-
 export class HerramientaService {
   private api=toStringEnum(Entidad.Herramienta)
   constructor(private service:GeneralService) { }
+  //aumentar la cantidad de herramientas
+  //disminuir la cantidad de herramientas
   addHerramienta(entidad:Herramienta):Observable<Herramienta>{
     return this.service.addService<Herramienta>(this.api,entidad)
   }
@@ -24,6 +26,9 @@ export class HerramientaService {
   }
   getIdHerramienta(id:number):Observable<Herramienta[]>{
     return this.service.getIdService<Herramienta>(this.api,id)
+  }
+  desactiveHerramienta(id:number):Observable<Herramienta>{
+    return this.service.desactiveService<Herramienta>(this.api,id)
   }
 }
 

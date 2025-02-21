@@ -21,11 +21,10 @@ import { TableComponent } from "../../../../shared/table/table.component";
   styleUrl: './instalacion.component.css'
 })
 export class InstalacionComponent implements OnInit {
-  title = 'Instalaciones';
+  title = 'instalacion';
   columns: string[] = columnsEntidades(Entidad.Instalacion);
   instalaciones: Instalacion[] = [];
   constructor(private service: InstalacionService,private dialog:MatDialog,private notificacion:NotificationService) {}
-
   ngOnInit() {}
   getInstalacionesTabla(){
     this.service.getsInstalacion().subscribe((data)=>{
