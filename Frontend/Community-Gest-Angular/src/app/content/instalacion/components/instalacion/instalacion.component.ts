@@ -56,7 +56,7 @@ export class InstalacionComponent implements OnInit {
     })
     dialogRef.afterClosed().subscribe({
       next:()=>{
-        this.service.deleteInstalacion(id).subscribe(()=>{
+        this.service.desactiveInstalacion(id).subscribe(()=>{
           this.notificacion.showEliminar("La instalacion fue eliminada")
           this.getInstalacionesTabla();
         })

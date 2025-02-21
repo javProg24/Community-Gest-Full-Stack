@@ -10,6 +10,12 @@ import { GeneralService } from '../../../core/services/general-service/servicio-
 export class InstalacionService {
   private api=toStringEnum(Entidad.Instalacion);
   constructor(private service:GeneralService) { }
+  desactiveInstalacion(id:number):Observable<Instalacion>{
+    return this.service.desactiveService<Instalacion>(this.api,id)
+  }
+  activeInstalacion(id:number):Observable<Instalacion>{
+    return this.service.activeService<Instalacion>(this.api,id)
+  }
   addInstalacion(entidad:Instalacion):Observable<Instalacion>{
     return this.service.addService<Instalacion>(this.api,entidad)
   }
