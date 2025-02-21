@@ -1,5 +1,5 @@
 import { Component, inject, Inject, OnInit } from '@angular/core';
-import { Form, FormBuilder, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { GenericFormComponent } from "../../../../shared/generic-form/generic-form.component";
@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ToastrService } from 'ngx-toastr';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { UsuarioService } from '../../service/usuario.service';
+import { NotificationService } from '../../../../shared/notification/notification.service';
 
 @Component({
   selector: 'app-usuario-form',
@@ -18,11 +19,11 @@ import { UsuarioService } from '../../service/usuario.service';
   styleUrl: './usuario-form.component.css'
 })
 export class UsuarioFormComponent implements OnInit{
-  isEdit=false
+  protected isEdit=false
   private currentID?:number
   form!:FormGroup
   private formBuilder = inject(NonNullableFormBuilder);
-  constructor(private fb:FormBuilder,private dialogRef: MatDialogRef<UsuarioFormComponent>,@Inject('formData')public formData:Usuario|null,private notificacion:ToastrService,private service:UsuarioService)
+  constructor(private fb:FormBuilder,private dialogRef: MatDialogRef<UsuarioFormComponent>,@Inject('formData')public formData:Usuario|null,private service:UsuarioService,private notificacion:NotificationService)
   {}
   ngOnInit(): void {
     this.form=this.fb.group<UsuarioForm>({
@@ -68,31 +69,28 @@ export class UsuarioFormComponent implements OnInit{
   onSubmit() {
     this.isEdit?this.actualizarUsuario(this.constructorUsuario()):this.agregarUsuario(this.constructorUsuario())
   }
-  actualizarUsuario(usuario:Usuario){
+  private actualizarUsuario(usuario:Usuario){
     if(!this.currentID)return
     this.service.updateUsuario(this.currentID,usuario).subscribe({
       next:()=>{
-        this.notificacion.info("El usuario fue actualizado",'Informacion')
-        this.dialogRef.close("Cerrado");
+        this.notificacion.showActualizado("El usuario fue actualizado",this.dialogRef)
       },
       error:(err)=>{
-        this.notificacion.error("El usuario no se actualizo",err)
+        this.notificacion.showError("El usuario no se actualizo",err)
       }
     })
   }
-  agregarUsuario(usuario:Usuario){
+  private agregarUsuario(usuario:Usuario){
     this.service.addUsuario(usuario).subscribe({
       next:()=>{
-        this.notificacion.success("El usuario fue agregado",'Exito!')
-        this.dialogRef.close("Cerrado");
+        this.notificacion.showAgregado("El usuario fue agregado",this.dialogRef)
       },
       error:(err)=>{
-        this.notificacion.error("El usuario no se agrego",err)
+        this.notificacion.showError("El usuario no se agrego",err)
       }
     })
   }
   onCancel() {
-    this.notificacion.warning("Operacion cancelada","Advertencia")
-    this.dialogRef.close("Cancelado")
+    this.notificacion.showWarning("Operacion cancelada",this.dialogRef)
   }
 }

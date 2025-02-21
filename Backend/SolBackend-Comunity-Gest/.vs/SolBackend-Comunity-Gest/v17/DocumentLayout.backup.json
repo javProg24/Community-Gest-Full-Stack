@@ -62,8 +62,7 @@
               "RelativeToolTip": "API-Community\\Controllers\\HerramientaController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T04:29:59.734Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-20T04:29:59.734Z"
             },
             {
               "$type": "Document",
@@ -75,8 +74,7 @@
               "RelativeToolTip": "API-Community\\Controllers\\Reserva_HerramientaController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T04:17:58.107Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-20T04:17:58.107Z"
             },
             {
               "$type": "Document",
@@ -96,9 +94,9 @@
               "Title": "UsuarioController.cs",
               "DocumentMoniker": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\API-Community\\Controllers\\UsuarioController.cs",
               "RelativeDocumentMoniker": "API-Community\\Controllers\\UsuarioController.cs",
-              "ToolTip": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\API-Community\\Controllers\\UsuarioController.cs*",
-              "RelativeToolTip": "API-Community\\Controllers\\UsuarioController.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAqAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\API-Community\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "API-Community\\Controllers\\UsuarioController.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAA/wB4AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-18T20:24:08.047Z",
               "EditorCaption": ""

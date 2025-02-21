@@ -10,7 +10,7 @@ export interface Instalacion{
     estado:boolean
 }  
 export class InstalacionTabla{
-    id?=0;
+    id=0;
     nombre='';
     tipo='';
     capacidad='';

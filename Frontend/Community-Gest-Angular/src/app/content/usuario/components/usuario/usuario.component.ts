@@ -20,23 +20,22 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class UsuarioComponent implements OnInit{
   title='Usuarios'
-  columns:string[]=[]
+  columns:string[]=columnsEntidades(Entidad.Usuario)
   usuarios:Usuario[]=[]
   constructor(private services:UsuarioService,private dialog:MatDialog,private notificacion:ToastrService){}
   ngOnInit(): void {
     this.getUsuariosTabla()
   }
-  getUsuariosTabla(){
-    this.columns=columnsEntidades(Entidad.Usuario)
+  private getUsuariosTabla(){
     this.services.getUsuarios().subscribe((data)=>{
       this.usuarios=data
     })
   }
   onAction(accion:Accion){
-    accion.accion=='Editar'?this.updateUsuario(accion.fila):
-    accion.accion=='Eliminar'?this.desactivarUsuario(accion.fila.id):console.warn('Accion no reconocida',accion.accion)
+    accion.accion=='Editar'?this.actualizarUsuario(accion.fila):
+    accion.accion=='Eliminar'?this.eliminarUsuario(accion.fila.id):console.warn('Accion no reconocida',accion.accion)
   }
-  updateUsuario(usuario:Usuario){
+  private actualizarUsuario(usuario:Usuario){
     const dialogRef=this.dialog.open(DialogFormComponent,{
       data:{
         component:UsuarioFormComponent,
@@ -48,7 +47,7 @@ export class UsuarioComponent implements OnInit{
       this.getUsuariosTabla()
     })
   }
-  desactivarUsuario(id:number){
+  private eliminarUsuario(id:number){
     const dialogRef=this.dialog.open(DialogComponent,{
       data:{
         titulo:"Estas seguro de eliminar el usuario?"
@@ -66,7 +65,7 @@ export class UsuarioComponent implements OnInit{
       }
     })
   }
-  agregarUsuario() {
+  protected agregarUsuario() {
     const dialogRef=this.dialog.open(DialogFormComponent,{
       data:{
         component:UsuarioFormComponent,
