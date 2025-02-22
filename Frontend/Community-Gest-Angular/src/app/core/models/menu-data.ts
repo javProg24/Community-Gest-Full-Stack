@@ -20,11 +20,6 @@ export const menu =[
         icon:'location_on',
         RouterLink:toStringEnum(Entidad.Instalacion),
     },
-    // {
-    //     RouterLink:'Time',
-    //     icon:'calendar_month',
-    //     Title:'Horario'
-    // },
     {
         Title:toStringEnum(Entidad.Herramienta)+'s',
         icon:'construction',

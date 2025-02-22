@@ -1,0 +1,77 @@
+.main-content {
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    margin-top: 125px; /* Asegura que el contenedor ocupe toda la altura de la ventana */
+    padding: 20px;
+    box-sizing: border-box; /* Para que el padding no afecte el tamaño total */
+}
+
+
+
+  .bienvenida{
+  flex: 1;
+  padding: 20px;
+  max-width: 600px;
+  margin: auto 0;
+  align-items: center;
+  text-align: center;
+}
+.bienvenida h2{
+  font-size: 50px;
+  margin-bottom: 10px;
+  color: #333;
+}
+.bienvenida img{
+  width: 100px;
+  margin: 0 auto;
+}
+.bienvenida p{
+  font-size: 18px;
+  color: #666;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+  justify-content: center;
+}
+.card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  padding: 50px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  background-color: white;
+  transition: transform 0.3s,box-shadow 0.3s;
+}
+.card:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.card h3{
+  font-size: 18px;
+  margin: 15px 0;
+}
+.card img{
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+.card button{
+  margin-top: 10px;
+}
+@media (max-width:768px){
+  .main-content{
+    flex-direction: column;
+    align-items: center;
+  }
+  .bienvenida{
+    padding-right: 0;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-reserva-herramienta',
@@ -6,6 +6,11 @@ import { Component } from '@angular/core';
   templateUrl: './reserva-herramienta.component.html',
   styleUrl: './reserva-herramienta.component.css'
 })
-export class ReservaHerramientaComponent {
+export class ReservaHerramientaComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 
 }

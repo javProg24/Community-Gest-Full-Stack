@@ -1,1 +1,13 @@
-<p>reserva works!</p>
+<div class="main-content">
+    <section class="bienvenida">
+        <h2><strong>Reservaciones</strong></h2>
+    </section>
+    <section class="cards">
+        <mat-card *ngFor="let reserva of tipos" class="card">
+            <mat-icon width="500px">{{reserva.icon}}</mat-icon>
+            <h3>{{reserva.Title}}</h3>
+            <button mat-raised-button [routerLink]="reserva.routerLink"
+            routerLinkActive="active">Entrar</button>
+        </mat-card>
+    </section>
+</div>

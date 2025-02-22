@@ -17,7 +17,7 @@ export const routes: Routes = [
     {path:'Herramienta',component:HerramientaComponent},
     {path:'Reserva',component:ReservaComponent},
     {path:'Reporte',component:ReporteComponent},
-    {path:'Reserva-Instalacion',component:ReservaInstalacionComponent},
-    {path:'Reserva-Herramienta',component:ReservaHerramientaComponent},
+    {path:'Reserva_Instalacion',component:ReservaInstalacionComponent},
+    {path:'Reserva_Herramienta',component:ReservaHerramientaComponent},
     {path:'Historial',component:HistorialComponent}
 ];
