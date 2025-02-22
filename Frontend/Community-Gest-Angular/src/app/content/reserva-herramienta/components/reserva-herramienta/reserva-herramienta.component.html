@@ -1,1 +1,15 @@
-<p>reserva-herramienta works!</p>
+<div class="buttons">
+    <h1><strong>Modulo de {{title}}s de Herramientas</strong></h1>
+    <button mat-flat-button color="acceent" (click)="agregarReserva()">
+        <mat-icon>add</mat-icon>
+        Nuevo
+    </button>
+</div>
+<div class="table-section">
+    <app-table
+    [Titulo]="title+'s'"
+    [Columnas]="columns"
+    [Datos]="reservas"
+    (accion)="onAction($event)">
+    </app-table>
+</div>
