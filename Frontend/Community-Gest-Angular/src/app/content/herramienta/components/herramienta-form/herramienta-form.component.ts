@@ -5,15 +5,15 @@ import { Herramienta } from '../../../../core/models/Herramienta';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { HerramientaService } from '../../service/herramienta.service';
 import { NotificationService } from '../../../../core/services/notification/notification.service';
 import { Entidad, toStringEnum } from '../../../../core/models/Enums';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-herramienta-form',
-  imports: [MatCardModule,MatLabel,ReactiveFormsModule,MatFormFieldModule,MatInputModule,MatCheckboxModule],
+  imports: [MatCardModule,MatLabel,ReactiveFormsModule,MatFormFieldModule,MatInputModule,MatCheckboxModule,MatButtonModule],
   templateUrl: './herramienta-form.component.html',
   styleUrl: './herramienta-form.component.css'
 })
@@ -73,5 +73,8 @@ export class HerramientaFormComponent implements OnInit{
       id: this.isEdit ? this.currentID : 0,
     }
     return herramienta
+  }
+  onCancel() {
+    this.notificacion.showWarning("Operacion cancelada",this.dialogRef)
   }
 }

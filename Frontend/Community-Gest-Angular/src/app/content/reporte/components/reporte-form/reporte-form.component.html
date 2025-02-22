@@ -1,1 +1,33 @@
-<p>reporte-form works!</p>
+<mat-card class="register-card">
+    <mat-card-title class="title">
+        <strong>{{isEdit?'Editar':'Nueva'}} {{titulo}}</strong>
+    </mat-card-title>
+    <mat-card-content class="content">
+        <form [formGroup]="form" (ngSubmit)="onsubmit()">
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Titulo</mat-label>
+                <input matInput type="text" formControlName="titulo">
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Descripcion</mat-label>
+                <input matInput type="text" formControlName="descripcion">
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Recurso Afectado</mat-label>
+                <input matInput type="text" formControlName="recurso_afectado">
+            </mat-form-field>
+            <div class="formElement">
+                <mat-label>Estado</mat-label>
+                <mat-radio-group aria-label="Selecciona la opcion" formControlName="estado">
+                    <mat-radio-button *ngFor="let estado of estados" [value]="estado.value">{{estado.label}}</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div class="form-buttons">
+                <button mat-raised-button color="primary" type="submit">
+                    {{isEdit?'Actualizar':'Guardar'}}
+                </button>
+                <button mat-raised-button color="warn" type="reset" (click)="onCancel()">Cancelar</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

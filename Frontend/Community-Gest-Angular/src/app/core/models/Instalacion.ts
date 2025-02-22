@@ -9,18 +9,7 @@ export interface Instalacion{
     hora_Fin:string,
     estado:boolean
 }  
-export class InstalacionTabla{
-    id=0;
-    nombre='';
-    tipo='';
-    capacidad='';
-    descripcion='';
-    dia='';
-    hora_Inicio='';
-    hora_Fin='';
-    estado=false;
-}
-export const Instalacion_Response={
+export const InstalacionTabla={
     id:'id',
     nombre:'nombre',
     tipo:'tipo',

@@ -9,17 +9,7 @@ export interface Usuario{
     telefono:number;
     estado:boolean
 }
-export class UsuarioTabla{
-    id?=0;
-    cedula=0;
-    nombre='';
-    apellido='';
-    correo='';
-    telefono=0;
-    estado=false;
-}
-
-export const Usuario_Response={
+export const UsuarioTabla={
     id:'id',
     cedula:'cedula',
     nombre:'nombre',

@@ -1,10 +1,10 @@
 import { Entidad } from "./Enums";
-import { Herramienta_Response } from "./Herramienta";
-import { Instalacion_Response } from "./Instalacion";
-import { Reporte_Response } from "./Reporte";
+import { HerramientaTabla } from "./Herramienta";
+import { InstalacionTabla } from "./Instalacion";
+import { ReporteTabla } from "./Reporte";
 import { Reserva_Herramienta_Response } from "./Reserva-Herramienta";
 import { Reserva_Instalacion_Response } from "./Reserva-Instalacion";
-import { Usuario_Response } from "./Usuario";
+import { UsuarioTabla } from "./Usuario";
 
 export interface Accion<T=any>{
     accion:string;
@@ -27,10 +27,10 @@ export interface Accion<T=any>{
 //     return Object.keys(instancia)
 // }
 const listaCamposEntidades:{[key in Entidad]?:any}={
-    [Entidad.Usuario]:Usuario_Response,
-    [Entidad.Instalacion]:Instalacion_Response,
-    [Entidad.Herramienta]:Herramienta_Response,
-    [Entidad.Reporte]:Reporte_Response,
+    [Entidad.Usuario]:UsuarioTabla,
+    [Entidad.Instalacion]:InstalacionTabla,
+    [Entidad.Herramienta]:HerramientaTabla,
+    [Entidad.Reporte]:ReporteTabla,
     [Entidad.Reserva_Herramienta]:Reserva_Herramienta_Response,
     [Entidad.Reserva_Instalacion]:Reserva_Instalacion_Response,
 }

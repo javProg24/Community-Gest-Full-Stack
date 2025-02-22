@@ -26,6 +26,12 @@
                     Habilitado
                 </mat-checkbox>
             </section>
+            <div class="form-buttons">
+                <button mat-raised-button color="primary" type="submit">
+                    {{isEdit?'Actualizar':'Guardar'}}
+                </button>
+                <button mat-raised-button color="warn" type="reset" (click)="onCancel()">Cancelar</button>
+            </div>
         </form>
     </mat-card-content>
 </mat-card>

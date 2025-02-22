@@ -1,1 +1,15 @@
-<p>reporte works!</p>
+<div class="buttons">
+    <h1><strong>Modulo de {{title}}</strong></h1>
+    <button mat-flat-button color="acceent" (click)="agregarReporte()">
+        <mat-icon>add</mat-icon>
+        Nuevo
+    </button>
+</div>
+<div class="table-section">
+    <app-table 
+    [Titulo]="title+'s'"
+    [Columnas]="columns"
+    [Datos]="reportes"
+    (accion)="onAction($event)">
+    </app-table>
+</div>

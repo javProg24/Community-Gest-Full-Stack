@@ -8,7 +8,7 @@ import { Accion } from '../../core/models/Tabla_Columna';
 import { CapitalizePipe } from "../../core/pipe/capitalize/capitalize.pipe";
 @Component({
   selector: 'app-table',
-  imports: [MatIconModule, NativeDateModule, MatPaginatorModule, MatTableModule, CapitalizePipe],
+  imports: [MatIconModule, NativeDateModule, MatPaginatorModule, MatTableModule],
   templateUrl: './table.component.html',
   styleUrl: './table.component.css'
 })

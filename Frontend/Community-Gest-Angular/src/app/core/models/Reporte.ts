@@ -5,14 +5,7 @@ export interface Reporte{
     recurso_Afectado?: string, 
     estado: boolean,
 }
-export class ReporteTabla{
-    id?=0;
-    titulo = '';
-    descripcion = '';
-    recurso_Afectado = '';
-    estado = false;
-}
-export const Reporte_Response={
+export const ReporteTabla={
     id: 'id',
     titulo: 'titulo',
     descripcion: 'descripcion',
