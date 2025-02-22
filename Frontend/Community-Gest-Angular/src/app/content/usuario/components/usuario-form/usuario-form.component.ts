@@ -54,7 +54,7 @@ export class UsuarioFormComponent implements OnInit{
       estado: datos.estado
     })
   }
-  private constructorUsuario():Usuario{
+  private Usuario():Usuario{
     const { datosUsuario, ...formValues } = this.form.value;
     const usuario:Usuario={
       ...formValues,
@@ -70,7 +70,7 @@ export class UsuarioFormComponent implements OnInit{
   }
   onSubmit() {
     this.titulo.toLowerCase()
-    this.isEdit?this.actualizarUsuario(this.constructorUsuario()):this.agregarUsuario(this.constructorUsuario())
+    this.isEdit?this.actualizarUsuario(this.Usuario()):this.agregarUsuario(this.Usuario())
   }
   private actualizarUsuario(usuario:Usuario){
     if(!this.currentID)return
