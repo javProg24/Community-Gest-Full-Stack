@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Accion, columnsEntidades } from '../../../../core/models/Tabla_Columna';
+import { Accion, Acciones, columnsEntidades } from '../../../../core/models/Tabla_Columna';
 import { MatDialog } from '@angular/material/dialog';
 import { NotificationService } from '../../../../core/services/notification/notification.service';
 import { HerramientaService } from '../../service/herramienta.service';
@@ -32,9 +32,9 @@ export class HerramientaComponent implements OnInit{
       this.herramientas=data
     })
   }
-  onAction(accion: Accion){
-    accion.accion=='Editar'?this.actualizarHerramienta(accion.fila):
-    accion.accion=='Eliminar'?this.desactivarHerramienta(accion.fila.id):console.warn('Accion no reconocida',accion.accion)
+  protected onAction(accion: Accion){
+    accion.accion==Acciones.Editar?this.actualizarHerramienta(accion.fila):
+    accion.accion==Acciones.Eliminar?this.desactivarHerramienta(accion.fila.id):console.warn('Accion no reconocida',accion.accion)
   }
   private actualizarHerramienta(herramienta: Herramienta){
     const dialogRef=this.dialog.open(DialogFormComponent,{

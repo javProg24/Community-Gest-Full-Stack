@@ -3,10 +3,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { TableComponent } from '../../../../shared/table/table.component';
 import { Entidad, toStringEnum } from '../../../../core/models/Enums';
-import { Accion, columnsEntidades } from '../../../../core/models/Tabla_Columna';
+import { Accion, Acciones, columnsEntidades } from '../../../../core/models/Tabla_Columna';
 import { Reserva_Instalacion } from '../../../../core/models/Reserva-Instalacion';
 import { ReservaInstalacionService } from '../../service/reserva-instalacion.service';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { NotificationService } from '../../../../core/services/notification/notification.service';
 import { DialogFormComponent } from '../../../../shared/dialog-form/dialog-form.component';
 import { DialogComponent } from '../../../../shared/dialog/dialog.component';
@@ -19,6 +19,7 @@ import { ReservaFormComponent } from '../reserva-form/reserva-form.component';
   styleUrl: './reserva-instalacion.component.css'
 })
 export class ReservaInstalacionComponent implements OnInit {
+  
   title=toStringEnum(Entidad.Reserva)
   columns:string[]=columnsEntidades(Entidad.Reserva_Instalacion)
   reservas:Reserva_Instalacion[]=[]
@@ -31,9 +32,9 @@ export class ReservaInstalacionComponent implements OnInit {
       this.reservas=data
     })
   }
-  onAction(accion:Accion){
-    accion.accion=='Editar'?this.actualizarReserva(accion.fila):
-    accion.accion=='Eliminar'?this.eliminarReserva(accion.fila.id):console.warn('Accion no reconocida',accion.accion)
+  protected onAction(accion:Accion){
+    accion.accion==Acciones.Editar?this.actualizarReserva(accion.fila):
+    accion.accion==Acciones.Eliminar?this.eliminarReserva(accion.fila.id):console.warn('Accion no reconocida',accion.accion)
   }
   private actualizarReserva(reserva:Reserva_Instalacion){
     const dialogRef=this.dialog.open(DialogFormComponent,{

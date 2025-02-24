@@ -3,7 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { TableComponent } from "../../../../shared/table/table.component";
 import { UsuarioService } from '../../service/usuario.service';
-import { Accion, columnsEntidades } from '../../../../core/models/Tabla_Columna';
+import { Accion, Acciones, columnsEntidades } from '../../../../core/models/Tabla_Columna';
 import { Usuario } from '../../../../core/models/Usuario';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../../../shared/dialog/dialog.component';
@@ -31,9 +31,9 @@ export class UsuarioComponent implements OnInit{
       this.usuarios=data
     })
   }
-  onAction(accion:Accion){
-    accion.accion=='Editar'?this.actualizarUsuario(accion.fila):
-    accion.accion=='Eliminar'?this.eliminarUsuario(accion.fila.id):console.warn('Accion no reconocida',accion.accion)
+  protected onAction(accion:Accion){
+    accion.accion==Acciones.Editar?this.actualizarUsuario(accion.fila):
+    accion.accion==Acciones.Eliminar?this.eliminarUsuario(accion.fila.id):console.warn('Accion no reconocida',accion.accion)
   }
   private actualizarUsuario(usuario:Usuario){
     const dialogRef=this.dialog.open(DialogFormComponent,{

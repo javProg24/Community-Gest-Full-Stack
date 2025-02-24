@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InstalacionService } from '../../service/instalacion.service';
 import { Instalacion } from '../../../../core/models/Instalacion';
-import { Accion, columnsEntidades } from '../../../../core/models/Tabla_Columna';
+import { Accion, Acciones, columnsEntidades } from '../../../../core/models/Tabla_Columna';
 import { DialogFormComponent } from '../../../../shared/dialog-form/dialog-form.component';
 import { InstalacionFormComponent } from '../instalacion-form/instalacion-form.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -31,9 +31,9 @@ export class InstalacionComponent implements OnInit {
       this.instalaciones=data
     })
   }
-  onAction(accion: Accion){
-    accion.accion=='Editar'?this.actualizarInstalacion(accion.fila):
-    accion.accion=='Eliminar'?this.desactivarInstalacion(accion.fila.id):console.warn('Accion no reconocida',accion.accion)
+  protected onAction(accion: Accion){
+    accion.accion==Acciones.Editar?this.actualizarInstalacion(accion.fila):
+    accion.accion==Acciones.Eliminar?this.desactivarInstalacion(accion.fila.id):console.warn('Accion no reconocida',accion.accion)
   }
   private actualizarInstalacion(instalacion: Instalacion){
     const dialogRef=this.dialog.open(DialogFormComponent,{

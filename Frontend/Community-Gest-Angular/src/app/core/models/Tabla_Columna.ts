@@ -10,6 +10,23 @@ export interface Accion<T=any>{
     accion:string;
     fila?:T;
 }
+export const Acciones={
+    Editar:'Editar',
+    Eliminar:'Eliminar'
+}
+const listaCamposEntidades:{[key in Entidad]?:any}={
+    [Entidad.Usuario]:UsuarioTabla,
+    [Entidad.Instalacion]:InstalacionTabla,
+    [Entidad.Herramienta]:HerramientaTabla,
+    [Entidad.Reporte]:ReporteTabla,
+    [Entidad.Reserva_Herramienta]:Reserva_Herramienta_Response,
+    [Entidad.Reserva_Instalacion]:Reserva_Instalacion_Response,
+}
+export const columnsEntidades=(entidad:Entidad):Array<string>=>{
+    const campoColumnas=listaCamposEntidades[entidad];
+    if(!campoColumnas)return[]
+    return Object.values(campoColumnas)
+}
 // const entidadesMapeadas:{[key in Entidad]?:any}={
 //     [Entidad.Instalacion]:InstalacionTabla,
 //     [Entidad.Herramienta]:HerramientaTabla,
@@ -26,19 +43,6 @@ export interface Accion<T=any>{
 //     const instancia = new EntidadesClases()
 //     return Object.keys(instancia)
 // }
-const listaCamposEntidades:{[key in Entidad]?:any}={
-    [Entidad.Usuario]:UsuarioTabla,
-    [Entidad.Instalacion]:InstalacionTabla,
-    [Entidad.Herramienta]:HerramientaTabla,
-    [Entidad.Reporte]:ReporteTabla,
-    [Entidad.Reserva_Herramienta]:Reserva_Herramienta_Response,
-    [Entidad.Reserva_Instalacion]:Reserva_Instalacion_Response,
-}
-export const columnsEntidades=(entidad:Entidad):Array<string>=>{
-    const campoColumnas=listaCamposEntidades[entidad];
-    if(!campoColumnas)return[]
-    return Object.values(campoColumnas)
-}
 
 // const listaCamposEntidades:{[key in Entidad]?:any}={
 //     [Entidad.Usuario]:typeof(Campos_Usuario),

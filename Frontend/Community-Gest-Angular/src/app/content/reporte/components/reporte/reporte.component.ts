@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Accion, columnsEntidades } from '../../../../core/models/Tabla_Columna';
+import { Accion, Acciones, columnsEntidades } from '../../../../core/models/Tabla_Columna';
 import { Entidad, toStringEnum } from '../../../../core/models/Enums';
 import { Reporte } from '../../../../core/models/Reporte';
 import { ReporteService } from '../../service/reporte.service';
@@ -31,9 +31,9 @@ export class ReporteComponent implements OnInit{
       this.reportes=data
     })
   }
-  onAction(accion: Accion){
-    accion.accion=='Editar'?this.actualizarReporte(accion.fila):
-    accion.accion=='Eliminar'?this.eliminarReporte(accion.fila.id):console.warn('Accion no reconocida',accion.accion)
+  protected onAction(accion: Accion){
+    accion.accion==Acciones.Editar?this.actualizarReporte(accion.fila):
+    accion.accion==Acciones.Eliminar?this.eliminarReporte(accion.fila.id):console.warn('Accion no reconocida',accion.accion)
   }
   private actualizarReporte(reporte: Reporte){
     const dialogRef=this.dialog.open(DialogFormComponent,{

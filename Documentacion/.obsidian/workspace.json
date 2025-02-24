@@ -76,15 +76,17 @@
             }
           },
           {
-            "id": "797e1e1330cf1933",
+            "id": "94304c3f083039e9",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.8.7"
+                "file": "Creacion de la Biblioteca.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.8.7"
+              "icon": "lucide-file",
+              "title": "Creacion de la Biblioteca"
             }
           }
         ],
@@ -142,7 +144,7 @@
             }
           },
           {
-            "id": "36aa20d33edc13b5",
+            "id": "6eb0eaae57c4f084",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -243,16 +245,16 @@
       "command-palette:Abrir paleta de comandos": false
     }
   },
-  "active": "797e1e1330cf1933",
+  "active": "94304c3f083039e9",
   "lastOpenFiles": [
+    "Community-Gest (Principal).md",
+    "Creacion de la API Web.md",
+    "Entity Framework.md",
     "Métodos HTTP.md",
     "ASP.NET Core Web API.md",
     "Swagger.md",
     "Controladores.md",
-    "Creacion de la API Web.md",
     "Creacion de la Biblioteca.md",
-    "Community-Gest (Principal).md",
-    "Entity Framework.md",
     "BackEnd.md",
     "Proyecto en blanco.md",
     "Angular.md",

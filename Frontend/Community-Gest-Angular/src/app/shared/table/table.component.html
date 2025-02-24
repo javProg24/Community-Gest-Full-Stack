@@ -24,10 +24,12 @@
                         </td>
                     }
                     <td class="px-6 py-3 text-left action-buttons" width="auto">
-                        <button class="font-medium text-blue-600 hover:bg-blue-600 hover:text-white pr-7 edit-button" mat-icon-button color="primary" (click)="onAccion('Editar', data)">
+                        <button class="font-medium text-blue-600 hover:bg-blue-600 hover:text-white pr-7 edit-button" mat-icon-button color="primary" 
+                        (click)="onAccion(Editar, data)">
                             <mat-icon>edit</mat-icon>
                         </button>
-                        <button class="font-medium text-red-600 hover:bg-red-600 hover:text-white pr-7 delete-button" mat-icon-button color="warn" (click)="onAccion('Eliminar', data)">
+                        <button class="font-medium text-red-600 hover:bg-red-600 hover:text-white pr-7 delete-button" mat-icon-button color="warn" 
+                        (click)="onAccion(Eliminar, data)">
                             <mat-icon>delete</mat-icon>
                         </button>
                     </td>

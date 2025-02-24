@@ -1,11 +1,9 @@
-import { AfterViewInit, Component, EventEmitter, Input, Output, ViewChild, viewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { NativeDateModule } from '@angular/material/core';
 import {MatIconModule } from '@angular/material/icon';
-import { EstadoTextoPipe } from '../../core/pipe/state/estado-texto.pipe';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
-import { Accion } from '../../core/models/Tabla_Columna';
-import { CapitalizePipe } from "../../core/pipe/capitalize/capitalize.pipe";
+import { Accion, Acciones } from '../../core/models/Tabla_Columna';
 @Component({
   selector: 'app-table',
   imports: [MatIconModule, NativeDateModule, MatPaginatorModule, MatTableModule],
@@ -13,6 +11,8 @@ import { CapitalizePipe } from "../../core/pipe/capitalize/capitalize.pipe";
   styleUrl: './table.component.css'
 })
 export class TableComponent{
+  protected Editar:string=Acciones.Editar
+  protected Eliminar:string=Acciones.Eliminar
   @ViewChild(MatPaginator)paginator!:MatPaginator;
   title='';
   columns:string[]=[]
