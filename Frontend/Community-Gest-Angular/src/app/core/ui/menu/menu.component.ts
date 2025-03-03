@@ -3,6 +3,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { SideNavToogle, menu } from '../../models/menu-data';
+import { Entidad, toStringEnum } from '../../models/Enums';
 
 @Component({
   selector: 'app-menu',
@@ -11,6 +12,9 @@ import { SideNavToogle, menu } from '../../models/menu-data';
   styleUrl: './menu.component.css'
 })
 export class MenuComponent {
+  protected Title="Inicio"
+  protected icon="home"
+  protected RouterLink="Inicio"
   @Output()onToggleSidenav:EventEmitter<SideNavToogle>=new EventEmitter()
   toggleCollapse() {
     this.collapsed=!this.collapsed;
@@ -30,9 +34,4 @@ export class MenuComponent {
     })
     console.log(this.nav)
   }
-  // isMenuHidden = false;
-
-  // toggleMenu() {
-  //   this.isMenuHidden = !this.isMenuHidden;
-  // }
 }

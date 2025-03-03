@@ -6,11 +6,6 @@ export interface SideNavToogle{
 }
 export const menu =[
     {
-        Title:"Inicio",
-        icon:"home",
-        RouterLink:"Inicio",
-    },
-    {
         Title:toStringEnum(Entidad.Usuario)+'s',
         icon:"person",
         RouterLink:toStringEnum(Entidad.Usuario),

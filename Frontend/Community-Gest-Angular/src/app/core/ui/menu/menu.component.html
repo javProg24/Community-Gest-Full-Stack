@@ -12,6 +12,12 @@
         </button>
       </div>
       <ul class="sidenav-nav">
+        <li class="sidenav-nav-item">
+          <a [routerLink]="RouterLink" routerLinkActive="active" class="sidenav-nav-link">
+            <span class="sidenav-link-icon material-icons">{{icon}}</span>
+            <span class="sidenav-link-text" *ngIf="!collapsed">{{Title}}</span>
+          </a>
+        </li>
         <li class="sidenav-nav-item" *ngFor="let item of nav">
           <a [routerLink]="item.RouterLink" routerLinkActive="active" class="sidenav-nav-link" [routerLinkActiveOptions]="{exact:true}">
             <span class="sidenav-link-icon material-icons">{{item.icon}}</span>

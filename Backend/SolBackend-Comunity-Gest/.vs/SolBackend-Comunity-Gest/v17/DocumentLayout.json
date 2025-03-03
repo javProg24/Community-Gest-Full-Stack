@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|c:\\users\\ultra gaming\\documents\\full-stack\\community-gest\\backend\\solbackend-comunity-gest\\data\\migrations\\20250302024606_horarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|solutionrelative:data\\migrations\\20250302024606_horarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|c:\\users\\ultra gaming\\documents\\full-stack\\community-gest\\backend\\solbackend-comunity-gest\\data\\models\\horario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|solutionrelative:data\\models\\horario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|c:\\users\\ultra gaming\\documents\\full-stack\\community-gest\\backend\\solbackend-comunity-gest\\data\\migrations\\20250302024606_horarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|solutionrelative:data\\migrations\\20250302024606_horarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DED5D0A2-8EEA-4667-8F53-7426FF203271}|API-Community\\API-Community.csproj|c:\\users\\ultra gaming\\documents\\full-stack\\community-gest\\backend\\solbackend-comunity-gest\\api-community\\controllers\\horarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,7 +42,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Horario.cs",
               "DocumentMoniker": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Models\\Horario.cs",
               "RelativeDocumentMoniker": "Data\\Models\\Horario.cs",
@@ -61,13 +61,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "20250302024606_Horarios.cs",
               "DocumentMoniker": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Migrations\\20250302024606_Horarios.cs",
               "RelativeDocumentMoniker": "Data\\Migrations\\20250302024606_Horarios.cs",
               "ToolTip": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Migrations\\20250302024606_Horarios.cs",
               "RelativeToolTip": "Data\\Migrations\\20250302024606_Horarios.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAABDAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-02T02:51:44.479Z",
               "EditorCaption": ""
