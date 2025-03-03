@@ -21,12 +21,12 @@ export class Reserva_Instalacion_Tabla{
     disponibilidad=""
 }
 export const Reserva_Instalacion_Response={
-    id: 'id',
-    usuario: 'usuario',
-    instalacion:'instalacion',
-    dia:'dia',
-    hora_Inicio:'hora_Inicio',
-    hora_Fin:'hora_Fin',
-    fecha:'fecha',
-    disponibilidad:'disponibilidad'
+    id: "id",
+    usuario: "usuario",
+    instalacion:"instalacion",
+    dia:"dia",
+    hora_Inicio:"hora_Inicio",
+    hora_Fin:"hora_Fin",
+    fecha:"fecha",
+    disponibilidad:"disponibilidad"
 }as const;

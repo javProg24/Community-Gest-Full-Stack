@@ -3,7 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { TableComponent } from "../../../../shared/table/table.component";
 import { UsuarioService } from '../../service/usuario.service';
-import { Accion, Acciones, columnsEntidades } from '../../../../core/models/Tabla_Columna';
+import { Accion, Acciones, columnasEntidades } from '../../../../core/models/Tabla_Columna';
 import { Usuario } from '../../../../core/models/Usuario';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../../../shared/dialog/dialog.component';
@@ -20,7 +20,7 @@ import { Entidad, toStringEnum } from '../../../../core/models/Enums';
 })
 export class UsuarioComponent implements OnInit{
   title=toStringEnum(Entidad.Usuario)
-  columns:string[]=columnsEntidades(Entidad.Usuario)
+  columns:string[]=columnasEntidades(Entidad.Usuario)
   usuarios:Usuario[]=[]
   constructor(private services:UsuarioService,private dialog:MatDialog,private notificacion:NotificationService){}
   ngOnInit(): void {

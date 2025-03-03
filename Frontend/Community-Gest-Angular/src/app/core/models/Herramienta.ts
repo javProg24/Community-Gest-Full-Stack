@@ -7,10 +7,10 @@ export interface Herramienta{
     estado:boolean
 }
 export const HerramientaTabla={
-    id:'id',
-    nombre:'nombre',
-    ubicacion:'ubicacion',
-    descripcion:'descripcion',
-    cantidad:'cantidad',
-    estado:'estado'
+    id:"id",
+    nombre:"nombre",
+    ubicacion:"ubicacion",
+    descripcion:"descripcion",
+    cantidad:"cantidad",
+    estado:"estado"
 }as const;

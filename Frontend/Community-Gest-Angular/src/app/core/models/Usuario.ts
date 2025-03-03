@@ -10,13 +10,13 @@ export interface Usuario{
     estado:boolean
 }
 export const UsuarioTabla={
-    id:'id',
-    cedula:'cedula',
-    nombre:'nombre',
-    apellido:'apellido',
-    correo:'correo',
-    telefono:'telefono',
-    estado:'estado'
+    id:"id",
+    cedula:"cedula",
+    nombre:"nombre",
+    apellido:"apellido",
+    correo:"correo",
+    telefono:"telefono",
+    estado:"estado"
 }as const;
 
 interface UsuarioDataForm{

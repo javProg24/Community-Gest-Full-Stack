@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Entidad, toStringEnum } from '../../../../core/models/Enums';
-import { Accion, columnsEntidades } from '../../../../core/models/Tabla_Columna';
+import { Accion, columnasEntidades } from '../../../../core/models/Tabla_Columna';
 import { Reserva_Herramienta } from '../../../../core/models/Reserva-Herramienta';
 import { ReservaHerramientaService } from '../../service/reserva-herramienta.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -20,7 +20,7 @@ import { ReservaFormComponent } from '../reserva-form/reserva-form.component';
 })
 export class ReservaHerramientaComponent implements OnInit {
   title=toStringEnum(Entidad.Reserva)
-  columns:string[]=columnsEntidades(Entidad.Reserva_Herramienta)
+  columns:string[]=columnasEntidades(Entidad.Reserva_Herramienta)
   reservas:Reserva_Herramienta[]=[]
   constructor(private services:ReservaHerramientaService,private dialog:MatDialog,private notificacion:NotificationService) { }
 

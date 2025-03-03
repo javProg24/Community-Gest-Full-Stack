@@ -26,8 +26,6 @@ namespace API_Community.Controllers
         public async Task<ActionResult<IEnumerable<Reserva_Instalacion>>> GetReserva_Instalaciones()
         {
             return await _context.Reserva_Instalaciones
-                .Include(r=>r.Instalacion)
-                .Include(r=>r.Usuario)
                 .ToListAsync();
         }
 

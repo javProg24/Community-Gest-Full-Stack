@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { I_Metodos } from '../../models/I_Metodos';
+import { Metodos } from '../../models/I_Metodos';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GeneralService implements I_Metodos{
+export class GeneralService implements Metodos{
   private url = 'https://localhost:7179/api'
   constructor(private http:HttpClient) { }
   activeService<T>(instancia: string, id: number): Observable<T> {

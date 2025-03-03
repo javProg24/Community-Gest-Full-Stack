@@ -15,5 +15,6 @@ export enum Entidad{
     Reserva_Herramienta,//4
     Reporte,//5
     Reserva,//6
-    Historial//7
+    Historial,//7
+    Horario,//8
 }

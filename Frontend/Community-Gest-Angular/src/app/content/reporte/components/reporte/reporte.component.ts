@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Accion, Acciones, columnsEntidades } from '../../../../core/models/Tabla_Columna';
+import { Accion, Acciones, columnasEntidades } from '../../../../core/models/Tabla_Columna';
 import { Entidad, toStringEnum } from '../../../../core/models/Enums';
 import { Reporte } from '../../../../core/models/Reporte';
 import { ReporteService } from '../../service/reporte.service';
@@ -21,7 +21,7 @@ import { TableComponent } from '../../../../shared/table/table.component';
 export class ReporteComponent implements OnInit{
   title=toStringEnum(Entidad.Reporte)
   reportes:Reporte[]=[]
-  columns:string[]=columnsEntidades(Entidad.Reporte)
+  columns:string[]=columnasEntidades(Entidad.Reporte)
   constructor(private service:ReporteService,private dialog:MatDialog,private notificacion:NotificationService ) {}
   ngOnInit(): void {
     this.getReportesTabla()

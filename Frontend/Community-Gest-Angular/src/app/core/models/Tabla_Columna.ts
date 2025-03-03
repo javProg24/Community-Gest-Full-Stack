@@ -14,7 +14,7 @@ export const Acciones={
     Editar:'Editar',
     Eliminar:'Eliminar'
 }
-const listaCamposEntidades:{[key in Entidad]?:any}={
+const listaCamposEntidades:{[key in Entidad]?:unknown}={
     [Entidad.Usuario]:UsuarioTabla,
     [Entidad.Instalacion]:InstalacionTabla,
     [Entidad.Herramienta]:HerramientaTabla,
@@ -22,7 +22,7 @@ const listaCamposEntidades:{[key in Entidad]?:any}={
     [Entidad.Reserva_Herramienta]:Reserva_Herramienta_Response,
     [Entidad.Reserva_Instalacion]:Reserva_Instalacion_Response,
 }
-export const columnsEntidades=(entidad:Entidad):Array<string>=>{
+export const columnasEntidades=(entidad:Entidad):Array<string>=>{
     const campoColumnas=listaCamposEntidades[entidad];
     if(!campoColumnas)return[]
     return Object.values(campoColumnas)

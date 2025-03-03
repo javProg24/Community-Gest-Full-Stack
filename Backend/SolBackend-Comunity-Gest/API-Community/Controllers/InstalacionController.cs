@@ -25,7 +25,10 @@ namespace API_Community.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Instalacion>>> GetInstalaciones()
         {
-            return await _context.Instalaciones.ToListAsync();
+            return await _context.Instalaciones
+                .Where(i=>i.Estado==true)
+                .OrderBy(i=>i.ID)
+                .ToListAsync();
         }
 
         // GET: api/Instalacion/5

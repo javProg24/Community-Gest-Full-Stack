@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Accion, Acciones, columnsEntidades } from '../../../../core/models/Tabla_Columna';
+import { Accion, Acciones, columnasEntidades } from '../../../../core/models/Tabla_Columna';
 import { MatDialog } from '@angular/material/dialog';
 import { NotificationService } from '../../../../core/services/notification/notification.service';
 import { HerramientaService } from '../../service/herramienta.service';
@@ -21,7 +21,7 @@ import { toStringEnum, Entidad } from '../../../../core/models/Enums';
 })
 export class HerramientaComponent implements OnInit{
   title = toStringEnum(Entidad.Herramienta);
-  columns: string[] = columnsEntidades(Entidad.Herramienta);
+  columns: string[] = columnasEntidades(Entidad.Herramienta);
   herramientas: Herramienta[] = [];
   constructor(private service: HerramientaService,private dialog:MatDialog,private notificacion:NotificationService) {}
   ngOnInit(): void {

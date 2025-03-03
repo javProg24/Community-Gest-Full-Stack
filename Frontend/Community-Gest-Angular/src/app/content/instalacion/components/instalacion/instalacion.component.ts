@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InstalacionService } from '../../service/instalacion.service';
 import { Instalacion } from '../../../../core/models/Instalacion';
-import { Accion, Acciones, columnsEntidades } from '../../../../core/models/Tabla_Columna';
+import { Accion, Acciones, columnasEntidades } from '../../../../core/models/Tabla_Columna';
 import { DialogFormComponent } from '../../../../shared/dialog-form/dialog-form.component';
 import { InstalacionFormComponent } from '../instalacion-form/instalacion-form.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -22,7 +22,7 @@ import { Entidad, toStringEnum } from '../../../../core/models/Enums';
 })
 export class InstalacionComponent implements OnInit {
   title = toStringEnum(Entidad.Instalacion);
-  columns: string[] = columnsEntidades(Entidad.Instalacion);
+  columns: string[] = columnasEntidades(Entidad.Instalacion);
   instalaciones: Instalacion[] = [];
   constructor(private service: InstalacionService,private dialog:MatDialog,private notificacion:NotificationService) {}
   ngOnInit() {}

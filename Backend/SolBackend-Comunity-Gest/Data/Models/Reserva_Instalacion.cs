@@ -10,10 +10,10 @@ namespace Data.Models
     {
         public int ID { get; set; }
         public int Usuario_ID { get; set; }
-        public int Instalacion_ID { get;set; }
+        public int Horario_ID { get;set; }
         public DateOnly? Fecha {  get; set; }
         public char Disponibilidad { get; set; }
-        public virtual Instalacion? Instalacion { get; set; } = null;
+        public virtual Horario? Horario { get; set; } = null;
         public virtual Usuario? Usuario { get; set; } =null;
     }
 }

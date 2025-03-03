@@ -15,7 +15,7 @@ export class NotificationService {
     }
   }
   showActualizado(mensaje:string,dialogRef:unknown){
-    this.notificacion.success(mensaje,'Exito')
+    this.notificacion.info(mensaje,'Exito')
     if(dialogRef instanceof MatDialogRef){
       dialogRef.close("Cerrado")
     }

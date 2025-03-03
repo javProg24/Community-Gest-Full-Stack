@@ -1,6 +1,6 @@
 import { Observable } from "rxjs";
 
-export interface I_Metodos{
+export interface Metodos{
     getService<T>(instancia:string):Observable<T[]>;
     addService<T>(instancia:string,Entidad:any):Observable<T>;
     deleteService<T>(instancia:string, id:number):Observable<T>;

@@ -3,7 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { TableComponent } from '../../../../shared/table/table.component';
 import { Entidad, toStringEnum } from '../../../../core/models/Enums';
-import { Accion, Acciones, columnsEntidades } from '../../../../core/models/Tabla_Columna';
+import { Accion, Acciones, columnasEntidades } from '../../../../core/models/Tabla_Columna';
 import { Reserva_Instalacion } from '../../../../core/models/Reserva-Instalacion';
 import { ReservaInstalacionService } from '../../service/reserva-instalacion.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -19,9 +19,8 @@ import { ReservaFormComponent } from '../reserva-form/reserva-form.component';
   styleUrl: './reserva-instalacion.component.css'
 })
 export class ReservaInstalacionComponent implements OnInit {
-  
   title=toStringEnum(Entidad.Reserva)
-  columns:string[]=columnsEntidades(Entidad.Reserva_Instalacion)
+  columns:string[]=columnasEntidades(Entidad.Reserva_Instalacion)
   reservas:Reserva_Instalacion[]=[]
   constructor(private service:ReservaInstalacionService,private dialog:MatDialog,private notificacion:NotificationService) { }
   ngOnInit(): void {

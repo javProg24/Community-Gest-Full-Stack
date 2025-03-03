@@ -53,6 +53,37 @@ namespace Data.Migrations
                     b.ToTable("Herramientas");
                 });
 
+            modelBuilder.Entity("Data.Models.Horario", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Dia")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("Estado")
+                        .HasColumnType("boolean");
+
+                    b.Property<TimeSpan>("Hora_Fin")
+                        .HasColumnType("interval");
+
+                    b.Property<TimeSpan>("Hora_Inicio")
+                        .HasColumnType("interval");
+
+                    b.Property<int>("Instalacion_ID")
+                        .HasColumnType("integer");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("Instalacion_ID");
+
+                    b.ToTable("Horarios");
+                });
+
             modelBuilder.Entity("Data.Models.Instalacion", b =>
                 {
                     b.Property<int>("ID")
@@ -68,18 +99,8 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Dia")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<bool>("Estado")
                         .HasColumnType("boolean");
-
-                    b.Property<TimeSpan>("Hora_Fin")
-                        .HasColumnType("interval");
-
-                    b.Property<TimeSpan>("Hora_Inicio")
-                        .HasColumnType("interval");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
@@ -175,7 +196,7 @@ namespace Data.Migrations
                     b.Property<DateOnly?>("Fecha")
                         .HasColumnType("date");
 
-                    b.Property<int>("Instalacion_ID")
+                    b.Property<int>("Horario_ID")
                         .HasColumnType("integer");
 
                     b.Property<int>("Usuario_ID")
@@ -183,7 +204,7 @@ namespace Data.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("Instalacion_ID");
+                    b.HasIndex("Horario_ID");
 
                     b.HasIndex("Usuario_ID");
 
@@ -224,6 +245,17 @@ namespace Data.Migrations
                     b.ToTable("Usuarios");
                 });
 
+            modelBuilder.Entity("Data.Models.Horario", b =>
+                {
+                    b.HasOne("Data.Models.Instalacion", "Instalacion")
+                        .WithMany("Horarios")
+                        .HasForeignKey("Instalacion_ID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Instalacion");
+                });
+
             modelBuilder.Entity("Data.Models.Reserva_Herramienta", b =>
                 {
                     b.HasOne("Data.Models.Herramienta", "Herramienta")
@@ -245,9 +277,9 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Data.Models.Reserva_Instalacion", b =>
                 {
-                    b.HasOne("Data.Models.Instalacion", "Instalacion")
+                    b.HasOne("Data.Models.Horario", "Horario")
                         .WithMany("Reserva_Instalaciones")
-                        .HasForeignKey("Instalacion_ID")
+                        .HasForeignKey("Horario_ID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -257,7 +289,7 @@ namespace Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Instalacion");
+                    b.Navigation("Horario");
 
                     b.Navigation("Usuario");
                 });
@@ -267,9 +299,14 @@ namespace Data.Migrations
                     b.Navigation("Reservas_Herramientas");
                 });
 
-            modelBuilder.Entity("Data.Models.Instalacion", b =>
+            modelBuilder.Entity("Data.Models.Horario", b =>
                 {
                     b.Navigation("Reserva_Instalaciones");
+                });
+
+            modelBuilder.Entity("Data.Models.Instalacion", b =>
+                {
+                    b.Navigation("Horarios");
                 });
 
             modelBuilder.Entity("Data.Models.Usuario", b =>

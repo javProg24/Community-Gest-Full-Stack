@@ -6,38 +6,43 @@ export interface SideNavToogle{
 }
 export const menu =[
     {
-        Title:'Inicio',
-        icon:'home',
-        RouterLink:'Inicio',
+        Title:"Inicio",
+        icon:"home",
+        RouterLink:"Inicio",
     },
     {
         Title:toStringEnum(Entidad.Usuario)+'s',
-        icon:'person',
+        icon:"person",
         RouterLink:toStringEnum(Entidad.Usuario),
     },
     {
-        Title:toStringEnum(Entidad.Instalacion)+'es',
-        icon:'location_on',
+        Title:toStringEnum(Entidad.Instalacion)+"es",
+        icon:"location_on",
         RouterLink:toStringEnum(Entidad.Instalacion),
     },
     {
+        Title:toStringEnum(Entidad.Horario),
+        icon:"schedule",
+        RouterLink:`/${toStringEnum(Entidad.Horario)}`
+    },
+    {
         Title:toStringEnum(Entidad.Herramienta)+'s',
-        icon:'construction',
+        icon:"construction",
         RouterLink:toStringEnum(Entidad.Herramienta),
     },
     {
         Title:toStringEnum(Entidad.Reserva)+'s',
-        icon:'event',
+        icon:"event",
         RouterLink:toStringEnum(Entidad.Reserva),
     },
     {
         Title:toStringEnum(Entidad.Reporte)+'s',
-        icon:'description',
+        icon:"description",
         RouterLink:toStringEnum(Entidad.Reporte),   
     },
     {
         Title:toStringEnum(Entidad.Historial),
-        icon:'history',
+        icon:"history",
         RouterLink:toStringEnum(Entidad.Historial),
     },
 ]

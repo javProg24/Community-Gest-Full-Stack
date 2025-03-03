@@ -14,11 +14,8 @@ namespace Data.Models
         public string Tipo { get; set; }
         public int Capacidad { get; set; }
         public string Descripcion { get; set; }
-        public string Dia { get; set;}
-        public TimeSpan Hora_Inicio { get; set; }
-        public TimeSpan Hora_Fin {  get; set; }
         public bool Estado { get; set; }
         [JsonIgnore]
-        public virtual ICollection<Reserva_Instalacion> Reserva_Instalaciones {  get; set; } = new List<Reserva_Instalacion>();
+        public virtual ICollection<Horario> Horarios {  get; set; } = new List<Horario>();
     }
 }

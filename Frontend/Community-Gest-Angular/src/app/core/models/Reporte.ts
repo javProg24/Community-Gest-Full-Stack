@@ -6,9 +6,9 @@ export interface Reporte{
     estado: boolean,
 }
 export const ReporteTabla={
-    id: 'id',
-    titulo: 'titulo',
-    descripcion: 'descripcion',
-    recurso_Afectado: 'recurso_Afectado', 
-    estado: 'estado',
+    id: "id",
+    titulo: "titulo",
+    descripcion: "descripcion",
+    recurso_Afectado: "recurso_Afectado", 
+    estado: "estado",
 }as const;

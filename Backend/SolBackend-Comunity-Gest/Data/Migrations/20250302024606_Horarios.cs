@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Data.Migrations
 {
     /// <inheritdoc />
-    public partial class MigracionInicial : Migration
+    public partial class Horarios : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -39,9 +39,6 @@ namespace Data.Migrations
                     Tipo = table.Column<string>(type: "text", nullable: false),
                     Capacidad = table.Column<int>(type: "integer", nullable: false),
                     Descripcion = table.Column<string>(type: "text", nullable: false),
-                    Dia = table.Column<string>(type: "text", nullable: false),
-                    Hora_Inicio = table.Column<TimeSpan>(type: "interval", nullable: false),
-                    Hora_Fin = table.Column<TimeSpan>(type: "interval", nullable: false),
                     Estado = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
@@ -84,6 +81,29 @@ namespace Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Horarios",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Instalacion_ID = table.Column<int>(type: "integer", nullable: false),
+                    Hora_Inicio = table.Column<TimeSpan>(type: "interval", nullable: false),
+                    Hora_Fin = table.Column<TimeSpan>(type: "interval", nullable: false),
+                    Dia = table.Column<string>(type: "text", nullable: false),
+                    Estado = table.Column<bool>(type: "boolean", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Horarios", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Horarios_Instalaciones_Instalacion_ID",
+                        column: x => x.Instalacion_ID,
+                        principalTable: "Instalaciones",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Reserva_Herramientas",
                 columns: table => new
                 {
@@ -121,7 +141,7 @@ namespace Data.Migrations
                     ID = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Usuario_ID = table.Column<int>(type: "integer", nullable: false),
-                    Instalacion_ID = table.Column<int>(type: "integer", nullable: false),
+                    Horario_ID = table.Column<int>(type: "integer", nullable: false),
                     Fecha = table.Column<DateOnly>(type: "date", nullable: true),
                     Disponibilidad = table.Column<char>(type: "character(1)", nullable: false)
                 },
@@ -129,9 +149,9 @@ namespace Data.Migrations
                 {
                     table.PrimaryKey("PK_Reserva_Instalaciones", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Reserva_Instalaciones_Instalaciones_Instalacion_ID",
-                        column: x => x.Instalacion_ID,
-                        principalTable: "Instalaciones",
+                        name: "FK_Reserva_Instalaciones_Horarios_Horario_ID",
+                        column: x => x.Horario_ID,
+                        principalTable: "Horarios",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -141,6 +161,11 @@ namespace Data.Migrations
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Horarios_Instalacion_ID",
+                table: "Horarios",
+                column: "Instalacion_ID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reserva_Herramientas_Herramienta_ID",
@@ -153,9 +178,9 @@ namespace Data.Migrations
                 column: "Usuario_ID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reserva_Instalaciones_Instalacion_ID",
+                name: "IX_Reserva_Instalaciones_Horario_ID",
                 table: "Reserva_Instalaciones",
-                column: "Instalacion_ID");
+                column: "Horario_ID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reserva_Instalaciones_Usuario_ID",
@@ -179,10 +204,13 @@ namespace Data.Migrations
                 name: "Herramientas");
 
             migrationBuilder.DropTable(
-                name: "Instalaciones");
+                name: "Horarios");
 
             migrationBuilder.DropTable(
                 name: "Usuarios");
+
+            migrationBuilder.DropTable(
+                name: "Instalaciones");
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Data.Context
     {
         public DbSet<Usuario> Usuarios {  get; set; }
         public DbSet<Instalacion> Instalaciones {  get; set; }
+        public DbSet<Horario>Horarios { get; set; }
         public DbSet<Herramienta>Herramientas { get; set; }
         public DbSet<Reporte> Reportes {  get; set; }
         public DbSet<Reserva_Instalacion> Reserva_Instalaciones { get; set; }
@@ -19,6 +20,13 @@ namespace Data.Context
         public Context_DB(DbContextOptions<Context_DB>options):base(options) { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            
+            modelBuilder.Entity<Horario>()
+                .HasOne(h => h.Instalacion)
+                .WithMany(i => i.Horarios)
+                .HasForeignKey(r => r.Instalacion_ID)
+                .OnDelete(DeleteBehavior.Restrict);
+
             modelBuilder.Entity<Reserva_Instalacion>()
                 .HasOne(r => r.Usuario)
                 .WithMany(u => u.Reserva_Instalaciones)
@@ -26,11 +34,11 @@ namespace Data.Context
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Reserva_Instalacion>()
-                .HasOne(r => r.Instalacion)
+                .HasOne(r => r.Horario)
                 .WithMany(i => i.Reserva_Instalaciones)
-                .HasForeignKey(r => r.Instalacion_ID)
+                .HasForeignKey(r => r.Horario_ID)
                 .OnDelete(DeleteBehavior.Restrict);
-
+            
             modelBuilder.Entity<Reserva_Herramienta>()
                 .HasOne(r => r.Usuario)
                 .WithMany(u => u.Reservas_Herramientas)

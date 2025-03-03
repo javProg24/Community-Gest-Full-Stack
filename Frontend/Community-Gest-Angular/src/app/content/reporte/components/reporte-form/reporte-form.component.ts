@@ -37,7 +37,7 @@ export class ReporteFormComponent implements OnInit{
     })
     this.formData?this.editarReporte(this.formData):this.isEdit=false
   }
-  onsubmit(){
+  protected onsubmit(){
     this.titulo.toLowerCase()
     this.isEdit?this.actualizarReporte(this.Reporte()):this.agregarReporte(this.Reporte())
   }
@@ -55,7 +55,7 @@ export class ReporteFormComponent implements OnInit{
     if(!this.currentID) return
     this.service.updateReporte(reporte,this.currentID).subscribe({
       next:()=>{
-        this.notificacion.showAgregado(`El ${this.titulo} fue actualizado`,this.dialogRef)
+        this.notificacion.showActualizado(`El ${this.titulo} fue actualizado`,this.dialogRef)
       },
       error:(err)=>{
         this.notificacion.showError(`El ${this.titulo} no fue actualizado`,err)
