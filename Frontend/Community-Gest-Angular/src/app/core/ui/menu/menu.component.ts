@@ -2,8 +2,7 @@ import { NgFor, NgIf, NgClass } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { SideNavToogle, menu } from '../../models/menu-data';
-import { Entidad, toStringEnum } from '../../models/Enums';
+import { SideNavToogle, componentes } from '../../models/menu-data';
 
 @Component({
   selector: 'app-menu',
@@ -24,7 +23,7 @@ export class MenuComponent {
     })
   }
   screenWith=window.innerWidth
-  nav=menu
+  nav=componentes
   collapsed=true
   closeSideNav() {
     this.collapsed=true

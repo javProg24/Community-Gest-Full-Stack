@@ -4,16 +4,16 @@ export interface SideNavToogle{
     screenWidth:number;
     collapsed:boolean;
 }
-export const menu =[
+export const componentes =[
     {
         Title:toStringEnum(Entidad.Usuario)+'s',
         icon:"person",
-        RouterLink:toStringEnum(Entidad.Usuario),
+        RouterLink:`/${toStringEnum(Entidad.Usuario)}`,
     },
     {
         Title:toStringEnum(Entidad.Instalacion)+"es",
         icon:"location_on",
-        RouterLink:toStringEnum(Entidad.Instalacion),
+        RouterLink:`/${toStringEnum(Entidad.Instalacion)}`,
     },
     {
         Title:toStringEnum(Entidad.Horario),
@@ -23,21 +23,21 @@ export const menu =[
     {
         Title:toStringEnum(Entidad.Herramienta)+'s',
         icon:"construction",
-        RouterLink:toStringEnum(Entidad.Herramienta),
+        RouterLink:`${toStringEnum(Entidad.Herramienta)}`,
     },
     {
         Title:toStringEnum(Entidad.Reserva)+'s',
         icon:"event",
-        RouterLink:toStringEnum(Entidad.Reserva),
+        RouterLink:`/${toStringEnum(Entidad.Reserva)}`,
     },
     {
         Title:toStringEnum(Entidad.Reporte)+'s',
         icon:"description",
-        RouterLink:toStringEnum(Entidad.Reporte),   
+        RouterLink:`/${toStringEnum(Entidad.Reporte)}`,   
     },
     {
         Title:toStringEnum(Entidad.Historial),
         icon:"history",
-        RouterLink:toStringEnum(Entidad.Historial),
+        RouterLink:`/${toStringEnum(Entidad.Historial)}`,
     },
 ]
