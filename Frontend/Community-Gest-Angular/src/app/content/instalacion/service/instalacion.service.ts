@@ -8,28 +8,28 @@ import { Entidad, toStringEnum } from '../../../core/models/Enums';
   providedIn: 'root'
 })
 export class InstalacionService {
-  private api=toStringEnum(Entidad.Instalacion);
+  private nombreEntidad=toStringEnum(Entidad.Instalacion);
   constructor(private service:GeneralService) { }
   desactiveInstalacion(id:number):Observable<Instalacion>{
-    return this.service.desactiveService<Instalacion>(this.api,id)
+    return this.service.desactiveService<Instalacion>(this.nombreEntidad,id)
   }
   activeInstalacion(id:number):Observable<Instalacion>{
-    return this.service.activeService<Instalacion>(this.api,id)
+    return this.service.activeService<Instalacion>(this.nombreEntidad,id)
   }
   addInstalacion(entidad:Instalacion):Observable<Instalacion>{
-    return this.service.addService<Instalacion>(this.api,entidad)
+    return this.service.addService<Instalacion>(this.nombreEntidad,entidad)
   }
   updateInstalacion(id:number,entidad:Instalacion):Observable<Instalacion>{
-    return this.service.updateService<Instalacion>(this.api,id,entidad)
+    return this.service.updateService<Instalacion>(this.nombreEntidad,id,entidad)
   }
   deleteInstalacion(id:number):Observable<void>{
-    return this.service.deleteService<void>(this.api,id)
+    return this.service.deleteService<void>(this.nombreEntidad,id)
   }
   getsInstalacion():Observable<Instalacion[]>{
-    return this.service.getService<Instalacion>(this.api)
+    return this.service.getService<Instalacion>(this.nombreEntidad)
   }
   getIdInstalacion(id:number):Observable<Instalacion[]>{
-    return this.service.getIdService<Instalacion>(this.api,id)
+    return this.service.getIdService<Instalacion>(this.nombreEntidad,id)
   }
 }
 

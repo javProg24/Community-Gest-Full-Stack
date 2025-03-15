@@ -1,22 +1,28 @@
 import { Entidad } from "./Enums";
 import { HerramientaTabla } from "./Herramienta";
-import { InstalacionTabla } from "./Instalacion";
+import { HorarioTabla } from "./Horario";
+import { InstalacionTabla, tablaInstalacion } from "./Instalacion";
 import { ReporteTabla } from "./Reporte";
 import { Reserva_Herramienta_Response } from "./Reserva-Herramienta";
 import { Reserva_Instalacion_Response } from "./Reserva-Instalacion";
-import { UsuarioTabla } from "./Usuario";
-
+import { tablaUsuario, UsuarioTabla } from "./Usuario";
+export interface TableColumn<T>{
+    label:string,
+    def:string,
+    content:(row:T)=>string|number|boolean|undefined
+  }
 export interface Accion<T=any>{
     accion:string;
     fila?:T;
 }
 export const Acciones={
-    Editar:'Editar',
-    Eliminar:'Eliminar'
+    Editar:"Editar",
+    Eliminar:"Eliminar"
 }
 const listaCamposEntidades:{[key in Entidad]?:unknown}={
     [Entidad.Usuario]:UsuarioTabla,
     [Entidad.Instalacion]:InstalacionTabla,
+    [Entidad.Horario]:HorarioTabla,
     [Entidad.Herramienta]:HerramientaTabla,
     [Entidad.Reporte]:ReporteTabla,
     [Entidad.Reserva_Herramienta]:Reserva_Herramienta_Response,
@@ -27,6 +33,24 @@ export const columnasEntidades=(entidad:Entidad):Array<string>=>{
     if(!campoColumnas)return[]
     return Object.values(campoColumnas)
 }
+/////////////////////////////////////////////////////////////////////
+const listaDatosEntidades:{[key in Entidad]?:unknown}={
+    [Entidad.Instalacion]:tablaInstalacion,
+    [Entidad.Usuario]:tablaUsuario,
+}
+export const columnasDatos=<T>(entidad:Entidad):TableColumn<T>[]=>{
+    const datosColumnas=listaDatosEntidades[entidad]
+    if(!datosColumnas)return[]
+    console.log('efed',datosColumnas);
+    return Object.values(datosColumnas)
+}
+/*
+export function co<T>(entidad:Entidad):TableColumn<T>[]{
+    const datosColumnas=listaDatosEntidades[entidad]
+    if(!datosColumnas)return[]
+    console.log('edheuh',datosColumnas)
+    return Object.values(datosColumnas)
+}*/
 // const entidadesMapeadas:{[key in Entidad]?:any}={
 //     [Entidad.Instalacion]:InstalacionTabla,
 //     [Entidad.Herramienta]:HerramientaTabla,

@@ -8,21 +8,21 @@ import { Entidad, toStringEnum } from '../../../core/models/Enums';
   providedIn: 'root'
 })
 export class ReservaHerramientaService {
-  private api=toStringEnum(Entidad.Reserva_Herramienta)
+  private nombreEntidad=toStringEnum(Entidad.Reserva_Herramienta)
   constructor(private service:GeneralService) { }
   addReserva(entidad:Reserva_Herramienta):Observable<Reserva_Herramienta>{
-    return this.service.addService<Reserva_Herramienta>(this.api,entidad)
+    return this.service.addService<Reserva_Herramienta>(this.nombreEntidad,entidad)
   }
   update(id:number,entidad:Reserva_Herramienta):Observable<Reserva_Herramienta>{
-    return this.service.updateService<Reserva_Herramienta>(this.api,id,entidad)
+    return this.service.updateService<Reserva_Herramienta>(this.nombreEntidad,id,entidad)
   }
   deleteReserva(id:number):Observable<void>{
-    return this.service.deleteService<void>(this.api,id)
+    return this.service.deleteService<void>(this.nombreEntidad,id)
   }
   getReservas():Observable<Reserva_Herramienta[]>{
-    return this.service.getService<Reserva_Herramienta>(this.api)
+    return this.service.getService<Reserva_Herramienta>(this.nombreEntidad)
   }
   getIdReservas(id:number):Observable<Reserva_Herramienta[]>{
-    return this.service.getIdService<Reserva_Herramienta>(this.api,id)
+    return this.service.getIdService<Reserva_Herramienta>(this.nombreEntidad,id)
   }
 }

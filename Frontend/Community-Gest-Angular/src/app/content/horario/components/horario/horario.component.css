@@ -1,0 +1,18 @@
+.buttons{
+    padding-left: 50px;
+    padding-top: 30px;
+    margin: 20px;
+}
+h1{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 3rem;
+}
+.table-section {
+    width: 100%;
+    max-width: 1000vh;
+    margin: 20px auto;
+    padding: 50px;
+    text-align: center;
+    align-items: center;
+}

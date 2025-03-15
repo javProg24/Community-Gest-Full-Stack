@@ -1,1 +1,48 @@
-<p>horario-form works!</p>
+<mat-card class="register-card">
+    <mat-card-title class="title">
+        <strong>{{isEdit?"Editar":"Nuevo"}} {{titulo}}</strong>
+    </mat-card-title>
+    <mat-card-content class="content">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Instalacion</mat-label>
+                <mat-select formControlName="instalacion">
+                    <mat-option *ngFor="let instalacion of instalaciones" [value]="instalacion">
+                        {{instalacion.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Dia</mat-label>
+                <mat-select formControlName="dia">
+                    <mat-option *ngFor="let dia of dias" [value]="dia.value">
+                        {{dia.label}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Hora de Inicio</mat-label>
+                <input matInput [matTimepicker]="picker1" formControlName="hora_Inicio">
+                <mat-timepicker-toggle matIconSuffix [for]="picker1"/>
+                <mat-timepicker #picker1/>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Hora de Inicio</mat-label>
+                <input matInput [matTimepicker]="picker2" formControlName="hora_Inicio">
+                <mat-timepicker-toggle matIconSuffix [for]="picker2"/>
+                <mat-timepicker #picker2/>
+            </mat-form-field>
+            
+            <section appearance="fill" class="checkbox-right">
+                <mat-label>Estado</mat-label>
+                <mat-checkbox formControlName="estado">
+                    Habilitado
+                </mat-checkbox>
+            </section>
+        </form>
+    </mat-card-content>
+</mat-card>

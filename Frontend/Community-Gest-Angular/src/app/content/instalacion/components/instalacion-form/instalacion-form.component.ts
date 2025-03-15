@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { days, Instalacion } from '../../../../core/models/Instalacion';
+import { Instalacion } from '../../../../core/models/Instalacion';
 import { InstalacionService } from '../../service/instalacion.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -11,19 +11,17 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import {MatTimepickerModule} from '@angular/material/timepicker';
-import { NgFor } from '@angular/common';
 import { NotificationService } from '../../../../core/services/notification/notification.service';
 import { Entidad, toStringEnum } from '../../../../core/models/Enums';
 @Component({
   selector: 'app-instalacion-form',
-  imports: [MatCardModule,MatLabel,ReactiveFormsModule,MatButtonModule,MatFormFieldModule,MatInputModule,MatTimepickerModule,MatCheckboxModule,MatOptionModule,MatSelectModule,MatNativeDateModule,NgFor],
+  imports: [MatCardModule, MatLabel, ReactiveFormsModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatTimepickerModule, MatCheckboxModule, MatOptionModule, MatSelectModule, MatNativeDateModule],
   templateUrl: './instalacion-form.component.html',
   styleUrl: './instalacion-form.component.css'
 })
 export class InstalacionFormComponent implements OnInit {
   protected titulo = toStringEnum(Entidad.Instalacion);
   protected isEdit = false;
-  dias=days
   currentID?: number;
   form!: FormGroup;
   constructor(private fb: FormBuilder, private dialogRef: MatDialogRef<InstalacionFormComponent>, @Inject('formData') public formData: Instalacion | null, private notificacion: NotificationService, private service: InstalacionService) {}
@@ -33,9 +31,6 @@ export class InstalacionFormComponent implements OnInit {
       tipo:["",[Validators.required]],
       capacidad:["",[Validators.required]],
       descripcion:["",[Validators.required]],
-      dia:["",[Validators.required]],
-      hora_Inicio:["",[Validators.required]],
-      hora_Fin:["",[Validators.required]],
       estado:[true,[Validators.required]],
     })
     this.formData ? this.editarInstalacion(this.formData) : this.isEdit = false;
@@ -48,9 +43,6 @@ export class InstalacionFormComponent implements OnInit {
       tipo: datos.tipo,
       capacidad: datos.capacidad,
       descripcion: datos.descripcion,
-      dia: datos.dia,
-      hora_Inicio: datos.hora_Inicio,
-      hora_Fin: datos.hora_Fin,
       estado: datos.estado
     })
   }

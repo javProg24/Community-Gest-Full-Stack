@@ -8,27 +8,27 @@ import { Entidad, toStringEnum } from '../../../core/models/Enums';
   providedIn: 'root'
 })
 export class HerramientaService {
-  private api=toStringEnum(Entidad.Herramienta)
+  private nombreEntidad=toStringEnum(Entidad.Herramienta)
   constructor(private service:GeneralService) { }
   //aumentar la cantidad de herramientas
   //disminuir la cantidad de herramientas
   addHerramienta(entidad:Herramienta):Observable<Herramienta>{
-    return this.service.addService<Herramienta>(this.api,entidad)
+    return this.service.addService<Herramienta>(this.nombreEntidad,entidad)
   }
   updateHerramienta(entidad:Herramienta,id:number):Observable<Herramienta>{
-    return this.service.updateService<Herramienta>(this.api,id,entidad)
+    return this.service.updateService<Herramienta>(this.nombreEntidad,id,entidad)
   }
   deleteHerramienta(id:number):Observable<void>{
-    return this.service.deleteService<void>(this.api,id)
+    return this.service.deleteService<void>(this.nombreEntidad,id)
   }
   getsHerramienta():Observable<Herramienta[]>{
-    return this.service.getService<Herramienta>(this.api)
+    return this.service.getService<Herramienta>(this.nombreEntidad)
   }
   getIdHerramienta(id:number):Observable<Herramienta[]>{
-    return this.service.getIdService<Herramienta>(this.api,id)
+    return this.service.getIdService<Herramienta>(this.nombreEntidad,id)
   }
   desactiveHerramienta(id:number):Observable<Herramienta>{
-    return this.service.desactiveService<Herramienta>(this.api,id)
+    return this.service.desactiveService<Herramienta>(this.nombreEntidad,id)
   }
 }
 

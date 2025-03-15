@@ -1,34 +1,43 @@
 import { Component, OnInit } from '@angular/core';
 import { InstalacionService } from '../../service/instalacion.service';
 import { Instalacion } from '../../../../core/models/Instalacion';
-import { Accion, Acciones, columnasEntidades } from '../../../../core/models/Tabla_Columna';
+import { Accion, Acciones, columnasDatos, columnasEntidades, TableColumn } from '../../../../core/models/Tabla_Columna';
 import { DialogFormComponent } from '../../../../shared/dialog-form/dialog-form.component';
 import { InstalacionFormComponent } from '../instalacion-form/instalacion-form.component';
 import { MatDialog } from '@angular/material/dialog';
-import { ToastrService } from 'ngx-toastr';
 import { DialogComponent } from '../../../../shared/dialog/dialog.component';
 import { NotificationService } from '../../../../core/services/notification/notification.service';
-import { CapitalizePipe } from "../../../../core/pipe/capitalize/capitalize.pipe";
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { TableComponent } from "../../../../shared/table/table.component";
 import { Entidad, toStringEnum } from '../../../../core/models/Enums';
+import { TablaReutilizableComponent } from "../../../../shared/tabla-reutilizable/tabla-reutilizable.component";
 
 @Component({
   selector: 'app-instalacion',
-  imports: [MatIconModule, MatButtonModule, TableComponent],
+  imports: [MatIconModule, MatButtonModule, TableComponent, TablaReutilizableComponent],
   templateUrl: './instalacion.component.html',
   styleUrl: './instalacion.component.css'
 })
 export class InstalacionComponent implements OnInit {
-  title = toStringEnum(Entidad.Instalacion);
-  columns: string[] = columnasEntidades(Entidad.Instalacion);
-  instalaciones: Instalacion[] = [];
+  protected title = toStringEnum(Entidad.Instalacion);
+  protected columns: string[] = columnasEntidades(Entidad.Instalacion);
+  protected instalaciones: Instalacion[] = [];
+  protected instalacionesDatos:Instalacion[]=[]
+  protected tablaColumnas:TableColumn<Instalacion>[]=columnasDatos(Entidad.Instalacion);
   constructor(private service: InstalacionService,private dialog:MatDialog,private notificacion:NotificationService) {}
-  ngOnInit() {}
-  getInstalacionesTabla(){
+  ngOnInit() {
+    this.getInstalacionesTabla();
+    this.obtenerInstalacionesTablas();
+  }
+  private getInstalacionesTabla(){
     this.service.getsInstalacion().subscribe((data)=>{
       this.instalaciones=data
+    })
+  }
+  private obtenerInstalacionesTablas(){
+    this.service.getsInstalacion().subscribe((data)=>{
+      this.instalacionesDatos=data;
     })
   }
   protected onAction(accion: Accion){
@@ -62,7 +71,7 @@ export class InstalacionComponent implements OnInit {
         })
       },
       error:(err)=>{
-        this.notificacion.showError(`La ${this.title}? no fue deshabilitada`,err)
+        this.notificacion.showError(`La ${this.title} no fue deshabilitada`,err)
       }
     })
   }

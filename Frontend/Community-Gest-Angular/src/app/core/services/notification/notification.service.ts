@@ -8,6 +8,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class NotificationService {
   constructor(private notificacion:ToastrService) { }
+  //pasar 3 argumentos: mensaje, tipo de notificacion y el dialogref
+  //show(){}
   showAgregado(mensaje:string,dialogRef:unknown){
     this.notificacion.success(mensaje,'Exito')
     if(dialogRef instanceof MatDialogRef){

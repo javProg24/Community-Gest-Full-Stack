@@ -8,22 +8,22 @@ import { Entidad, toStringEnum } from '../../../core/models/Enums';
   providedIn: 'root'
 })
 export class ReporteService {
-  private api=toStringEnum(Entidad.Reporte)
+  private nombreEntidad=toStringEnum(Entidad.Reporte)
   constructor(private service:GeneralService) { }
   addReporte(entidad:Reporte):Observable<Reporte>{
-    return this.service.addService<Reporte>(this.api,entidad)
+    return this.service.addService<Reporte>(this.nombreEntidad,entidad)
   }
   updateReporte(entidad:Reporte,id:number):Observable<Reporte>{
-    return this.service.updateService<Reporte>(this.api,id,entidad)
+    return this.service.updateService<Reporte>(this.nombreEntidad,id,entidad)
   }
   deleteReporte(id:number):Observable<void>{
-    return this.service.deleteService<void>(this.api,id)
+    return this.service.deleteService<void>(this.nombreEntidad,id)
   }
   getsReporte():Observable<Reporte[]>{
-    return this.service.getService<Reporte>(this.api)
+    return this.service.getService<Reporte>(this.nombreEntidad)
   }
   getIdReporte(id:number):Observable<Reporte[]>{
-    return this.service.getIdService<Reporte>(this.api,id)
+    return this.service.getIdService<Reporte>(this.nombreEntidad,id)
   }
 }
 
