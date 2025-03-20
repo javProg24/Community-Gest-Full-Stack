@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { ReservaHerramientaService } from '@contentreserva-herramienta/service/reserva-herramienta.service';
 import { toStringEnum, Entidad, Acciones } from '@core/models/Enums';
 import { Reserva_Herramienta } from '@core/models/Reserva-Herramienta';
 import { columnasEntidades, Accion, TablaColumna, columnasDatos } from '@core/models/Tabla_Columna';
@@ -12,6 +11,7 @@ import { DialogComponent } from '@shared/dialog/dialog.component';
 import { TableComponent } from '@shared/table/table.component';
 import { ReservaFormComponent } from '../reserva-form/reserva-form.component';
 import { TablaReutilizableComponent } from '@shared/tabla-reutilizable/tabla-reutilizable.component';
+import { ReservaHerramientaService } from '@content/reserva-herramienta/service/reserva-herramienta.service';
 
 @Component({
   selector: 'app-reserva-herramienta',

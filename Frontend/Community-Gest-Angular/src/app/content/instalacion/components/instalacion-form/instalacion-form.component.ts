@@ -9,7 +9,7 @@ import { MatLabel, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTimepickerModule } from '@angular/material/timepicker';
-import { InstalacionService } from '@contentinstalacion/service/instalacion.service';
+import { InstalacionService } from '@content/instalacion/service/instalacion.service';
 import { toStringEnum, Entidad } from '@core/models/Enums';
 import { Instalacion } from '@core/models/Instalacion';
 import { NotificationService } from '@core/services/notification/notification.service';

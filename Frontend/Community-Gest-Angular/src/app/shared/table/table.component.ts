@@ -3,8 +3,8 @@ import { NativeDateModule } from '@angular/material/core';
 import {MatIconModule } from '@angular/material/icon';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
-import { Accion } from '../../core/models/Tabla_Columna';
-import { Acciones } from '../../core/models/Enums';
+import { Acciones } from '@core/models/Enums';
+import { Accion } from '@core/models/Tabla_Columna';
 
 @Component({
   selector: 'app-table',

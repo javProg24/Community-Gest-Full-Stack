@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core"
 import { MatButtonModule } from "@angular/material/button"
 import { MatDialog } from "@angular/material/dialog"
 import { MatIconModule } from "@angular/material/icon"
-import { ReporteService } from "@contentreporte/service/reporte.service"
 import { toStringEnum, Entidad, Acciones } from "@core/models/Enums"
 import { Reporte } from "@core/models/Reporte"
 import { columnasEntidades, Accion, TablaColumna, columnasDatos } from "@core/models/Tabla_Columna"
@@ -12,6 +11,7 @@ import { DialogComponent } from "@shared/dialog/dialog.component"
 import { TableComponent } from "@shared/table/table.component"
 import { ReporteFormComponent } from "../reporte-form/reporte-form.component"
 import { TablaReutilizableComponent } from "@shared/tabla-reutilizable/tabla-reutilizable.component"
+import { ReporteService } from "@content/reporte/service/reporte.service"
 
 @Component({
   selector: 'app-reporte',

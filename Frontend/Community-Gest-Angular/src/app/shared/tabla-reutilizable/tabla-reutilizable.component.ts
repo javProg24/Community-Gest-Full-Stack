@@ -1,11 +1,11 @@
 import { Component, computed, EventEmitter, Input, input, OnChanges, Output, SimpleChanges, Type, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { Accion, TablaColumna } from '../../core/models/Tabla_Columna';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
-import { Acciones } from '../../core/models/Enums';
-import { CapitalizePipe } from '../../core/pipe/capitalize/capitalize.pipe';
+import { CapitalizePipe } from '@core/pipe/capitalize/capitalize.pipe';
+import { Acciones } from '@core/models/Enums';
+import { Accion, TablaColumna } from '@core/models/Tabla_Columna';
 
 @Component({
   selector: 'tabla-reutilizable',

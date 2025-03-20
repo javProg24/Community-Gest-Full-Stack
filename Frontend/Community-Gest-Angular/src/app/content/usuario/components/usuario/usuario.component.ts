@@ -7,11 +7,11 @@ import { TableComponent } from '@shared/table/table.component';
 import { Acciones, Entidad, toStringEnum } from '@core/models/Enums';
 import { Accion, columnasDatos, columnasEntidades, TablaColumna } from '@core/models/Tabla_Columna';
 import { Usuario } from '@core/models/Usuario';
-import { UsuarioService } from '@contentusuario/service/usuario.service';
 import { NotificationService } from '@core/services/notification/notification.service';
 import { DialogFormComponent } from '@shared/dialog-form/dialog-form.component';
 import { UsuarioFormComponent } from '../usuario-form/usuario-form.component';
 import { DialogComponent } from '@shared/dialog/dialog.component';
+import { UsuarioService } from '@content/usuario/service/usuario.service';
 
 @Component({
   selector: 'app-usuario',

@@ -19,7 +19,7 @@
     "module": "ES2022",
     "baseUrl": "./",
     "paths": {
-      "@content*":[
+      "@content/*":[
         "src/app/content/*"
       ],
       "@core/*":[

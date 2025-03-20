@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { HorarioService } from '@contenthorario/service/horario.service';
 import { toStringEnum, Entidad, Acciones } from '@core/models/Enums';
 import { Horario } from '@core/models/Horario';
 import { columnasEntidades, Accion, TablaColumna, columnasDatos } from '@core/models/Tabla_Columna';
@@ -12,6 +11,7 @@ import { DialogComponent } from '@shared/dialog/dialog.component';
 import { TableComponent } from '@shared/table/table.component';
 import { HorarioFormComponent } from '../horario-form/horario-form.component';
 import { TablaReutilizableComponent } from '@shared/tabla-reutilizable/tabla-reutilizable.component';
+import { HorarioService } from '@content/horario/service/horario.service';
 
 @Component({
   selector: 'app-horario',

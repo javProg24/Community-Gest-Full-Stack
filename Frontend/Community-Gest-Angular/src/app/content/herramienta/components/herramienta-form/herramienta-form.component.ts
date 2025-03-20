@@ -6,7 +6,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatLabel, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { HerramientaService } from '@contentherramienta/service/herramienta.service';
+import { HerramientaService } from '@content/herramienta/service/herramienta.service';
 import { toStringEnum, Entidad } from '@core/models/Enums';
 import { Herramienta } from '@core/models/Herramienta';
 import { NotificationService } from '@core/services/notification/notification.service';

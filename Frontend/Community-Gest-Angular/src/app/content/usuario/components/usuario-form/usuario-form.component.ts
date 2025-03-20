@@ -6,7 +6,7 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatDialogRef } from "@angular/material/dialog";
 import { MatFormField, MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
-import { UsuarioService } from "@contentusuario/service/usuario.service";
+import { UsuarioService } from "@content/usuario/service/usuario.service";
 import { toStringEnum, Entidad } from "@core/models/Enums";
 import { Usuario, UsuarioForm } from "@core/models/Usuario";
 import { NotificationService } from "@core/services/notification/notification.service";

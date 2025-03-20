@@ -7,7 +7,7 @@ import { MatDialogRef } from "@angular/material/dialog";
 import { MatFormFieldModule, MatLabel } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import {MatRadioButton, MatRadioModule} from '@angular/material/radio';
-import { ReporteService } from "@contentreporte/service/reporte.service";
+import { ReporteService } from "@content/reporte/service/reporte.service";
 import { toStringEnum, Entidad } from "@core/models/Enums";
 import { Reporte } from "@core/models/Reporte";
 import { NotificationService } from "@core/services/notification/notification.service";

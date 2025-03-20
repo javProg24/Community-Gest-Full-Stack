@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { InstalacionService } from '@contentinstalacion/service/instalacion.service';
 import { toStringEnum, Entidad, Acciones } from '@core/models/Enums';
 import { Instalacion } from '@core/models/Instalacion';
 import { columnasEntidades, TablaColumna, columnasDatos, Accion } from '@core/models/Tabla_Columna';
@@ -12,6 +11,7 @@ import { DialogComponent } from '@shared/dialog/dialog.component';
 import { TablaReutilizableComponent } from '@shared/tabla-reutilizable/tabla-reutilizable.component';
 import { TableComponent } from '@shared/table/table.component';
 import { InstalacionFormComponent } from '../instalacion-form/instalacion-form.component';
+import { InstalacionService } from '@content/instalacion/service/instalacion.service';
 
 @Component({
   selector: 'app-instalacion',

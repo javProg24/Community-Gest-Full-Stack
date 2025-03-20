@@ -1,6 +1,6 @@
 import { NgComponentOutlet } from '@angular/common';
 import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-import { Component, Inject, Injector, OnInit, Output } from '@angular/core';
+import { Component, Inject, Injector, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';

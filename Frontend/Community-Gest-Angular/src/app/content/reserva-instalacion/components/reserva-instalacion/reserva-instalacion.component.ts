@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { ReservaInstalacionService } from '@contentreserva-instalacion/service/reserva-instalacion.service';
 import { toStringEnum, Entidad, Acciones } from '@core/models/Enums';
 import { Reserva_Instalacion } from '@core/models/Reserva-Instalacion';
 import { columnasEntidades, Accion, columnasDatos, TablaColumna } from '@core/models/Tabla_Columna';
@@ -12,6 +11,7 @@ import { DialogComponent } from '@shared/dialog/dialog.component';
 import { TableComponent } from '@shared/table/table.component';
 import { ReservaFormComponent } from '../reserva-form/reserva-form.component';
 import { TablaReutilizableComponent } from '@shared/tabla-reutilizable/tabla-reutilizable.component';
+import { ReservaInstalacionService } from '@content/reserva-instalacion/service/reserva-instalacion.service';
 
 @Component({
   selector: 'app-reserva-instalacion',

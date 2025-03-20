@@ -1,9 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { InstalacionService } from '@contentinstalacion/service/instalacion.service';
-import { ReservaInstalacionService } from '@contentreserva-instalacion/service/reserva-instalacion.service';
-import { UsuarioService } from '@contentusuario/service/usuario.service';
+import { InstalacionService } from '@content/instalacion/service/instalacion.service';
+import { ReservaInstalacionService } from '@content/reserva-instalacion/service/reserva-instalacion.service';
+import { UsuarioService } from '@content/usuario/service/usuario.service';
+
 import { toStringEnum, Entidad } from '@core/models/Enums';
 import { Instalacion } from '@core/models/Instalacion';
 import { Reserva_Instalacion } from '@core/models/Reserva-Instalacion';
