@@ -3,7 +3,9 @@ import { NativeDateModule } from '@angular/material/core';
 import {MatIconModule } from '@angular/material/icon';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
-import { Accion, Acciones } from '../../core/models/Tabla_Columna';
+import { Accion } from '../../core/models/Tabla_Columna';
+import { Acciones } from '../../core/models/Enums';
+
 @Component({
   selector: 'app-table',
   imports: [MatIconModule, NativeDateModule, MatPaginatorModule, MatTableModule],
@@ -11,8 +13,8 @@ import { Accion, Acciones } from '../../core/models/Tabla_Columna';
   styleUrl: './table.component.css'
 })
 export class TableComponent{
-  protected Editar:string=Acciones.Editar
-  protected Eliminar:string=Acciones.Eliminar
+  protected Editar=Acciones.Editar
+  protected Eliminar=Acciones.Eliminar
   @ViewChild(MatPaginator)paginator!:MatPaginator;
   title='';
   columns:string[]=[]
@@ -28,7 +30,11 @@ export class TableComponent{
     this.dataSource=dataSource;
   }
   @Output()accion:EventEmitter<Accion>=new EventEmitter();
-  onAccion(accion:string,row?:any){
-    this.accion.emit({accion:accion,fila:row})
+  onAccion(accion:Acciones,row?:any){
+    this.accion.emit(
+      {
+        accion:accion,
+        fila:row
+      })
   }
 }

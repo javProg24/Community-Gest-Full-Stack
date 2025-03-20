@@ -1,4 +1,6 @@
+import { Horario } from "./Horario";
 import { Instalacion } from "./Instalacion";
+import { TablaColumna } from "./Tabla_Columna";
 import { Usuario } from "./Usuario";
 
 export interface Reserva_Instalacion{
@@ -8,9 +10,9 @@ export interface Reserva_Instalacion{
     fecha:string,
     disponibilidad:string
     usuario?:Usuario|null
-    instalacion?:Instalacion|null
+    horario?:Horario|null
 }
-export class Reserva_Instalacion_Tabla{
+export class ReservaInstalacionTabla{
     id?=0;
     usuario="";
     instalacion="";
@@ -20,7 +22,7 @@ export class Reserva_Instalacion_Tabla{
     fecha="";
     disponibilidad=""
 }
-export const Reserva_Instalacion_Response={
+export const ReservaInstalacionDatos={
     id: "id",
     usuario: "usuario",
     instalacion:"instalacion",
@@ -30,3 +32,45 @@ export const Reserva_Instalacion_Response={
     fecha:"fecha",
     disponibilidad:"disponibilidad"
 }as const;
+export const tablaReservaInstalacion:TablaColumna<Reserva_Instalacion>[]=[
+    {
+        label:ReservaInstalacionDatos.id.toUpperCase(),
+        def:ReservaInstalacionDatos.id,
+        content:(row)=>row.id
+    },
+    {
+        label:ReservaInstalacionDatos.usuario,
+        def:ReservaInstalacionDatos.usuario,
+        content:(row)=>row.usuario?.nombre+' '+row.usuario?.apellido
+    },
+    {
+        label:ReservaInstalacionDatos.instalacion,
+        def:ReservaInstalacionDatos.instalacion,
+        content:(row)=>row.horario?.instalacion?.nombre
+    },
+    {
+        label:ReservaInstalacionDatos.dia,
+        def:ReservaInstalacionDatos.dia,
+        content:(row)=>row.horario?.dia
+    },
+    {
+        label:"Hora Inicio",
+        def:ReservaInstalacionDatos.hora_Inicio,
+        content:(row)=>row.horario?.hora_Inicio
+    },
+    {
+        label:"Hora Fin",
+        def:ReservaInstalacionDatos.hora_Fin,
+        content:(row)=>row.horario?.hora_Fin
+    },
+    {
+        label:ReservaInstalacionDatos.fecha,
+        def:ReservaInstalacionDatos.fecha,
+        content:(row)=>row.fecha
+    },
+    {
+        label:ReservaInstalacionDatos.disponibilidad,
+        def:ReservaInstalacionDatos.disponibilidad,
+        content:(row)=>row.disponibilidad
+    },
+]

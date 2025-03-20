@@ -1,5 +1,5 @@
 import { FormControl, FormGroup } from "@angular/forms";
-import { TableColumn } from "./Tabla_Columna";
+import { TablaColumna } from "./Tabla_Columna";
 
 export interface Usuario{
     id?:number;
@@ -10,7 +10,16 @@ export interface Usuario{
     telefono:number;
     estado:boolean
 }
-export const UsuarioTabla={
+export class UsuarioTabla{
+    id?=0;
+    cedula=0;
+    nombre="";
+    apellido="";
+    correo="";
+    telefono=0;
+    estado=false;
+}
+export const UsuarioDatos={
     id:"id",
     cedula:"cedula",
     nombre:"nombre",
@@ -19,40 +28,40 @@ export const UsuarioTabla={
     telefono:"telefono",
     estado:"estado"
 }as const;
-export const tablaUsuario:TableColumn<Usuario>[]=[
+export const tablaUsuario:TablaColumna<Usuario>[]=[
     {
-        label:"id",
-        def:"id",
+        label:UsuarioDatos.id.toUpperCase(),
+        def:UsuarioDatos.id,
         content:(row)=>row.id
     },
     {
-        label:"cedula",
-        def:"cedula",
+        label:UsuarioDatos.cedula,
+        def:UsuarioDatos.cedula,
         content:(row)=>row.cedula
     },
     {
-        label:"nombre",
-        def:"nombre",
+        label:UsuarioDatos.nombre,
+        def:UsuarioDatos.nombre,
         content:(row)=>row.nombre
     },
     {
-        label:"apellido",
-        def:"apellido",
+        label:UsuarioDatos.apellido,
+        def:UsuarioDatos.apellido,
         content:(row)=>row.apellido
     },
     {
-        label:"correo",
-        def:"correo",
+        label:UsuarioDatos.correo,
+        def:UsuarioDatos.correo,
         content:(row)=>row.correo
     },
     {
-        label:"telefono",
-        def:"telefono",
-        content:(row)=>row.cedula
+        label:UsuarioDatos.telefono,
+        def:UsuarioDatos.telefono,
+        content:(row)=>row.telefono
     },
     {
-        label:"estado",
-        def:"estado",
+        label:UsuarioDatos.estado,
+        def:UsuarioDatos.estado,
         content:(row)=>row.estado
     },
 ]

@@ -1,16 +1,14 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { Entidad, toStringEnum } from '../../../../core/models/Enums';
-import { Accion, Acciones, columnasEntidades } from '../../../../core/models/Tabla_Columna';
-import { Reserva_Instalacion } from '../../../../core/models/Reserva-Instalacion';
-import { ReservaInstalacionService } from '../../service/reserva-instalacion.service';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { NotificationService } from '../../../../core/services/notification/notification.service';
-import { DialogFormComponent } from '../../../../shared/dialog-form/dialog-form.component';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UsuarioService } from '../../../usuario/service/usuario.service';
-import { InstalacionService } from '../../../instalacion/service/instalacion.service';
-import { Usuario } from '../../../../core/models/Usuario';
-import { Instalacion } from '../../../../core/models/Instalacion';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
+import { InstalacionService } from '@contentinstalacion/service/instalacion.service';
+import { ReservaInstalacionService } from '@contentreserva-instalacion/service/reserva-instalacion.service';
+import { UsuarioService } from '@contentusuario/service/usuario.service';
+import { toStringEnum, Entidad } from '@core/models/Enums';
+import { Instalacion } from '@core/models/Instalacion';
+import { Reserva_Instalacion } from '@core/models/Reserva-Instalacion';
+import { Usuario } from '@core/models/Usuario';
+import { NotificationService } from '@core/services/notification/notification.service';
 
 @Component({
   selector: 'app-reserva-form',

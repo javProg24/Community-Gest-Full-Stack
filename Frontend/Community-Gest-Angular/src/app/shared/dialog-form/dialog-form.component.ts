@@ -13,10 +13,6 @@ import { ToastrService } from 'ngx-toastr';
   styleUrl: './dialog-form.component.css'
 })
 export class DialogFormComponent implements OnInit{
-  onCancel() {
-    this.toastr.warning("Operacion cancelada","Advertencia")
-    this.dialogRef.close("Cancelado")
-  }
   customInjector!:Injector;
   constructor(public dialogRef:MatDialogRef<DialogFormComponent>,
     private injector:Injector,
@@ -33,5 +29,9 @@ export class DialogFormComponent implements OnInit{
   }
   closeDialog(){
     this.dialogRef.close()
+  }
+  onCancel() {
+    this.toastr.warning("Operacion cancelada","Advertencia")
+    this.dialogRef.close("Cancelado")
   }
 }

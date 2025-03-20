@@ -18,3 +18,7 @@ export enum Entidad{
     Historial,//7
     Horario,//8
 }
+export enum Acciones{
+    Editar,
+    Eliminar
+}

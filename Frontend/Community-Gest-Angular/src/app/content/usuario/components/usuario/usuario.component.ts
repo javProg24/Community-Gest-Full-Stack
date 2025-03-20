@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { TableComponent } from "../../../../shared/table/table.component";
-import { UsuarioService } from '../../service/usuario.service';
-import { Accion, Acciones, columnasEntidades } from '../../../../core/models/Tabla_Columna';
-import { Usuario } from '../../../../core/models/Usuario';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from '../../../../shared/dialog/dialog.component';
+import { TablaReutilizableComponent } from '@shared/tabla-reutilizable/tabla-reutilizable.component';
+import { TableComponent } from '@shared/table/table.component';
+import { Acciones, Entidad, toStringEnum } from '@core/models/Enums';
+import { Accion, columnasDatos, columnasEntidades, TablaColumna } from '@core/models/Tabla_Columna';
+import { Usuario } from '@core/models/Usuario';
+import { UsuarioService } from '@contentusuario/service/usuario.service';
+import { NotificationService } from '@core/services/notification/notification.service';
+import { DialogFormComponent } from '@shared/dialog-form/dialog-form.component';
 import { UsuarioFormComponent } from '../usuario-form/usuario-form.component';
-import { DialogFormComponent } from '../../../../shared/dialog-form/dialog-form.component';
-import { NotificationService } from '../../../../core/services/notification/notification.service';
-import { Entidad, toStringEnum } from '../../../../core/models/Enums';
+import { DialogComponent } from '@shared/dialog/dialog.component';
 
 @Component({
   selector: 'app-usuario',
-  imports: [MatButtonModule, MatIconModule, TableComponent],
+  imports: [MatButtonModule, MatIconModule, TableComponent, TablaReutilizableComponent],
   templateUrl: './usuario.component.html',
   styleUrl: './usuario.component.css'
 })
@@ -22,13 +23,21 @@ export class UsuarioComponent implements OnInit{
   title=toStringEnum(Entidad.Usuario)
   columns:string[]=columnasEntidades(Entidad.Usuario)
   usuarios:Usuario[]=[]
-  constructor(private services:UsuarioService,private dialog:MatDialog,private notificacion:NotificationService){}
+  protected usuariosDatos:Usuario[]=[];
+  protected tablaColumnas:TablaColumna<Usuario>[]=columnasDatos(Entidad.Usuario);
+  constructor(private service:UsuarioService,private dialog:MatDialog,private notificacion:NotificationService){}
   ngOnInit(): void {
-    this.getUsuariosTabla()
+    this.getUsuariosTabla();
+    this.obtenerUsuariosTabla();
   }
   private getUsuariosTabla(){
-    this.services.getUsuarios().subscribe((data)=>{
+    this.service.getUsuarios().subscribe((data)=>{
       this.usuarios=data
+    })
+  }
+  private obtenerUsuariosTabla(){
+    this.service.getUsuarios().subscribe((data)=>{
+      this.usuariosDatos=data;
     })
   }
   protected onAction(accion:Accion){
@@ -55,7 +64,7 @@ export class UsuarioComponent implements OnInit{
     })
     dialogRef.afterClosed().subscribe({
       next:()=>{
-        this.services.desactiveUsuario(id).subscribe(()=>{
+        this.service.desactiveUsuario(id).subscribe(()=>{
           this.notificacion.showEliminar(`La ${this.title}? fue eliminada`)
           this.getUsuariosTabla();
         })

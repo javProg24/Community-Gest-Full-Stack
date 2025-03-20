@@ -8,8 +8,15 @@
 <div class="table-section">
     <app-table
     [Titulo]="title+'s de Instalaciones'"
-    [Columnas]="columns"
+    [Columnas]="columnas"
     [Datos]="reservas"
     (accion)="onAction($event)">
     </app-table>
+</div>
+<div class="table-section">
+    <tabla-reutilizable
+    [Titulo]="title+'s de Instalaciones'"
+    [data]="reservasDatos"
+    [columns]="tablaColumnas"
+    (action)="onAction($event)"/>
 </div>

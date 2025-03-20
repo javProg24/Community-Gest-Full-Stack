@@ -1,17 +1,17 @@
-import { Component, inject, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatCardModule } from '@angular/material/card';
-import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
-import { GenericFormComponent } from "../../../../shared/generic-form/generic-form.component";
-import { MatButton, MatButtonModule } from '@angular/material/button';
-import { MatDialogRef } from '@angular/material/dialog';
-import { Usuario, UsuarioForm } from '../../../../core/models/Usuario';
-import { MatInputModule } from '@angular/material/input';
-import { ToastrService } from 'ngx-toastr';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import { UsuarioService } from '../../service/usuario.service';
-import { NotificationService } from '../../../../core/services/notification/notification.service';
-import { Entidad, toStringEnum } from '../../../../core/models/Enums';
+import { Component, OnInit, inject, Inject } from "@angular/core";
+import { ReactiveFormsModule, FormGroup, NonNullableFormBuilder, FormBuilder, Validators } from "@angular/forms";
+import { MatButtonModule, MatButton } from "@angular/material/button";
+import { MatCardModule } from "@angular/material/card";
+import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatDialogRef } from "@angular/material/dialog";
+import { MatFormField, MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { UsuarioService } from "@contentusuario/service/usuario.service";
+import { toStringEnum, Entidad } from "@core/models/Enums";
+import { Usuario, UsuarioForm } from "@core/models/Usuario";
+import { NotificationService } from "@core/services/notification/notification.service";
+import { GenericFormComponent } from "@shared/generic-form/generic-form.component";
+
 
 @Component({
   selector: 'app-usuario-form',

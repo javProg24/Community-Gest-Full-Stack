@@ -1,3 +1,5 @@
+import { TablaColumna } from "./Tabla_Columna";
+
 export interface Herramienta{
     id?:number;
     nombre:string;
@@ -6,7 +8,15 @@ export interface Herramienta{
     cantidad:number;
     estado:boolean
 }
-export const HerramientaTabla={
+export class HerramientaTabla{
+    id?=0;
+    nombre="";
+    ubicacion="";
+    descripcion="";
+    cantidad=0;
+    estado=false;
+}
+export const HerramientaDatos={
     id:"id",
     nombre:"nombre",
     ubicacion:"ubicacion",
@@ -14,3 +24,35 @@ export const HerramientaTabla={
     cantidad:"cantidad",
     estado:"estado"
 }as const;
+export const tablaHerramienta:TablaColumna<Herramienta>[]=[
+    {
+        label:HerramientaDatos.id.toUpperCase(),
+        def:HerramientaDatos.id,
+        content:(row)=>row.id 
+    },
+    {
+        label:HerramientaDatos.nombre,
+        def:HerramientaDatos.nombre,
+        content:(row)=>row.nombre 
+    },
+    {
+        label:HerramientaDatos.ubicacion,
+        def:HerramientaDatos.ubicacion,
+        content:(row)=>row.ubicacion 
+    },
+    {
+        label:"Descripcion",
+        def:"descripcion",
+        content:(row)=>row.descripcion 
+    },
+    {
+        label:"Cantidad",
+        def:"cantidad",
+        content:(row)=>row.cantidad 
+    },
+    {
+        label:"Estado",
+        def:"estado",
+        content:(row)=>row.estado 
+    },
+]

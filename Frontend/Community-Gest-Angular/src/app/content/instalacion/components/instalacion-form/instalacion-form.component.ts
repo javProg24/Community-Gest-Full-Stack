@@ -1,18 +1,19 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
-import { Instalacion } from '../../../../core/models/Instalacion';
-import { InstalacionService } from '../../service/instalacion.service';
-import { MatCardModule } from '@angular/material/card';
+import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
+import { MatOptionModule, MatNativeDateModule } from '@angular/material/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { MatLabel, MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import {MatTimepickerModule} from '@angular/material/timepicker';
-import { NotificationService } from '../../../../core/services/notification/notification.service';
-import { Entidad, toStringEnum } from '../../../../core/models/Enums';
+import { MatTimepickerModule } from '@angular/material/timepicker';
+import { InstalacionService } from '@contentinstalacion/service/instalacion.service';
+import { toStringEnum, Entidad } from '@core/models/Enums';
+import { Instalacion } from '@core/models/Instalacion';
+import { NotificationService } from '@core/services/notification/notification.service';
+
 @Component({
   selector: 'app-instalacion-form',
   imports: [MatCardModule, MatLabel, ReactiveFormsModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatTimepickerModule, MatCheckboxModule, MatOptionModule, MatSelectModule, MatNativeDateModule],

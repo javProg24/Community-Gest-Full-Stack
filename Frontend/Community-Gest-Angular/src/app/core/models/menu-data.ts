@@ -23,7 +23,7 @@ export const componentes =[
     {
         Title:toStringEnum(Entidad.Herramienta)+'s',
         icon:"construction",
-        RouterLink:`${toStringEnum(Entidad.Herramienta)}`,
+        RouterLink:`/${toStringEnum(Entidad.Herramienta)}`,
     },
     {
         Title:toStringEnum(Entidad.Reserva)+'s',

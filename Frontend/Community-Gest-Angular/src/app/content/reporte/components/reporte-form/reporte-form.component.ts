@@ -1,16 +1,16 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatRadioButton, MatRadioModule } from '@angular/material/radio';
-import { Entidad, toStringEnum } from '../../../../core/models/Enums';
-import { MatDialogRef } from '@angular/material/dialog';
-import { Reporte } from '../../../../core/models/Reporte';
-import { ReporteService } from '../../service/reporte.service';
-import { NotificationService } from '../../../../core/services/notification/notification.service';
-import { MatButtonModule } from '@angular/material/button';
-import { NgFor } from '@angular/common';
+import { NgFor } from "@angular/common";
+import { Component, Inject, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
+import { MatButtonModule } from "@angular/material/button";
+import { MatCardModule } from "@angular/material/card";
+import { MatDialogRef } from "@angular/material/dialog";
+import { MatFormFieldModule, MatLabel } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import {MatRadioButton, MatRadioModule} from '@angular/material/radio';
+import { ReporteService } from "@contentreporte/service/reporte.service";
+import { toStringEnum, Entidad } from "@core/models/Enums";
+import { Reporte } from "@core/models/Reporte";
+import { NotificationService } from "@core/services/notification/notification.service";
 
 @Component({
   selector: 'app-reporte-form',

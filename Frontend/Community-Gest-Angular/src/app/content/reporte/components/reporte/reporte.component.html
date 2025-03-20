@@ -1,5 +1,5 @@
 <div class="buttons">
-    <h1><strong>Modulo de {{title}}</strong></h1>
+    <h1><strong>Modulo de {{titulo}}</strong></h1>
     <button mat-flat-button color="acceent" (click)="agregarReporte()">
         <mat-icon>add</mat-icon>
         Nuevo
@@ -7,9 +7,17 @@
 </div>
 <div class="table-section">
     <app-table 
-    [Titulo]="title+'s'"
-    [Columnas]="columns"
+    [Titulo]="titulo+'s'"
+    [Columnas]="columnas"
     [Datos]="reportes"
     (accion)="onAction($event)">
     </app-table>
+</div>
+<div class="table-section">
+    <tabla-reutilizable
+    [Titulo]="titulo+'s'"
+    [data]="reportesDatos"
+    [columns]="tablaColumnas"
+    (action)="onAction($event)"
+    />
 </div>

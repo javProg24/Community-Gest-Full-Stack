@@ -1,21 +1,22 @@
 import { NgFor } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatOptionModule, MatNativeDateModule } from '@angular/material/core';
-import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatDialogRef } from '@angular/material/dialog';
+import { MatLabel, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTimepickerModule } from '@angular/material/timepicker';
-import { Entidad, toStringEnum } from '../../../../core/models/Enums';
-import { MatDialogRef } from '@angular/material/dialog';
-import { days, Horario } from '../../../../core/models/Horario';
-import { NotificationService } from '../../../../core/services/notification/notification.service';
-import { HorarioService } from '../../service/horario.service';
-import { InstalacionService } from '../../../instalacion/service/instalacion.service';
-import { Instalacion } from '../../../../core/models/Instalacion';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import { HorarioService } from '@contenthorario/service/horario.service';
+import { InstalacionService } from '@contentinstalacion/service/instalacion.service';
+import { toStringEnum, Entidad } from '@core/models/Enums';
+import { Horario } from '@core/models/Horario';
+import { Instalacion } from '@core/models/Instalacion';
+import { NotificationService } from '@core/services/notification/notification.service';
+
 
 @Component({
   selector: 'app-horario-form',
@@ -26,7 +27,15 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 export class HorarioFormComponent implements OnInit{
   protected titulo=toStringEnum(Entidad.Horario);
   protected isEdit=false;
-  protected dias=days;
+  protected dias=[
+    {value:'Lunes',label:'Lunes'},
+    {value:'Martes',label:'Martes'},
+    {value:'Miercoles',label:'Miercoles'},
+    {value:'Jueves',label:'Jueves'},
+    {value:'Viernes',label:'Viernes'},
+    {value:'Sabado',label:'Sabado'},
+    {value:'Domingo',label:'Domingo'}
+];
   protected instalaciones!:Instalacion[];
   currentID?:number;
   form!:FormGroup;

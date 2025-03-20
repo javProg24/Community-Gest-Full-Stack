@@ -1,26 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { Entidad, toStringEnum } from '../../../../core/models/Enums';
-import { Accion, columnasEntidades } from '../../../../core/models/Tabla_Columna';
-import { Reserva_Herramienta } from '../../../../core/models/Reserva-Herramienta';
-import { ReservaHerramientaService } from '../../service/reserva-herramienta.service';
-import { MatDialog } from '@angular/material/dialog';
-import { NotificationService } from '../../../../core/services/notification/notification.service';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { TableComponent } from '../../../../shared/table/table.component';
-import { DialogComponent } from '../../../../shared/dialog/dialog.component';
-import { DialogFormComponent } from '../../../../shared/dialog-form/dialog-form.component';
+import { ReservaHerramientaService } from '@contentreserva-herramienta/service/reserva-herramienta.service';
+import { toStringEnum, Entidad, Acciones } from '@core/models/Enums';
+import { Reserva_Herramienta } from '@core/models/Reserva-Herramienta';
+import { columnasEntidades, Accion, TablaColumna, columnasDatos } from '@core/models/Tabla_Columna';
+import { NotificationService } from '@core/services/notification/notification.service';
+import { DialogFormComponent } from '@shared/dialog-form/dialog-form.component';
+import { DialogComponent } from '@shared/dialog/dialog.component';
+import { TableComponent } from '@shared/table/table.component';
 import { ReservaFormComponent } from '../reserva-form/reserva-form.component';
+import { TablaReutilizableComponent } from '@shared/tabla-reutilizable/tabla-reutilizable.component';
 
 @Component({
   selector: 'app-reserva-herramienta',
-  imports: [MatButtonModule, MatIconModule, TableComponent],
+  imports: [MatButtonModule, MatIconModule, TableComponent, TablaReutilizableComponent],
   templateUrl: './reserva-herramienta.component.html',
   styleUrl: './reserva-herramienta.component.css'
 })
 export class ReservaHerramientaComponent implements OnInit {
   title=toStringEnum(Entidad.Reserva)
-  columns:string[]=columnasEntidades(Entidad.Reserva_Herramienta)
+  columnas:string[]=columnasEntidades(Entidad.Reserva_Herramienta)
+  protected reservasDatos:Reserva_Herramienta[]=[]
+  protected tablaColumnas:TablaColumna<Reserva_Herramienta>[]=columnasDatos(Entidad.Reserva_Herramienta)
   reservas:Reserva_Herramienta[]=[]
   constructor(private services:ReservaHerramientaService,private dialog:MatDialog,private notificacion:NotificationService) { }
 
@@ -32,8 +35,8 @@ export class ReservaHerramientaComponent implements OnInit {
     })
   }
   onAction(accion:Accion){
-    accion.accion=='Editar'?this.actualizarReserva(accion.fila):
-    accion.accion=='Eliminar'?this.eliminarReserva(accion.fila.id):console.warn('Accion no reconocida',accion.accion)
+    accion.accion==Acciones.Editar?this.actualizarReserva(accion.fila):
+    accion.accion==Acciones.Eliminar?this.eliminarReserva(accion.fila.id):console.warn('Accion no reconocida',accion.accion)
   }
   private actualizarReserva(reserva:Reserva_Herramienta){
     const dialogRef=this.dialog.open(DialogFormComponent,{

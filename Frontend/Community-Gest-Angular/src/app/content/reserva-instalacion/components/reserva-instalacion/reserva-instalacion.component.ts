@@ -1,34 +1,43 @@
 import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { TableComponent } from '../../../../shared/table/table.component';
-import { Entidad, toStringEnum } from '../../../../core/models/Enums';
-import { Accion, Acciones, columnasEntidades } from '../../../../core/models/Tabla_Columna';
-import { Reserva_Instalacion } from '../../../../core/models/Reserva-Instalacion';
-import { ReservaInstalacionService } from '../../service/reserva-instalacion.service';
 import { MatDialog } from '@angular/material/dialog';
-import { NotificationService } from '../../../../core/services/notification/notification.service';
-import { DialogFormComponent } from '../../../../shared/dialog-form/dialog-form.component';
-import { DialogComponent } from '../../../../shared/dialog/dialog.component';
+import { MatIconModule } from '@angular/material/icon';
+import { ReservaInstalacionService } from '@contentreserva-instalacion/service/reserva-instalacion.service';
+import { toStringEnum, Entidad, Acciones } from '@core/models/Enums';
+import { Reserva_Instalacion } from '@core/models/Reserva-Instalacion';
+import { columnasEntidades, Accion, columnasDatos, TablaColumna } from '@core/models/Tabla_Columna';
+import { NotificationService } from '@core/services/notification/notification.service';
+import { DialogFormComponent } from '@shared/dialog-form/dialog-form.component';
+import { DialogComponent } from '@shared/dialog/dialog.component';
+import { TableComponent } from '@shared/table/table.component';
 import { ReservaFormComponent } from '../reserva-form/reserva-form.component';
+import { TablaReutilizableComponent } from '@shared/tabla-reutilizable/tabla-reutilizable.component';
 
 @Component({
   selector: 'app-reserva-instalacion',
-  imports: [MatButtonModule,MatIconModule,TableComponent],
+  imports: [MatButtonModule, MatIconModule, TableComponent, TablaReutilizableComponent],
   templateUrl: './reserva-instalacion.component.html',
   styleUrl: './reserva-instalacion.component.css'
 })
 export class ReservaInstalacionComponent implements OnInit {
   title=toStringEnum(Entidad.Reserva)
-  columns:string[]=columnasEntidades(Entidad.Reserva_Instalacion)
+  columnas:string[]=columnasEntidades(Entidad.Reserva_Instalacion)
+  protected tablaColumnas:TablaColumna<Reserva_Instalacion>[]=columnasDatos(Entidad.Reserva_Instalacion)
+  protected reservasDatos:Reserva_Instalacion[]=[];
   reservas:Reserva_Instalacion[]=[]
   constructor(private service:ReservaInstalacionService,private dialog:MatDialog,private notificacion:NotificationService) { }
   ngOnInit(): void {
     this.getReservasTabla()
+    this.obtenerReservasTablas();
   }
   private getReservasTabla(){
     this.service.getReservas().subscribe((data)=>{
       this.reservas=data
+    })
+  }
+  private obtenerReservasTablas(){
+    this.service.getReservas().subscribe((data)=>{
+      this.reservasDatos=data
     })
   }
   protected onAction(accion:Accion){

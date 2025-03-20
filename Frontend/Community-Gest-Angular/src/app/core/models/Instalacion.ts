@@ -1,4 +1,4 @@
-import { TableColumn } from "./Tabla_Columna";
+import { TablaColumna } from "./Tabla_Columna";
 
 export interface Instalacion{
     id?:number,
@@ -8,7 +8,7 @@ export interface Instalacion{
     descripcion:string,
     estado:boolean
 }  
-export const InstalacionTabla={
+export const InstalacionDatos={
     id:"id",
     nombre:"nombre",
     tipo:"tipo",
@@ -17,35 +17,35 @@ export const InstalacionTabla={
     estado:"estado"
 }as const;
 
-export const tablaInstalacion:TableColumn<Instalacion>[]=[
+export const tablaInstalacion:TablaColumna<Instalacion>[]=[
     {
-        label:"ID",
-        def:"id",
+        label:InstalacionDatos.id.toUpperCase(),
+        def:InstalacionDatos.id,
         content:(row)=>row.id
     },
     {
-        label:"Nombre",
-        def:"nombre",
+        label:InstalacionDatos.nombre,
+        def:InstalacionDatos.nombre,
         content:(row)=>row.nombre
     },
     {
-        label:"Tipo",
-        def:"tipo",
+        label:InstalacionDatos.tipo,
+        def:InstalacionDatos.tipo,
         content:(row)=>row.tipo
     },
     {
-        label:"Capacidad",
-        def:"capacidad",
+        label:InstalacionDatos.capacidad,
+        def:InstalacionDatos.capacidad,
         content:(row)=>row.capacidad
     },
     {
-        label:"Descripcion",
-        def:"descripcion",
+        label:InstalacionDatos.descripcion,
+        def:InstalacionDatos.descripcion,
         content:(row)=>row.descripcion
     },
     {
-        label:"Estado",
-        def:"estado",
+        label:InstalacionDatos.estado,
+        def:InstalacionDatos.estado,
         content:(row)=>row.estado
     }
 ]

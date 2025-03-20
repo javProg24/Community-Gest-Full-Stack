@@ -13,3 +13,10 @@
     (accion)="onAction($event)">
     </app-table>
 </div>
+<div class="table-section">
+    <tabla-reutilizable
+    [Titulo]="title+'s'"
+    [data]="usuariosDatos"
+    [columns]="tablaColumnas"
+    (action)="onAction($event)"/>
+</div>

@@ -1,32 +1,28 @@
-import { Entidad } from "./Enums";
-import { HerramientaTabla } from "./Herramienta";
-import { HorarioTabla } from "./Horario";
-import { InstalacionTabla, tablaInstalacion } from "./Instalacion";
-import { ReporteTabla } from "./Reporte";
-import { Reserva_Herramienta_Response } from "./Reserva-Herramienta";
-import { Reserva_Instalacion_Response } from "./Reserva-Instalacion";
-import { tablaUsuario, UsuarioTabla } from "./Usuario";
-export interface TableColumn<T>{
+import { Acciones, Entidad } from "./Enums";
+import { HerramientaDatos, tablaHerramienta } from "./Herramienta";
+import { HorarioDatos, tablaHorario } from "./Horario";
+import { InstalacionDatos, tablaInstalacion } from "./Instalacion";
+import { ReporteDatos, tablaReporte } from "./Reporte";
+import { ReservaHerramientaDatos, tablaReservaHerramienta } from "./Reserva-Herramienta";
+import { ReservaInstalacionDatos, tablaReservaInstalacion } from "./Reserva-Instalacion";
+import { tablaUsuario, UsuarioDatos } from "./Usuario";
+export interface TablaColumna<T>{
     label:string,
     def:string,
     content:(row:T)=>string|number|boolean|undefined
   }
 export interface Accion<T=any>{
-    accion:string;
-    fila?:T;
-}
-export const Acciones={
-    Editar:"Editar",
-    Eliminar:"Eliminar"
+    accion:Acciones;
+    fila:T;
 }
 const listaCamposEntidades:{[key in Entidad]?:unknown}={
-    [Entidad.Usuario]:UsuarioTabla,
-    [Entidad.Instalacion]:InstalacionTabla,
-    [Entidad.Horario]:HorarioTabla,
-    [Entidad.Herramienta]:HerramientaTabla,
-    [Entidad.Reporte]:ReporteTabla,
-    [Entidad.Reserva_Herramienta]:Reserva_Herramienta_Response,
-    [Entidad.Reserva_Instalacion]:Reserva_Instalacion_Response,
+    [Entidad.Usuario]:UsuarioDatos,
+    [Entidad.Instalacion]:InstalacionDatos,
+    [Entidad.Horario]:HorarioDatos,
+    [Entidad.Herramienta]:HerramientaDatos,
+    [Entidad.Reporte]:ReporteDatos,
+    [Entidad.Reserva_Herramienta]:ReservaHerramientaDatos,
+    [Entidad.Reserva_Instalacion]:ReservaInstalacionDatos,
 }
 export const columnasEntidades=(entidad:Entidad):Array<string>=>{
     const campoColumnas=listaCamposEntidades[entidad];
@@ -37,8 +33,13 @@ export const columnasEntidades=(entidad:Entidad):Array<string>=>{
 const listaDatosEntidades:{[key in Entidad]?:unknown}={
     [Entidad.Instalacion]:tablaInstalacion,
     [Entidad.Usuario]:tablaUsuario,
+    [Entidad.Horario]:tablaHorario,
+    [Entidad.Herramienta]:tablaHerramienta,
+    [Entidad.Reporte]:tablaReporte,
+    [Entidad.Reserva_Instalacion]:tablaReservaInstalacion,
+    [Entidad.Reserva_Herramienta]:tablaReservaHerramienta,
 }
-export const columnasDatos=<T>(entidad:Entidad):TableColumn<T>[]=>{
+export const columnasDatos=<T>(entidad:Entidad):TablaColumna<T>[]=>{
     const datosColumnas=listaDatosEntidades[entidad]
     if(!datosColumnas)return[]
     console.log('efed',datosColumnas);

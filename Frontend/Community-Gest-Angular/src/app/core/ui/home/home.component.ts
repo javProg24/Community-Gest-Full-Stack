@@ -4,7 +4,7 @@ import { NgFor } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { componentes } from '../../models/menu-data';
+import { componentes } from '@core/models/menu-data';
 
 @Component({
   standalone: true,

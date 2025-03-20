@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Entidad, toStringEnum } from '../../../core/models/Enums';
-import { GeneralService } from '../../../core/services/general-service/servicio-general.service';
-import { Horario } from '../../../core/models/Horario';
+import { Entidad, toStringEnum } from '@core/models/Enums';
+import { Horario } from '@core/models/Horario';
+import { GeneralService } from '@core/services/general-service/servicio-general.service';
 import { Observable } from 'rxjs';
 
 @Injectable({
