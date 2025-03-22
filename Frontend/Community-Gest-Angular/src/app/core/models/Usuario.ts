@@ -37,7 +37,7 @@ export const tablaUsuario:TablaColumna<Usuario>[]=[
     {
         label:UsuarioDatos.cedula,
         def:UsuarioDatos.cedula,
-        content:(row)=>row.cedula
+        content:(row)=>'0'+row.cedula
     },
     {
         label:UsuarioDatos.nombre,
@@ -62,7 +62,7 @@ export const tablaUsuario:TablaColumna<Usuario>[]=[
     {
         label:UsuarioDatos.estado,
         def:UsuarioDatos.estado,
-        content:(row)=>row.estado
+        content:(row)=>row.estado?'Activo':'Inactivo'
     },
 ]
 

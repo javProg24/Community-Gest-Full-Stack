@@ -5,21 +5,14 @@
     font-size: 20px;
 }
 .action-buttons {
-    margin-top: 21px;
-    margin-bottom: 21px;
-     /* Activa flexbox para la celda */
-    align-items: center; /* Alinea verticalmente los elementos */
-    justify-content: center; /* Alinea los botones al inicio (izquierda) */
+    text-align: center;
+    justify-content: center;
     gap: 20px; /* Espaciado horizontal entre los botones */
 }
 .action-buttons button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 20px;
     border: none;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 20px;
     transition: all 0.3s ease;
     cursor: pointer;
     background-color: transparent; /* Fondo transparente por defecto */
@@ -31,6 +24,20 @@
     background-color: transparent; /* Mantiene el fondo transparente por defecto */
 }
 
+.action-buttons button.edit-button mat-icon { 
+    margin: 0;
+    font-size: 20px;
+    text-align: center;
+    align-items: center;
+    color: #0056b3;
+}
+.action-buttons button.delete-button mat-icon {
+    margin: 0;
+    font-size: 20px;
+    text-align: center;
+    align-items: center;
+    color: #ff0000;
+}
 .action-buttons button:active {
     transform: translateY(0); /* Restaura la posición al hacer clic */
 }
@@ -51,4 +58,12 @@
 }
 th{
     font-weight: bold;
+}
+.acciones{
+    text-align: center;
+    justify-content: center;
+}
+.nodata{
+    text-align: center;
+    justify-content: center;
 }

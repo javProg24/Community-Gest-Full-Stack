@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DED5D0A2-8EEA-4667-8F53-7426FF203271}|API-Community\\API-Community.csproj|c:\\users\\ultra gaming\\documents\\full-stack\\community-gest\\backend\\solbackend-comunity-gest\\api-community\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DED5D0A2-8EEA-4667-8F53-7426FF203271}|API-Community\\API-Community.csproj|solutionrelative:api-community\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|c:\\users\\ultra gaming\\documents\\full-stack\\community-gest\\backend\\solbackend-comunity-gest\\data\\models\\instalacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5428034D-6B77-4EDA-98AF-A421A8BA9389}|Data\\Data.csproj|solutionrelative:data\\models\\instalacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -35,6 +39,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "UsuarioController.cs",
+              "DocumentMoniker": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\API-Community\\Controllers\\UsuarioController.cs",
+              "RelativeDocumentMoniker": "API-Community\\Controllers\\UsuarioController.cs",
+              "ToolTip": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\API-Community\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "API-Community\\Controllers\\UsuarioController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T00:19:00.992Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Instalacion.cs",
               "DocumentMoniker": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Models\\Instalacion.cs",
               "RelativeDocumentMoniker": "Data\\Models\\Instalacion.cs",
@@ -42,12 +59,11 @@
               "RelativeToolTip": "Data\\Models\\Instalacion.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T01:35:45.788Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-18T01:35:45.788Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Instalacion_Horario.cs",
               "DocumentMoniker": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Models\\Entidades_Relacionadas\\Instalacion_Horario.cs",
               "RelativeDocumentMoniker": "Data\\Models\\Entidades_Relacionadas\\Instalacion_Horario.cs",
@@ -55,12 +71,11 @@
               "RelativeToolTip": "Data\\Models\\Entidades_Relacionadas\\Instalacion_Horario.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAAAAgAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T20:15:48.628Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-13T20:15:48.628Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Horario.cs",
               "DocumentMoniker": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Models\\Horario.cs",
               "RelativeDocumentMoniker": "Data\\Models\\Horario.cs",
@@ -72,7 +87,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "InstalacionController.cs",
               "DocumentMoniker": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\API-Community\\Controllers\\InstalacionController.cs",
               "RelativeDocumentMoniker": "API-Community\\Controllers\\InstalacionController.cs",
@@ -84,7 +99,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "HorarioController.cs",
               "DocumentMoniker": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\API-Community\\Controllers\\HorarioController.cs",
               "RelativeDocumentMoniker": "API-Community\\Controllers\\HorarioController.cs",

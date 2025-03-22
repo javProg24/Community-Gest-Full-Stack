@@ -11,7 +11,6 @@ import { UsuarioComponent } from '@content/usuario/components/usuario/usuario.co
 import { toStringEnum, Entidad } from '@core/models/Enums';
 import { HomeComponent } from '@core/ui/home/home.component';
 
-
 export const routes: Routes = [
     {
         path:'',

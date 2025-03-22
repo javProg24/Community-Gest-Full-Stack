@@ -12,6 +12,7 @@ import { DialogFormComponent } from '@shared/dialog-form/dialog-form.component';
 import { UsuarioFormComponent } from '../usuario-form/usuario-form.component';
 import { DialogComponent } from '@shared/dialog/dialog.component';
 import { UsuarioService } from '@content/usuario/service/usuario.service';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-usuario',
@@ -20,6 +21,7 @@ import { UsuarioService } from '@content/usuario/service/usuario.service';
   styleUrl: './usuario.component.css'
 })
 export class UsuarioComponent implements OnInit{
+  isLoading=true;
   title=toStringEnum(Entidad.Usuario)
   columns:string[]=columnasEntidades(Entidad.Usuario)
   usuarios:Usuario[]=[]
@@ -28,16 +30,23 @@ export class UsuarioComponent implements OnInit{
   constructor(private service:UsuarioService,private dialog:MatDialog,private notificacion:NotificationService){}
   ngOnInit(): void {
     this.getUsuariosTabla();
-    this.obtenerUsuariosTabla();
+    this.cargandoTablaUsuarios();
   }
   private getUsuariosTabla(){
     this.service.getUsuarios().subscribe((data)=>{
       this.usuarios=data
     })
   }
-  private obtenerUsuariosTabla(){
+  private cargandoTablaUsuarios(){
+    timer(1000).subscribe(()=>{
+      this.isLoading=false;
+      this.obtenerTablaUsuarios()
+    })
+  }
+  private obtenerTablaUsuarios(){
     this.service.getUsuarios().subscribe((data)=>{
-      this.usuariosDatos=data;
+        this.usuariosDatos=data;
+        console.log('Usuarios',this.usuariosDatos)
     })
   }
   protected onAction(accion:Accion){
@@ -53,7 +62,8 @@ export class UsuarioComponent implements OnInit{
       width: '600px',
     })
     dialogRef.afterClosed().subscribe(()=>{
-      this.getUsuariosTabla()
+      // this.getUsuariosTabla()
+      this.cargandoTablaUsuarios();
     })
   }
   private eliminarUsuario(id:number){
@@ -66,7 +76,8 @@ export class UsuarioComponent implements OnInit{
       next:()=>{
         this.service.desactiveUsuario(id).subscribe(()=>{
           this.notificacion.showEliminar(`La ${this.title}? fue eliminada`)
-          this.getUsuariosTabla();
+          // this.getUsuariosTabla();
+          this.cargandoTablaUsuarios();
         })
       },
       error:(err)=>{
@@ -83,7 +94,8 @@ export class UsuarioComponent implements OnInit{
       width: '600px',
     })
     dialogRef.afterClosed().subscribe(()=>{
-      this.getUsuariosTabla();
+      // this.getUsuariosTabla();
+      this.cargandoTablaUsuarios();
     });
   }
 }
