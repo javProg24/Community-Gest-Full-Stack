@@ -16,37 +16,36 @@ import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-usuario',
-  imports: [MatButtonModule, MatIconModule, TableComponent, TablaReutilizableComponent],
+  imports: [MatButtonModule, MatIconModule, TablaReutilizableComponent],
   templateUrl: './usuario.component.html',
   styleUrl: './usuario.component.css'
 })
 export class UsuarioComponent implements OnInit{
-  isLoading=true;
-  title=toStringEnum(Entidad.Usuario)
-  columns:string[]=columnasEntidades(Entidad.Usuario)
-  usuarios:Usuario[]=[]
+  protected isVisibleEditar:boolean=true;
+  protected isVisibleEliminar:boolean=true;
+  protected isLoading:boolean=true;
+  protected title=toStringEnum(Entidad.Usuario)
   protected usuariosDatos:Usuario[]=[];
-  protected tablaColumnas:TablaColumna<Usuario>[]=columnasDatos(Entidad.Usuario);
+  protected tablaColumnas:TablaColumna<Usuario>[]=[];
   constructor(private service:UsuarioService,private dialog:MatDialog,private notificacion:NotificationService){}
   ngOnInit(): void {
-    this.getUsuariosTabla();
     this.cargandoTablaUsuarios();
   }
-  private getUsuariosTabla(){
+  /*/private getUsuariosTabla(){
     this.service.getUsuarios().subscribe((data)=>{
       this.usuarios=data
     })
-  }
+  }*/
   private cargandoTablaUsuarios(){
+    this.tablaColumnas=columnasDatos(Entidad.Usuario)
     timer(1000).subscribe(()=>{
-      this.isLoading=false;
-      this.obtenerTablaUsuarios()
+      this.isLoading=false
+      this.obtenerUsuarios()
     })
   }
-  private obtenerTablaUsuarios(){
+  private obtenerUsuarios(){
     this.service.getUsuarios().subscribe((data)=>{
-        this.usuariosDatos=data;
-        console.log('Usuarios',this.usuariosDatos)
+      this.usuariosDatos=data
     })
   }
   protected onAction(accion:Accion){

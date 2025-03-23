@@ -46,6 +46,6 @@ export const tablaInstalacion:TablaColumna<Instalacion>[]=[
     {
         label:InstalacionDatos.estado,
         def:InstalacionDatos.estado,
-        content:(row)=>row.estado
+        content:(row)=>row.estado?"Disponible":"Fuera de Servicio"
     }
 ]

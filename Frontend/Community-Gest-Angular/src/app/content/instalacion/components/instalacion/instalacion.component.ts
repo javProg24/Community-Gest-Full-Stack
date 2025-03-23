@@ -12,32 +12,40 @@ import { TablaReutilizableComponent } from '@shared/tabla-reutilizable/tabla-reu
 import { TableComponent } from '@shared/table/table.component';
 import { InstalacionFormComponent } from '../instalacion-form/instalacion-form.component';
 import { InstalacionService } from '@content/instalacion/service/instalacion.service';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-instalacion',
-  imports: [MatIconModule, MatButtonModule, TableComponent, TablaReutilizableComponent],
+  imports: [MatIconModule, MatButtonModule, TablaReutilizableComponent],
   templateUrl: './instalacion.component.html',
   styleUrl: './instalacion.component.css'
 })
 export class InstalacionComponent implements OnInit {
+  protected isVisibleEditar=true;
+  protected isVisibleEliminar=true;
+  protected isLoading=true;
   protected title = toStringEnum(Entidad.Instalacion);
-  protected columns: string[] = columnasEntidades(Entidad.Instalacion);
-  protected instalaciones: Instalacion[] = [];
-  protected instalacionesDatos:Instalacion[]=[]
-  protected tablaColumnas:TablaColumna<Instalacion>[]=columnasDatos(Entidad.Instalacion);
+  protected instalacionesDatos:Instalacion[]=[];
+  protected tablaColumnas:TablaColumna<Instalacion>[]=[];
   constructor(private service: InstalacionService,private dialog:MatDialog,private notificacion:NotificationService) {}
   ngOnInit() {
-    this.getInstalacionesTabla();
-    this.obtenerInstalacionesTablas();
+    this.cargarInstalacionesTabla();
   }
-  private getInstalacionesTabla(){
+  /*private getInstalacionesTabla(){
     this.service.getsInstalacion().subscribe((data)=>{
       this.instalaciones=data
     })
+  }*/
+  private cargarInstalacionesTabla(){
+    this.tablaColumnas=columnasDatos(Entidad.Instalacion)
+    timer(1000).subscribe(()=>{
+      this.isLoading=false
+      this.obtenerInstalaciones()
+    })
   }
-  private obtenerInstalacionesTablas(){
+  obtenerInstalaciones(){
     this.service.getsInstalacion().subscribe((data)=>{
-      this.instalacionesDatos=data;
+      this.instalacionesDatos=data
     })
   }
   protected onAction(accion: Accion){
@@ -54,7 +62,7 @@ export class InstalacionComponent implements OnInit {
       width: '600px',
     })
     dialogRef.afterClosed().subscribe(()=>{
-      this.getInstalacionesTabla()
+      this.cargarInstalacionesTabla()
     })
   }
   //este recibe un dato
@@ -69,7 +77,7 @@ export class InstalacionComponent implements OnInit {
       next:()=>{
         this.service.desactiveInstalacion(id).subscribe(()=>{
           this.notificacion.showEliminar(`La ${this.title}? fue deshabilitada`)
-          this.getInstalacionesTabla();
+          this.cargarInstalacionesTabla();
         })
       },
       error:(err)=>{
@@ -86,7 +94,7 @@ export class InstalacionComponent implements OnInit {
       width: '600px',
     })
     dialogRef.afterClosed().subscribe(()=>{
-      this.getInstalacionesTabla()
+      this.cargarInstalacionesTabla()
     })
   }
 }

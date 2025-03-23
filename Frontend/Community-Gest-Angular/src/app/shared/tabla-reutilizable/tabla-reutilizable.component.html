@@ -2,7 +2,7 @@
     <strong>Registros de {{title}}</strong>
 </h1>
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table style="border-radius: 58px; " mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <table  mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         @for (col of columns(); track $index) {
             <ng-container matColumnDef="{{col.def}}">
                 <th style="background-color: rgb(87,238,163)" 
@@ -18,11 +18,11 @@
             <th style="background-color: rgb(87,238,163)"
             mat-header-cell *matHeaderCellDef class="acciones">Acciones</th>
             <td mat-cell *matCellDef="let row" class="action-buttons">
-                <button class="edit-button" mat-flat-button color="primary"
+                <button class="edit-button" [hidden]="!isVisibleEditar()" mat-flat-button color="primary"
                 (click)="onAction(Editar,row)">
                     <mat-icon>edit</mat-icon>
                 </button>
-                <button class="delete-button" mat-flat-button color="primary" 
+                <button class="delete-button" [hidden]="!isVisibleEliminar()" mat-flat-button color="primary" 
                 (click)="onAction(Eliminar,row)">
                     <mat-icon>delete</mat-icon>
                 </button>
@@ -31,13 +31,37 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns()"></tr>
         <tr mat-row *matRowDef="let row; columns:displayedColumns()"></tr>
         <tr *matNoDataRow>
-            <td class="nodata" [attr.colspan]="displayedColumns().length">
-                @if (isLoading()) {
-                    Cargado datos de {{title}}
+            <td class="data" [attr.colspan]="displayedColumns().length">
+                <ng-container *ngIf="isLoading();else noData">
+                    <div class="loading-container">
+                        <mat-spinner [diameter]="40"></mat-spinner>
+                        <span class="cargando">Cargando datos de {{title}}</span>
+                    </div>
+                </ng-container>
+                <ng-template #noData >
+                    <div class="nodata">
+                        <mat-icon class="warning-icon">error</mat-icon>
+                        <span>No hay datos de {{title}} para mostrar</span>
+                    </div>
+                </ng-template>
+                <!-- @if (isLoading()) {
+                    Cargando
                 }
-                @else {
+                @else{
+                    no data
+                } -->
+                <!-- <ng-container *ngIf="isLoading;else noData">
+                <div class="loading-container">
+                  
+                  <span class="contenido">Cargando datos de {{title}}</span>
+                </div>
+              </ng-container>
+              < Si no hay datos, mostrar mensaje 
+               <ng-template #noData>
+                <ng-container *ngIf="dataSource.data.length === 0">
                     No hay datos de {{title}} para mostrar
-                }
+                </ng-container>
+               </ng-template> -->
             </td>
         </tr>
     </table>

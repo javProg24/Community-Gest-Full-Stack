@@ -57,7 +57,7 @@ export const tablaUsuario:TablaColumna<Usuario>[]=[
     {
         label:UsuarioDatos.telefono,
         def:UsuarioDatos.telefono,
-        content:(row)=>row.telefono
+        content:(row)=>'0'+row.telefono
     },
     {
         label:UsuarioDatos.estado,
@@ -65,7 +65,6 @@ export const tablaUsuario:TablaColumna<Usuario>[]=[
         content:(row)=>row.estado?'Activo':'Inactivo'
     },
 ]
-
 interface UsuarioDataForm{
     nombre:FormControl<string>
     apellido:FormControl<string>

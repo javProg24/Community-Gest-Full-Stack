@@ -6,18 +6,12 @@
     </button>
 </div>
 <div class="table-section">
-    <app-table
-    [Titulo]="title+'s'"
-    [Columnas]="columns"
-    [Datos]="usuarios"
-    (accion)="onAction($event)">
-    </app-table>
-</div>
-<div class="table-section">
     <tabla-reutilizable
     [Titulo]="title+'s'"
     [data]="usuariosDatos"
     [columns]="tablaColumnas"
     [isLoading]="isLoading"
+    [isVisibleEditar]="isVisibleEditar"
+    [isVisibleEliminar]="isVisibleEliminar"
     (action)="onAction($event)"/>
 </div>
