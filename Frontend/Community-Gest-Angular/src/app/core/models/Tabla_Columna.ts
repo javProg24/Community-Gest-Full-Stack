@@ -42,7 +42,6 @@ const listaDatosEntidades:{[key in Entidad]?:unknown}={
 export const columnasDatos=<T>(entidad:Entidad):TablaColumna<T>[]=>{
     const datosColumnas=listaDatosEntidades[entidad]
     if(!datosColumnas)return[]
-    console.log('efed',datosColumnas);
     return Object.values(datosColumnas)
 }
 /*

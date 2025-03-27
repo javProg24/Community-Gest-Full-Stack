@@ -1,5 +1,6 @@
 import { Horario } from "./Horario";
 import { Instalacion } from "./Instalacion";
+import { obtenerDisponibilidad } from "./Metodos";
 import { TablaColumna } from "./Tabla_Columna";
 import { Usuario } from "./Usuario";
 
@@ -71,6 +72,6 @@ export const tablaReservaInstalacion:TablaColumna<Reserva_Instalacion>[]=[
     {
         label:ReservaInstalacionDatos.disponibilidad,
         def:ReservaInstalacionDatos.disponibilidad,
-        content:(row)=>row.disponibilidad
+        content:(row)=>obtenerDisponibilidad(row.disponibilidad)
     },
 ]

@@ -21,7 +21,7 @@ export class GeneralService implements Metodos{
     const APIurl=`${this.url}/${instancia}`;
     return this.http.get<T[]>(APIurl);
   }
-  addService<T>(instancia: string, Entidad: any): Observable<T> {
+  addService<T>(instancia: string, Entidad: unknown): Observable<T> {
     const APIurl=`${this.url}/${instancia}`;
     return this.http.post<T>(APIurl,Entidad);
   }
@@ -29,7 +29,7 @@ export class GeneralService implements Metodos{
     const APIurl=`${this.url}/${instancia}/${id}`;
     return this.http.delete<T>(APIurl);
   }
-  updateService<T>(instancia: string, id: number, Entidad: any): Observable<T> {
+  updateService<T>(instancia: string, id: number, Entidad: unknown): Observable<T> {
     const APIurl=`${this.url}/${instancia}/${id}`;
     return this.http.put<T>(APIurl,Entidad)
   }

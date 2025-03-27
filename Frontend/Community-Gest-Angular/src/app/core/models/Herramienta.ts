@@ -41,18 +41,18 @@ export const tablaHerramienta:TablaColumna<Herramienta>[]=[
         content:(row)=>row.ubicacion 
     },
     {
-        label:"Descripcion",
-        def:"descripcion",
+        label:HerramientaDatos.descripcion,
+        def:HerramientaDatos.descripcion,
         content:(row)=>row.descripcion 
     },
     {
-        label:"Cantidad",
-        def:"cantidad",
+        label:HerramientaDatos.cantidad,
+        def:HerramientaDatos.cantidad,
         content:(row)=>row.cantidad 
     },
     {
-        label:"Estado",
-        def:"estado",
-        content:(row)=>row.estado 
+        label:HerramientaDatos.estado,
+        def:HerramientaDatos.estado,
+        content:(row)=>row.estado?"Disponible":"No disponible"
     },
 ]

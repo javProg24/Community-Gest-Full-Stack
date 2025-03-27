@@ -1,4 +1,5 @@
 import { Herramienta } from "./Herramienta";
+import { obtenerDisponibilidad } from "./Metodos";
 import { TablaColumna } from "./Tabla_Columna";
 import { Usuario } from "./Usuario";
 
@@ -74,6 +75,7 @@ export const tablaReservaHerramienta:TablaColumna<Reserva_Herramienta>[]=[
     {
         label:ReservaHerramientaDatos.disponibilidad,
         def:ReservaHerramientaDatos.disponibilidad,
-        content:(row)=>row.disponibilidad
+        content:(row)=>obtenerDisponibilidad(row.disponibilidad)
     }
 ]
+

@@ -25,7 +25,6 @@ export class ReservaInstalacionComponent implements OnInit {
   protected isVisibleEliminar:boolean=true;
   protected isLoading:boolean=true;
   title=toStringEnum(Entidad.Reserva)
-  columnas:string[]=columnasEntidades(Entidad.Reserva_Instalacion)
   protected tablaColumnas:TablaColumna<Reserva_Instalacion>[]=[]
   protected reservasDatos:Reserva_Instalacion[]=[];
   constructor(private service:ReservaInstalacionService,private dialog:MatDialog,private notificacion:NotificationService) { }

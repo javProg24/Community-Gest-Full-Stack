@@ -55,6 +55,6 @@ export const tablaHorario:TablaColumna<Horario>[]=[
     {
         label:HorarioDatos.estado,
         def:HorarioDatos.estado,
-        content:(row)=>row.estado
+        content:(row)=>row.estado?"Disponible":"Ocupado"
     },
 ]
