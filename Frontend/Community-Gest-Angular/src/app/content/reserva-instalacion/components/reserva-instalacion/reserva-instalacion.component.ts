@@ -12,34 +12,48 @@ import { TableComponent } from '@shared/table/table.component';
 import { ReservaFormComponent } from '../reserva-form/reserva-form.component';
 import { TablaReutilizableComponent } from '@shared/tabla-reutilizable/tabla-reutilizable.component';
 import { ReservaInstalacionService } from '@content/reserva-instalacion/service/reserva-instalacion.service';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-reserva-instalacion',
-  imports: [MatButtonModule, MatIconModule, TableComponent, TablaReutilizableComponent],
+  imports: [MatButtonModule, MatIconModule, TablaReutilizableComponent],
   templateUrl: './reserva-instalacion.component.html',
   styleUrl: './reserva-instalacion.component.css'
 })
 export class ReservaInstalacionComponent implements OnInit {
+  protected isVisibleEditar:boolean=true;
+  protected isVisibleEliminar:boolean=true;
+  protected isLoading:boolean=true;
   title=toStringEnum(Entidad.Reserva)
   columnas:string[]=columnasEntidades(Entidad.Reserva_Instalacion)
-  protected tablaColumnas:TablaColumna<Reserva_Instalacion>[]=columnasDatos(Entidad.Reserva_Instalacion)
+  protected tablaColumnas:TablaColumna<Reserva_Instalacion>[]=[]
   protected reservasDatos:Reserva_Instalacion[]=[];
-  reservas:Reserva_Instalacion[]=[]
   constructor(private service:ReservaInstalacionService,private dialog:MatDialog,private notificacion:NotificationService) { }
   ngOnInit(): void {
-    this.getReservasTabla()
-    this.obtenerReservasTablas();
+    this.cargandoTablaReservas()
   }
-  private getReservasTabla(){
+  /*private getReservasTabla(){
     this.service.getReservas().subscribe((data)=>{
       this.reservas=data
     })
+  }*/
+  private cargandoTablaReservas(){
+    this.tablaColumnas=columnasDatos(Entidad.Reserva_Instalacion)
+    timer(1000).subscribe(()=>{
+      this.isLoading=false
+      this.obtenerReservas()
+    })
   }
-  private obtenerReservasTablas(){
+  private obtenerReservas(){
     this.service.getReservas().subscribe((data)=>{
       this.reservasDatos=data
     })
   }
+  /*private obtenerReservasTablas(){
+    this.service.getReservas().subscribe((data)=>{
+      this.reservasDatos=data
+    })
+  }*/
   protected onAction(accion:Accion){
     accion.accion==Acciones.Editar?this.actualizarReserva(accion.fila):
     accion.accion==Acciones.Eliminar?this.eliminarReserva(accion.fila.id):console.warn('Accion no reconocida',accion.accion)
@@ -53,7 +67,8 @@ export class ReservaInstalacionComponent implements OnInit {
       width: '600px',
     })
     dialogRef.afterClosed().subscribe(()=>{
-      this.getReservasTabla()
+      //this.getReservasTabla()
+      this.cargandoTablaReservas()
     })
   }
   private eliminarReserva(id:number){
@@ -66,7 +81,8 @@ export class ReservaInstalacionComponent implements OnInit {
       next:()=>{
         this.service.deleteReserva(id).subscribe(()=>{
           this.notificacion.showEliminar(`La ${this.title}? fue eliminada`)
-          this.getReservasTabla();
+          //this.getReservasTabla();
+          this.cargandoTablaReservas()
         })
       }
     })
@@ -80,7 +96,8 @@ export class ReservaInstalacionComponent implements OnInit {
       width: '600px',
     })
     dialogRef.afterClosed().subscribe(()=>{
-      this.getReservasTabla()
+      //this.getReservasTabla()
+      this.cargandoTablaReservas()
     })
   }
 }

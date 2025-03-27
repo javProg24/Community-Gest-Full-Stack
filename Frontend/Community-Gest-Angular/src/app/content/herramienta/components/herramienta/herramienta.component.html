@@ -5,19 +5,14 @@
         Nuevo
     </button>
 </div>
-<div class="table-section">
-    <app-table
-    [Titulo]="titulo+'s'"
-    [Columnas]="columnas"
-    [Datos]="herramientas"
-    (accion)="onAction($event)">
-    </app-table>
-</div>
+
 <div class="table-section">
     <tabla-reutilizable
     [Titulo]="titulo+'s'"
     [data]="herramientasDatos"
     [columns]="tablaColumnas"
-    (action)="onAction($event)"
-    />
+    [isLoading]="isLoading"
+    [isVisibleEditar]="isVisibleEditar"
+    [isVisibleEliminar]="isVisibleEliminar"
+    (action)="onAction($event)"/>
 </div>

@@ -4,35 +4,47 @@ import { MatDialog } from "@angular/material/dialog"
 import { MatIconModule } from "@angular/material/icon"
 import { toStringEnum, Entidad, Acciones } from "@core/models/Enums"
 import { Reporte } from "@core/models/Reporte"
-import { columnasEntidades, Accion, TablaColumna, columnasDatos } from "@core/models/Tabla_Columna"
+import { Accion, TablaColumna, columnasDatos } from "@core/models/Tabla_Columna"
 import { NotificationService } from "@core/services/notification/notification.service"
 import { DialogFormComponent } from "@shared/dialog-form/dialog-form.component"
 import { DialogComponent } from "@shared/dialog/dialog.component"
-import { TableComponent } from "@shared/table/table.component"
 import { ReporteFormComponent } from "../reporte-form/reporte-form.component"
 import { TablaReutilizableComponent } from "@shared/tabla-reutilizable/tabla-reutilizable.component"
 import { ReporteService } from "@content/reporte/service/reporte.service"
+import { timer } from "rxjs"
 
 @Component({
   selector: 'app-reporte',
-  imports: [MatIconModule, MatButtonModule, TableComponent, TablaReutilizableComponent],
+  imports: [MatIconModule, MatButtonModule, TablaReutilizableComponent],
   templateUrl: './reporte.component.html',
   styleUrl: './reporte.component.css'
 })
 export class ReporteComponent implements OnInit{
+  protected isVisibleEditar:boolean=true;
+  protected isVisibleEliminar:boolean=true;
+  protected isLoading:boolean=true;
   protected titulo=toStringEnum(Entidad.Reporte)
-  protected reportes:Reporte[]=[]
-  protected columnas:string[]=columnasEntidades(Entidad.Reporte)
   protected reportesDatos:Reporte[]=[];
   protected tablaColumnas:TablaColumna<Reporte>[]=columnasDatos(Entidad.Reporte);
   constructor(private service:ReporteService,private dialog:MatDialog,private notificacion:NotificationService ) {}
   ngOnInit(): void {
-    this.getReportesTabla();
-    this.obtenerReportesTabla();
+    this.cargandoTablaReportes();
   }
-  private getReportesTabla(){
+  /*private getReportesTabla(){
     this.service.getsReporte().subscribe((data)=>{
       this.reportes=data
+    })
+  }*/
+  private cargandoTablaReportes(){
+    this.tablaColumnas=columnasDatos(Entidad.Reporte)
+    timer(1000).subscribe(()=>{
+      this.isLoading=false
+      this.obtenerReportes()
+    })
+  }
+  private obtenerReportes(){
+    this.service.getsReporte().subscribe((data)=>{
+      this.reportesDatos=data
     })
   }
   private obtenerReportesTabla(){
@@ -53,7 +65,8 @@ export class ReporteComponent implements OnInit{
       width: '600px',
     })
     dialogRef.afterClosed().subscribe(()=>{
-      this.getReportesTabla()
+      //this.getReportesTabla()
+      this.obtenerReportesTabla()
     })
   }
   private eliminarReporte(id: number){
@@ -67,7 +80,8 @@ export class ReporteComponent implements OnInit{
       next:()=>{
         this.service.deleteReporte(id).subscribe(()=>{
           this.notificacion.showEliminar(`La ${this.titulo} fue eliminada`)
-          this.getReportesTabla()
+          //this.getReportesTabla()
+          this.obtenerReportesTabla()
         })
       },
       error:(err)=>{
@@ -84,7 +98,8 @@ export class ReporteComponent implements OnInit{
       width: '600px',
     })
     dialogRef.afterClosed().subscribe(()=>{
-      this.getReportesTabla()
+      //this.getReportesTabla()
+      this.obtenerReportesTabla()
     })
   }
 }

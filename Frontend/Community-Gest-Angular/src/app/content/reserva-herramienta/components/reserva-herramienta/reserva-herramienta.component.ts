@@ -12,26 +12,36 @@ import { TableComponent } from '@shared/table/table.component';
 import { ReservaFormComponent } from '../reserva-form/reserva-form.component';
 import { TablaReutilizableComponent } from '@shared/tabla-reutilizable/tabla-reutilizable.component';
 import { ReservaHerramientaService } from '@content/reserva-herramienta/service/reserva-herramienta.service';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-reserva-herramienta',
-  imports: [MatButtonModule, MatIconModule, TableComponent, TablaReutilizableComponent],
+  imports: [MatButtonModule, MatIconModule, TablaReutilizableComponent],
   templateUrl: './reserva-herramienta.component.html',
   styleUrl: './reserva-herramienta.component.css'
 })
 export class ReservaHerramientaComponent implements OnInit {
+  protected isVisibleEditar:boolean=true;
+  protected isVisibleEliminar:boolean=true;
+  protected isLoading:boolean=true;
   title=toStringEnum(Entidad.Reserva)
-  columnas:string[]=columnasEntidades(Entidad.Reserva_Herramienta)
   protected reservasDatos:Reserva_Herramienta[]=[]
-  protected tablaColumnas:TablaColumna<Reserva_Herramienta>[]=columnasDatos(Entidad.Reserva_Herramienta)
-  reservas:Reserva_Herramienta[]=[]
+  protected tablaColumnas:TablaColumna<Reserva_Herramienta>[]=[]
   constructor(private services:ReservaHerramientaService,private dialog:MatDialog,private notificacion:NotificationService) { }
 
   ngOnInit(): void {
+    this.cargarTablaReservas()
+  }
+  private cargarTablaReservas(){
+    this.tablaColumnas=columnasDatos(Entidad.Reserva_Herramienta)
+    timer(1000).subscribe(()=>{
+      this.isLoading=false
+      this.getReservasTabla()
+    })
   }
   private getReservasTabla(){
     this.services.getReservas().subscribe((data)=>{
-      this.reservas=data
+      this.reservasDatos=data
     })
   }
   onAction(accion:Accion){
@@ -47,7 +57,8 @@ export class ReservaHerramientaComponent implements OnInit {
       width: '600px',
     })
     dialogRef.afterClosed().subscribe(()=>{
-      this.getReservasTabla()
+      //this.getReservasTabla()
+      this.cargarTablaReservas()
     })
   }
   private eliminarReserva(id:number){
@@ -60,7 +71,8 @@ export class ReservaHerramientaComponent implements OnInit {
       next:()=>{
         this.services.deleteReserva(id).subscribe(()=>{
           this.notificacion.showEliminar(`La ${this.title}? fue eliminada`)
-          this.getReservasTabla();
+          //this.getReservasTabla();
+          this.cargarTablaReservas()
         })
       }
     })
@@ -74,7 +86,8 @@ export class ReservaHerramientaComponent implements OnInit {
       width: '600px',
     })
     dialogRef.afterClosed().subscribe(()=>{
-      this.getReservasTabla()
+      //this.getReservasTabla()
+      this.cargarTablaReservas()
     })
   }
 }

@@ -16,7 +16,7 @@ export const componentes =[
         RouterLink:`/${toStringEnum(Entidad.Instalacion)}`,
     },
     {
-        Title:toStringEnum(Entidad.Horario),
+        Title:toStringEnum(Entidad.Horario)+'s',
         icon:"schedule",
         RouterLink:`/${toStringEnum(Entidad.Horario)}`
     },

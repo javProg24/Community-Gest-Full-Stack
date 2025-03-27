@@ -20,5 +20,6 @@ export enum Entidad{
 }
 export enum Acciones{
     Editar,
-    Eliminar
+    Eliminar,
+    Habilitar
 }

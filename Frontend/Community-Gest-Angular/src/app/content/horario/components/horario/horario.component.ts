@@ -4,41 +4,50 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { toStringEnum, Entidad, Acciones } from '@core/models/Enums';
 import { Horario } from '@core/models/Horario';
-import { columnasEntidades, Accion, TablaColumna, columnasDatos } from '@core/models/Tabla_Columna';
+import { Accion, TablaColumna, columnasDatos } from '@core/models/Tabla_Columna';
 import { NotificationService } from '@core/services/notification/notification.service';
 import { DialogFormComponent } from '@shared/dialog-form/dialog-form.component';
 import { DialogComponent } from '@shared/dialog/dialog.component';
-import { TableComponent } from '@shared/table/table.component';
 import { HorarioFormComponent } from '../horario-form/horario-form.component';
 import { TablaReutilizableComponent } from '@shared/tabla-reutilizable/tabla-reutilizable.component';
 import { HorarioService } from '@content/horario/service/horario.service';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-horario',
-  imports: [MatIconModule,MatButtonModule,TableComponent,TablaReutilizableComponent],
+  imports: [MatIconModule, MatButtonModule, TablaReutilizableComponent],
   templateUrl: './horario.component.html',
   styleUrl: './horario.component.css'
 })
 export class HorarioComponent implements OnInit{
   protected titulo=toStringEnum(Entidad.Horario);
-  protected columnas:string[]=columnasEntidades(Entidad.Horario);
-  protected tablaColumnas:TablaColumna<Horario>[]=columnasDatos(Entidad.Horario);
-  protected horarios:Horario[]=[];
+  protected isVisibleHabilitar=false;
+  protected isVisibleEditar=true;
+  protected isVisibleEliminar=true;
+  protected isLoading=true;
+  protected tablaColumnas:TablaColumna<Horario>[]=[];
   protected horariosDatos:Horario[]=[];
   constructor(private service:HorarioService,private dialog:MatDialog,private notificacion:NotificationService){}
   ngOnInit(): void {
-    this.getHorariosTabla();
+    this.cargarHorarioTabla();
+  }
+  private cargarHorarioTabla(){
+    this.tablaColumnas=columnasDatos(Entidad.Horario)
+    timer(1000).subscribe(()=>{
+      this.isLoading=false
+      this.obtenerHorarioTabla()
+    })
   }
   private obtenerHorarioTabla(){
     this.service.getHorarios().subscribe((data)=>{
       this.horariosDatos=data;
     })
   }
-  private getHorariosTabla(){
+  /*private getHorariosTabla(){
     this.service.getHorarios().subscribe((data)=>{
       this.horarios=data;
     })
-  }
+  }*/
   protected onAction(accion:Accion){
     accion.accion==Acciones.Editar?this.actualizarHorario(accion.fila):
     accion.accion==Acciones.Eliminar?this.desactivarHorario(accion.fila.id):console.log("Accion no reconocida",accion.accion)
@@ -52,7 +61,8 @@ export class HorarioComponent implements OnInit{
       width:"600px"
     })
     dialogRef.afterClosed().subscribe(()=>{
-      this.getHorariosTabla();
+      //this.getHorariosTabla();
+      this.cargarHorarioTabla();
     })
   }
   private desactivarHorario(id:number){
@@ -66,7 +76,8 @@ export class HorarioComponent implements OnInit{
       next:()=>{
         this.service.desactiveHorario(id).subscribe(()=>{
           this.notificacion.showEliminar(`La ${this.titulo} fue eliminada`);
-          this.getHorariosTabla();
+          //this.getHorariosTabla();
+          this.cargarHorarioTabla();
         })
       },
       error:(err)=>{
@@ -82,7 +93,8 @@ export class HorarioComponent implements OnInit{
       }
     })
     dialogRef.afterClosed().subscribe(()=>{
-      this.getHorariosTabla();
+      //this.getHorariosTabla();
+      this.cargarHorarioTabla();
     })
   }
 }

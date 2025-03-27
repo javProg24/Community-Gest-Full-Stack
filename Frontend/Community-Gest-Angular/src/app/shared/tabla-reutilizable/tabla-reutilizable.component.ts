@@ -16,9 +16,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   styleUrl: './tabla-reutilizable.component.css'
 })
 export class TablaReutilizableComponent <T> implements OnChanges{
+  isVisibleHabilitar=input(false)
   isVisibleEditar=input(false)
   isVisibleEliminar=input(false)
   isLoading=input(false);
+  protected Habilitar=Acciones.Habilitar
   protected Editar=Acciones.Editar
   protected Eliminar=Acciones.Eliminar
   @Output()action:EventEmitter<Accion>=new EventEmitter();

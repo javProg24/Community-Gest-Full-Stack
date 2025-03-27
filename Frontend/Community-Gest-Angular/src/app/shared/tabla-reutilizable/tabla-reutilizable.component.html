@@ -22,9 +22,13 @@
                 (click)="onAction(Editar,row)">
                     <mat-icon>edit</mat-icon>
                 </button>
-                <button class="delete-button" [hidden]="!isVisibleEliminar()" mat-flat-button color="primary" 
+                <button class="delete-button" [hidden]="!isVisibleEliminar()" mat-flat-button color="warn" 
                 (click)="onAction(Eliminar,row)">
                     <mat-icon>delete</mat-icon>
+                </button>
+                <button class="active-button" [hidden]="isVisibleHabilitar()" mat-flat-button color="primary"
+                (click)="onAction(Habilitar,row)">
+                    <mat-icon>check</mat-icon>
                 </button>
             </td>
         </ng-container>

@@ -4,40 +4,48 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { toStringEnum, Entidad, Acciones } from '@core/models/Enums';
 import { Herramienta } from '@core/models/Herramienta';
-import { columnasEntidades, Accion, TablaColumna, columnasDatos } from '@core/models/Tabla_Columna';
+import { Accion, TablaColumna, columnasDatos } from '@core/models/Tabla_Columna';
 import { NotificationService } from '@core/services/notification/notification.service';
 import { DialogFormComponent } from '@shared/dialog-form/dialog-form.component';
 import { DialogComponent } from '@shared/dialog/dialog.component';
 import { TablaReutilizableComponent } from '@shared/tabla-reutilizable/tabla-reutilizable.component';
-import { TableComponent } from '@shared/table/table.component';
 import { HerramientaFormComponent } from '../herramienta-form/herramienta-form.component';
 import { HerramientaService } from '@content/herramienta/service/herramienta.service';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-herramienta',
-  imports: [MatIconModule, MatButtonModule, TableComponent, TablaReutilizableComponent],
+  imports: [MatIconModule, MatButtonModule, TablaReutilizableComponent],
   templateUrl: './herramienta.component.html',
   styleUrl: './herramienta.component.css'
 })
 export class HerramientaComponent implements OnInit{
+  protected isVisibleEditar=true;
+  protected isVisibleEliminar=true;
+  protected isLoading=true;
   protected titulo = toStringEnum(Entidad.Herramienta);
-  protected columnas: string[] = columnasEntidades(Entidad.Herramienta);
-  protected herramientas: Herramienta[] = [];
   protected herramientasDatos:Herramienta[]=[];
-  protected tablaColumnas:TablaColumna<Herramienta>[]=columnasDatos(Entidad.Herramienta);
+  protected tablaColumnas:TablaColumna<Herramienta>[]=[];
   constructor(private service: HerramientaService,private dialog:MatDialog,private notificacion:NotificationService) {}
   ngOnInit(): void {
-    this.getHerramientasTabla();
-    this.obtenerHerramientasTabla();
+    //this.getHerramientasTabla();
+    this.cargarTablaHerramientas();
   }
-  private getHerramientasTabla(){
+  /*private getHerramientasTabla(){
     this.service.getsHerramienta().subscribe((data)=>{
       this.herramientas=data
     })
+  }*/
+  private obtenerHerramientas(){
+      this.service.getsHerramienta().subscribe((data)=>{
+        this.herramientasDatos=data
+      })
   }
-  private obtenerHerramientasTabla(){
-    this.service.getsHerramienta().subscribe((data)=>{
-      this.herramientasDatos=data;
+  private cargarTablaHerramientas(){
+    this.tablaColumnas=columnasDatos(Entidad.Herramienta)
+    timer(1000).subscribe(()=>{
+      this.isLoading=false
+      this.obtenerHerramientas()
     })
   }
   protected onAction(accion: Accion){
@@ -53,7 +61,7 @@ export class HerramientaComponent implements OnInit{
       width: '600px',
     })
     dialogRef.afterClosed().subscribe(()=>{
-      this.getHerramientasTabla()
+      //this.getHerramientasTabla()
     })
   }
   private desactivarHerramienta(id: number){
@@ -67,7 +75,7 @@ export class HerramientaComponent implements OnInit{
       next:()=>{
         this.service.desactiveHerramienta(id).subscribe(()=>{
           this.notificacion.showEliminar(`La ${this.titulo}? fue deshabilitada`)
-          this.getHerramientasTabla();
+          //this.getHerramientasTabla();
         })
       },
       error:(err)=>{
@@ -84,7 +92,7 @@ export class HerramientaComponent implements OnInit{
       width: '600px',
     })
     dialogRef.afterClosed().subscribe(()=>{
-      this.getHerramientasTabla()
+      //this.getHerramientasTabla()
     })
   }
 }
