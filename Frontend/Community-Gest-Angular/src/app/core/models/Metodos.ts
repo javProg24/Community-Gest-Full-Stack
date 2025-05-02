@@ -16,4 +16,4 @@ const tipoReserva:Record<string,string>={
     R:"Reservado",
     F:"Finalizado" 
 }
-export const obtenerDisponibilidad=(disponiblidad:string):string=>tipoReserva[disponiblidad];
+export const obtenerDisponibilidad=(tipo:string):string=>tipoReserva[tipo];

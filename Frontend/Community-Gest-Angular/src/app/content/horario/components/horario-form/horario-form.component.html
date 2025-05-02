@@ -8,7 +8,7 @@
             <mat-form-field appearance="fill" class="full-width">
                 <mat-label>Instalacion</mat-label>
                 <mat-select formControlName="instalacion">
-                    <mat-option *ngFor="let instalacion of instalaciones" [value]="instalacion">
+                    <mat-option *ngFor="let instalacion of (isEdit?instalaciones:instalacionesDispo)" [value]="instalacion">
                         {{instalacion.nombre}}
                     </mat-option>
                 </mat-select>
@@ -31,8 +31,8 @@
             </mat-form-field>
 
             <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Hora de Inicio</mat-label>
-                <input matInput [matTimepicker]="picker2" formControlName="hora_Inicio">
+                <mat-label>Hora de Fin</mat-label>
+                <input matInput [matTimepicker]="picker2" formControlName="hora_Fin">
                 <mat-timepicker-toggle matIconSuffix [for]="picker2"/>
                 <mat-timepicker #picker2/>
             </mat-form-field>
@@ -43,6 +43,12 @@
                     Habilitado
                 </mat-checkbox>
             </section>
+            <div class="form-buttons">
+                <button mat-raised-button color="primary" type="submit">
+                    {{isEdit?'Actualizar':'Guardar'}}
+                </button>
+                <button mat-raised-button color="warn" type="reset" (click)="onCancel()">Cancelar</button>
+            </div>
         </form>
     </mat-card-content>
 </mat-card>

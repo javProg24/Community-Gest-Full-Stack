@@ -40,7 +40,6 @@ export class TablaReutilizableComponent <T> implements OnChanges{
   }
   private setData(){
     this.dataSource.data = this.data();
-    console.log('Data disponible',this.data())
   }
   onAction(accion:Acciones,row?:Type<T>){
     this.action.emit({

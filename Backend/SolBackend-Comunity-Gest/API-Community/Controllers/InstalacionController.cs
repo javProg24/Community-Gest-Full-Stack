@@ -30,6 +30,13 @@ namespace API_Community.Controllers
                 .OrderBy(i=>i.ID)
                 .ToListAsync();
         }
+        [HttpGet("All_Instalacion")]
+        public async Task<ActionResult<IEnumerable<Instalacion>>> GetAllInstalaciones()
+        {
+            return await _context.Instalaciones
+                .OrderBy(i => i.ID)
+                .ToListAsync();
+        }
 
         // GET: api/Instalacion/5
         [HttpGet("{id}")]

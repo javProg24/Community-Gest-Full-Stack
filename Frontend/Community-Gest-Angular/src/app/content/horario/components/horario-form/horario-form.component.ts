@@ -35,6 +35,7 @@ export class HorarioFormComponent implements OnInit{
     {value:'Sabado',label:'Sabado'},
     {value:'Domingo',label:'Domingo'}
 ];
+  protected instalacionesDispo!:Instalacion[];
   protected instalaciones!:Instalacion[];
   currentID?:number;
   form!:FormGroup;
@@ -48,31 +49,54 @@ export class HorarioFormComponent implements OnInit{
       estado:[true,[Validators.required]],
     })
     this.formData?this.editarHorario(this.formData):this.isEdit=false;
-    this.obtenerInstalaciones();
+    this.instalacionesDisponibles();
   }
-  private obtenerInstalaciones(){
-    this.instalService.getsInstalacion().subscribe((data:Instalacion[])=>{
-      this.instalaciones=data;
+  private instalacionesDisponibles(){
+    this.instalService.getInstalacionesDisponibles().subscribe((data:Instalacion[])=>{
+      this.instalacionesDispo=data;
     })
   }
   private editarHorario(horario:Horario){
     this.isEdit=true;
     this.currentID=horario.id;
     if(!this.currentID)return;
-    let instalacionSeleccionada=this.instalaciones.find((i)=>i.id==horario.instalacion_ID)
-    this.form.setValue({
-
+    this.instalService.getInstalaciones().subscribe((data:Instalacion[])=>{
+      this.instalaciones=data;
+      this.llenarFormulario(horario);
     })
+  }
+  private llenarFormulario(horario:Horario){
+    const instalacionSeleccionada=this.instalaciones.find((i)=>i.id==horario.instalacion_ID)
+    this.form.setValue({
+      instalacion:instalacionSeleccionada,
+      dia:horario.dia,
+      hora_Inicio:this.setHoraInicio(horario.hora_Inicio),
+      hora_Fin:this.setHoraFin(horario.hora_Fin),
+      estado:horario.estado
+    })
+  }
+  private setHoraInicio(hora_Inicio:string):Date{
+    const [hora,minutos]=hora_Inicio.split(':').map(Number);
+    const date=new Date();
+    date.setHours(hora,minutos,0,0);
+    return date;
+  }
+  private setHoraFin(hora_Fin:string):Date{
+    const [hora,minutos]=hora_Fin.split(':').map(Number);
+    const date=new Date();
+    date.setHours(hora,minutos,0,0);
+    return date;
   }
   private Horario():Horario{
     const horario:Horario={
       instalacion_ID: this.form.value.instalacion?.id,
       dia:this.form.value.dia,
-      hora_Inicio:this.form.value.hora_Inicio,
-      hora_Fin:this.form.value.hora_Fin,
+      hora_Inicio:this.obtenerHora_Inicio(),
+      hora_Fin:this.obtenerHora_Fin(),
       estado:this.form.value.estado,
       id:this.isEdit?this.currentID:0
     }
+    console.log(horario);
     return horario
   }
   protected onSubmit(){
@@ -102,5 +126,23 @@ export class HorarioFormComponent implements OnInit{
   }
   onCancel() {
     this.notificacion.showWarning("Operacion cancelada",this.dialogRef)
+  }
+  //crear metodo que recoja el valor del campo de texto de las horas
+  // devuelve un string en este formato: 00:00
+  private obtenerHora_Inicio():string{
+    const hora_InicioValue=this.form.value.hora_Inicio;
+    const date:Date=hora_InicioValue;
+    const hora=date.getHours();
+    const minutos=date.getMinutes();
+    const horaInicio:string=`${hora.toString().padStart(2,'0')}:${minutos.toString().padStart(2,'0')}`;
+    return horaInicio
+  }
+  private obtenerHora_Fin( ):string{
+    const hora_FinValue=this.form.value.hora_Fin
+    const date:Date=hora_FinValue;
+    const hora=date.getHours();
+    const minutos=date.getMinutes();
+    const horaFin:string=`${hora.toString().padStart(2,'0')}:${minutos.toString().padStart(2,'0')}`;
+    return horaFin
   }
 }

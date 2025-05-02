@@ -50,7 +50,7 @@ export const tablaHorario:TablaColumna<Horario>[]=[
     {
         label:"Hora Fin",
         def:HorarioDatos.hora_Fin,
-        content:(row)=>row.id
+        content:(row)=>row.hora_Fin
     },
     {
         label:HorarioDatos.estado,

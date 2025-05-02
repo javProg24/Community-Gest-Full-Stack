@@ -26,10 +26,10 @@
                 (click)="onAction(Eliminar,row)">
                     <mat-icon>delete</mat-icon>
                 </button>
-                <button class="active-button" [hidden]="isVisibleHabilitar()" mat-flat-button color="primary"
+                <button class="active-button" [hidden]="!isVisibleHabilitar()" mat-flat-button color="primary"
                 (click)="onAction(Habilitar,row)">
                     <mat-icon>check</mat-icon>
-                </button>
+                </button> 
             </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns()"></tr>

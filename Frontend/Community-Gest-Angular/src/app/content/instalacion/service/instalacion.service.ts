@@ -25,11 +25,15 @@ export class InstalacionService {
   deleteInstalacion(id:number):Observable<void>{
     return this.service.deleteService<void>(this.nombreEntidad,id)
   }
-  getsInstalacion():Observable<Instalacion[]>{
+  getInstalacionesDisponibles():Observable<Instalacion[]>{
     return this.service.getService<Instalacion>(this.nombreEntidad)
   }
   getIdInstalacion(id:number):Observable<Instalacion[]>{
     return this.service.getIdService<Instalacion>(this.nombreEntidad,id)
+  }
+  getInstalaciones():Observable<Instalacion[]>{
+    const entidad=`${this.nombreEntidad}/All_${this.nombreEntidad}`;
+    return this.service.getService<Instalacion>(entidad);
   }
 }
 

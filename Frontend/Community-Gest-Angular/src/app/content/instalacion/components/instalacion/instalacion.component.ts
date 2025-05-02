@@ -44,7 +44,7 @@ export class InstalacionComponent implements OnInit {
     })
   }
   obtenerInstalaciones(){
-    this.service.getsInstalacion().subscribe((data)=>{
+    this.service.getInstalacionesDisponibles().subscribe((data)=>{
       this.instalacionesDatos=data
     })
   }
