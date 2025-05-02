@@ -11,8 +11,6 @@ import { toStringEnum, Entidad } from "@core/models/Enums";
 import { Usuario, UsuarioForm } from "@core/models/Usuario";
 import { NotificationService } from "@core/services/notification/notification.service";
 import { GenericFormComponent } from "@shared/generic-form/generic-form.component";
-
-
 @Component({
   selector: 'app-usuario-form',
   imports: [MatCardModule, MatFormFieldModule,ReactiveFormsModule, GenericFormComponent,MatButtonModule,MatButton,MatFormField,MatInputModule,MatCheckboxModule],
@@ -44,12 +42,12 @@ export class UsuarioFormComponent implements OnInit{
     this.isEdit = true;
     this.currentID=datos.id
     this.form.setValue({
-      cedula: datos.cedula, 
+      cedula:'0'+datos.cedula, 
       datosUsuario: {
         nombre: datos.nombre,
         apellido: datos.apellido,
         correo: datos.correo,
-        telefono: datos.telefono
+        telefono:'0'+datos.telefono
       },
       estado: datos.estado
     })
