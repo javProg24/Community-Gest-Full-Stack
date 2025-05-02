@@ -13,6 +13,7 @@ import { MatTimepickerModule } from '@angular/material/timepicker';
 import { HorarioService } from '@content/horario/service/horario.service';
 import { InstalacionService } from '@content/instalacion/service/instalacion.service';
 import { toStringEnum, Entidad } from '@core/models/Enums';
+import { getHora, setHora } from '@core/models/Hora';
 import { Horario } from '@core/models/Horario';
 import { Instalacion } from '@core/models/Instalacion';
 import { NotificationService } from '@core/services/notification/notification.service';
@@ -70,33 +71,20 @@ export class HorarioFormComponent implements OnInit{
     this.form.setValue({
       instalacion:instalacionSeleccionada,
       dia:horario.dia,
-      hora_Inicio:this.setHoraInicio(horario.hora_Inicio),
-      hora_Fin:this.setHoraFin(horario.hora_Fin),
+      hora_Inicio:setHora(horario.hora_Inicio),
+      hora_Fin:setHora(horario.hora_Fin),
       estado:horario.estado
     })
-  }
-  private setHoraInicio(hora_Inicio:string):Date{
-    const [hora,minutos]=hora_Inicio.split(':').map(Number);
-    const date=new Date();
-    date.setHours(hora,minutos,0,0);
-    return date;
-  }
-  private setHoraFin(hora_Fin:string):Date{
-    const [hora,minutos]=hora_Fin.split(':').map(Number);
-    const date=new Date();
-    date.setHours(hora,minutos,0,0);
-    return date;
   }
   private Horario():Horario{
     const horario:Horario={
       instalacion_ID: this.form.value.instalacion?.id,
       dia:this.form.value.dia,
-      hora_Inicio:this.obtenerHora_Inicio(),
-      hora_Fin:this.obtenerHora_Fin(),
+      hora_Inicio:getHora(this.form.value.hora_Inicio),
+      hora_Fin:getHora(this.form.value.hora_Fin),
       estado:this.form.value.estado,
       id:this.isEdit?this.currentID:0
     }
-    console.log(horario);
     return horario
   }
   protected onSubmit(){
@@ -126,23 +114,5 @@ export class HorarioFormComponent implements OnInit{
   }
   onCancel() {
     this.notificacion.showWarning("Operacion cancelada",this.dialogRef)
-  }
-  //crear metodo que recoja el valor del campo de texto de las horas
-  // devuelve un string en este formato: 00:00
-  private obtenerHora_Inicio():string{
-    const hora_InicioValue=this.form.value.hora_Inicio;
-    const date:Date=hora_InicioValue;
-    const hora=date.getHours();
-    const minutos=date.getMinutes();
-    const horaInicio:string=`${hora.toString().padStart(2,'0')}:${minutos.toString().padStart(2,'0')}`;
-    return horaInicio
-  }
-  private obtenerHora_Fin( ):string{
-    const hora_FinValue=this.form.value.hora_Fin
-    const date:Date=hora_FinValue;
-    const hora=date.getHours();
-    const minutos=date.getMinutes();
-    const horaFin:string=`${hora.toString().padStart(2,'0')}:${minutos.toString().padStart(2,'0')}`;
-    return horaFin
   }
 }
