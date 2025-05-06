@@ -28,8 +28,9 @@ export class HerramientaComponent implements OnInit{
   protected tablaColumnas:TablaColumna<Herramienta>[]=[];
   constructor(private service: HerramientaService,private dialog:MatDialog,private notificacion:NotificationService) {}
   ngOnInit(): void {
+    this.tablaColumnas=columnasDatos(Entidad.Herramienta)
     //this.getHerramientasTabla();
-    this.cargarTablaHerramientas();
+    this.cargarDatosHerramientas();
   }
   /*private getHerramientasTabla(){
     this.service.getsHerramienta().subscribe((data)=>{
@@ -37,13 +38,19 @@ export class HerramientaComponent implements OnInit{
     })
   }*/
   private obtenerHerramientas(){
-      this.service.getsHerramienta().subscribe((data)=>{
+    this.service.getsHerramienta().subscribe({
+      next:(data)=>{
+        this.isLoading=false;
         this.herramientasDatos=data
-      })
+      },
+      error:(err)=>{
+        this.isLoading=false;
+        this.notificacion.showError(`No se pudo cargar la ${this.titulo}`,err)
+      }
+    })
   }
-  private cargarTablaHerramientas(){
-    this.tablaColumnas=columnasDatos(Entidad.Herramienta)
-    timer(1000).subscribe(()=>{
+  private cargarDatosHerramientas(){
+    timer(2000).subscribe(()=>{
       this.isLoading=false
       this.obtenerHerramientas()
     })

@@ -30,18 +30,24 @@ export class ReservaHerramientaComponent implements OnInit {
   constructor(private services:ReservaHerramientaService,private dialog:MatDialog,private notificacion:NotificationService) { }
 
   ngOnInit(): void {
-    this.cargarTablaReservas()
-  }
-  private cargarTablaReservas(){
     this.tablaColumnas=columnasDatos(Entidad.Reserva_Herramienta)
-    timer(1000).subscribe(()=>{
-      this.isLoading=false
+    this.cargarDatosReservas()
+  }
+  private cargarDatosReservas(){
+    timer(2000).subscribe(()=>{
       this.getReservasTabla()
     })
   }
   private getReservasTabla(){
-    this.services.getReservas().subscribe((data)=>{
-      this.reservasDatos=data
+    this.services.getReservas().subscribe({
+      next:(data)=>{
+        this.isLoading=false;
+        this.reservasDatos=data
+      },
+      error:(err)=>{
+        this.isLoading=false;
+        this.notificacion.showError(`No se pudo cargar la ${this.title}`,err)
+      }
     })
   }
   onAction(accion:Accion){
@@ -58,7 +64,7 @@ export class ReservaHerramientaComponent implements OnInit {
     })
     dialogRef.afterClosed().subscribe(()=>{
       //this.getReservasTabla()
-      this.cargarTablaReservas()
+      this.cargarDatosReservas()
     })
   }
   private eliminarReserva(id:number){
@@ -72,7 +78,7 @@ export class ReservaHerramientaComponent implements OnInit {
         this.services.deleteReserva(id).subscribe(()=>{
           this.notificacion.showEliminar(`La ${this.title}? fue eliminada`)
           //this.getReservasTabla();
-          this.cargarTablaReservas()
+          this.cargarDatosReservas()
         })
       }
     })
@@ -87,7 +93,7 @@ export class ReservaHerramientaComponent implements OnInit {
     })
     dialogRef.afterClosed().subscribe(()=>{
       //this.getReservasTabla()
-      this.cargarTablaReservas()
+      this.cargarDatosReservas()
     })
   }
 }

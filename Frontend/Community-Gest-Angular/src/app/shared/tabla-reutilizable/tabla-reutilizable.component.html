@@ -36,36 +36,18 @@
         <tr mat-row *matRowDef="let row; columns:displayedColumns()"></tr>
         <tr *matNoDataRow>
             <td class="data" [attr.colspan]="displayedColumns().length">
-                <ng-container *ngIf="isLoading();else noData">
-                    <div class="loading-container">
-                        <mat-spinner [diameter]="40"></mat-spinner>
-                        <span class="cargando">Cargando datos de {{title}}</span>
-                    </div>
+                <ng-container *ngIf="isLoading();else noData">                    
+                    <div class="loading-container">                        
+                        <mat-spinner [diameter]="40"></mat-spinner>                        
+                        <span class="cargando">Cargando datos de {{title}}</span>                    
+                    </div>                
                 </ng-container>
-                <ng-template #noData >
-                    <div class="nodata">
-                        <mat-icon class="warning-icon">error</mat-icon>
-                        <span>No hay datos de {{title}} para mostrar</span>
-                    </div>
+                <ng-template #noData >                    
+                    <div class="nodata">                        
+                        <mat-icon class="warning-icon">error</mat-icon>                        
+                        <span>No hay datos de {{title}} para mostrar</span>                    
+                    </div>                
                 </ng-template>
-                <!-- @if (isLoading()) {
-                    Cargando
-                }
-                @else{
-                    no data
-                } -->
-                <!-- <ng-container *ngIf="isLoading;else noData">
-                <div class="loading-container">
-                  
-                  <span class="contenido">Cargando datos de {{title}}</span>
-                </div>
-              </ng-container>
-              < Si no hay datos, mostrar mensaje 
-               <ng-template #noData>
-                <ng-container *ngIf="dataSource.data.length === 0">
-                    No hay datos de {{title}} para mostrar
-                </ng-container>
-               </ng-template> -->
             </td>
         </tr>
     </table>

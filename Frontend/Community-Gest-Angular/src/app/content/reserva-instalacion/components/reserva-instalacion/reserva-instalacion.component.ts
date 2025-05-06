@@ -29,23 +29,29 @@ export class ReservaInstalacionComponent implements OnInit {
   protected reservasDatos:Reserva_Instalacion[]=[];
   constructor(private service:ReservaInstalacionService,private dialog:MatDialog,private notificacion:NotificationService) { }
   ngOnInit(): void {
-    this.cargandoTablaReservas()
+    this.tablaColumnas=columnasDatos(Entidad.Reserva_Instalacion);
+    this.cargandoDatosReservas()
   }
   /*private getReservasTabla(){
     this.service.getReservas().subscribe((data)=>{
       this.reservas=data
     })
   }*/
-  private cargandoTablaReservas(){
-    this.tablaColumnas=columnasDatos(Entidad.Reserva_Instalacion)
-    timer(1000).subscribe(()=>{
-      this.isLoading=false
+  private cargandoDatosReservas(){
+    timer(2000).subscribe(()=>{
       this.obtenerReservas()
     })
   }
   private obtenerReservas(){
-    this.service.getReservas().subscribe((data)=>{
-      this.reservasDatos=data
+    this.service.getReservas().subscribe({
+      next:(data)=>{
+        this.isLoading=false;
+        this.reservasDatos=data
+      },
+      error:(err)=>{
+        this.isLoading=false;
+        this.notificacion.showError(`No se pudo cargar la ${this.title}`,err)
+      }
     })
   }
   /*private obtenerReservasTablas(){
@@ -67,7 +73,7 @@ export class ReservaInstalacionComponent implements OnInit {
     })
     dialogRef.afterClosed().subscribe(()=>{
       //this.getReservasTabla()
-      this.cargandoTablaReservas()
+      this.cargandoDatosReservas()
     })
   }
   private eliminarReserva(id:number){
@@ -81,7 +87,7 @@ export class ReservaInstalacionComponent implements OnInit {
         this.service.deleteReserva(id).subscribe(()=>{
           this.notificacion.showEliminar(`La ${this.title}? fue eliminada`)
           //this.getReservasTabla();
-          this.cargandoTablaReservas()
+          this.cargandoDatosReservas()
         })
       }
     })
@@ -96,7 +102,7 @@ export class ReservaInstalacionComponent implements OnInit {
     })
     dialogRef.afterClosed().subscribe(()=>{
       //this.getReservasTabla()
-      this.cargandoTablaReservas()
+      this.cargandoDatosReservas()
     })
   }
 }

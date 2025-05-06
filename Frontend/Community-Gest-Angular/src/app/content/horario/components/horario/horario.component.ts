@@ -29,18 +29,24 @@ export class HorarioComponent implements OnInit{
   protected horariosDatos:Horario[]=[];
   constructor(private service:HorarioService,private dialog:MatDialog,private notificacion:NotificationService){}
   ngOnInit(): void {
-    this.cargarHorarioTabla();
-  }
-  private cargarHorarioTabla(){
     this.tablaColumnas=columnasDatos(Entidad.Horario)
-    timer(1000).subscribe(()=>{
-      this.isLoading=false
-      this.obtenerHorarioTabla()
+    this.cargarDatosHorario();
+  }
+  private cargarDatosHorario(){
+    timer(2000).subscribe(()=>{
+      this.obtenerHorarios()
     })
   }
-  private obtenerHorarioTabla(){
-    this.service.getHorarios().subscribe((data)=>{
-      this.horariosDatos=data;
+  private obtenerHorarios(){
+    this.service.getHorarios().subscribe({
+      next:(data)=>{
+        this.isLoading=false;
+        this.horariosDatos=data
+      },
+      error:(err)=>{
+        this.isLoading=false;
+        this.notificacion.showError(`No se pudo cargar la ${this.titulo}`,err)
+      }
     })
   }
   /*private getHorariosTabla(){
@@ -62,7 +68,7 @@ export class HorarioComponent implements OnInit{
     })
     dialogRef.afterClosed().subscribe(()=>{
       //this.getHorariosTabla();
-      this.cargarHorarioTabla();
+      this.cargarDatosHorario();
     })
   }
   private desactivarHorario(id:number){
@@ -77,7 +83,7 @@ export class HorarioComponent implements OnInit{
         this.service.desactiveHorario(id).subscribe(()=>{
           this.notificacion.showEliminar(`La ${this.titulo} fue eliminada`);
           //this.getHorariosTabla();
-          this.cargarHorarioTabla();
+          this.cargarDatosHorario();
         })
       },
       error:(err)=>{
@@ -94,7 +100,7 @@ export class HorarioComponent implements OnInit{
     })
     dialogRef.afterClosed().subscribe(()=>{
       //this.getHorariosTabla();
-      this.cargarHorarioTabla();
+      this.cargarDatosHorario();
     })
   }
 }

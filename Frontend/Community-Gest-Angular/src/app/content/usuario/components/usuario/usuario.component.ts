@@ -28,23 +28,30 @@ export class UsuarioComponent implements OnInit{
   protected tablaColumnas:TablaColumna<Usuario>[]=[];
   constructor(private service:UsuarioService,private dialog:MatDialog,private notificacion:NotificationService){}
   ngOnInit(): void {
-    this.cargandoTablaUsuarios();
+    this.tablaColumnas=columnasDatos(Entidad.Usuario)
+    this.cargandoDatosUsuarios();
   }
   /*/private getUsuariosTabla(){
     this.service.getUsuarios().subscribe((data)=>{
       this.usuarios=data
     })
   }*/
-  private cargandoTablaUsuarios(){
-    this.tablaColumnas=columnasDatos(Entidad.Usuario)
-    timer(1000).subscribe(()=>{
-      this.isLoading=false
+  private cargandoDatosUsuarios(){
+    timer(2000).subscribe(()=>{
       this.obtenerUsuarios()
     })
   }
+  // recuerda ejecutar el subscribe para que se ejecute la peticion
   private obtenerUsuarios(){
-    this.service.getUsuarios().subscribe((data)=>{
-      this.usuariosDatos=data
+    this.service.getUsuarios().subscribe({
+      next:(data)=>{
+        this.isLoading=false;
+        this.usuariosDatos=data
+      },
+      error:(err)=>{
+        this.isLoading=false;
+        this.notificacion.showError(`No se pudo cargar la ${this.title}`,err)
+      }
     })
   }
   protected onAction(accion:Accion){
@@ -61,7 +68,7 @@ export class UsuarioComponent implements OnInit{
     })
     dialogRef.afterClosed().subscribe(()=>{
       // this.getUsuariosTabla()
-      this.cargandoTablaUsuarios();
+      this.cargandoDatosUsuarios();
     })
   }
   private eliminarUsuario(id:number){
@@ -75,7 +82,7 @@ export class UsuarioComponent implements OnInit{
         this.service.desactiveUsuario(id).subscribe(()=>{
           this.notificacion.showEliminar(`La ${this.title}? fue eliminada`)
           // this.getUsuariosTabla();
-          this.cargandoTablaUsuarios();
+          this.cargandoDatosUsuarios();
         })
       },
       error:(err)=>{
@@ -93,7 +100,7 @@ export class UsuarioComponent implements OnInit{
     })
     dialogRef.afterClosed().subscribe(()=>{
       // this.getUsuariosTabla();
-      this.cargandoTablaUsuarios();
+      this.cargandoDatosUsuarios();
     });
   }
 }

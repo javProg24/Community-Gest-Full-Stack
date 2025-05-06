@@ -28,23 +28,29 @@ export class ReporteComponent implements OnInit{
   protected tablaColumnas:TablaColumna<Reporte>[]=columnasDatos(Entidad.Reporte);
   constructor(private service:ReporteService,private dialog:MatDialog,private notificacion:NotificationService ) {}
   ngOnInit(): void {
-    this.cargandoTablaReportes();
+    this.tablaColumnas=columnasDatos(Entidad.Reporte)
+    this.cargandoDatosReportes();
   }
   /*private getReportesTabla(){
     this.service.getsReporte().subscribe((data)=>{
       this.reportes=data
     })
   }*/
-  private cargandoTablaReportes(){
-    this.tablaColumnas=columnasDatos(Entidad.Reporte)
-    timer(1000).subscribe(()=>{
-      this.isLoading=false
+  private cargandoDatosReportes(){
+    timer(2000).subscribe(()=>{
       this.obtenerReportes()
     })
   }
   private obtenerReportes(){
-    this.service.getsReporte().subscribe((data)=>{
-      this.reportesDatos=data
+    this.service.getsReporte().subscribe({
+      next:(data)=>{
+        this.isLoading=false;
+        this.reportesDatos=data
+      },
+      error:(err)=>{
+        this.isLoading=false;
+        this.notificacion.showError(`No se pudo cargar la ${this.titulo}`,err)
+      }
     })
   }
   private obtenerReportesTabla(){

@@ -29,23 +29,29 @@ export class InstalacionComponent implements OnInit {
   protected tablaColumnas:TablaColumna<Instalacion>[]=[];
   constructor(private service: InstalacionService,private dialog:MatDialog,private notificacion:NotificationService) {}
   ngOnInit() {
-    this.cargarInstalacionesTabla();
+    this.tablaColumnas=columnasDatos(Entidad.Instalacion)
+    this.cargarDatosInstalaciones();
   }
   /*private getInstalacionesTabla(){
     this.service.getsInstalacion().subscribe((data)=>{
       this.instalaciones=data
     })
   }*/
-  private cargarInstalacionesTabla(){
-    this.tablaColumnas=columnasDatos(Entidad.Instalacion)
-    timer(1000).subscribe(()=>{
-      this.isLoading=false
+  private cargarDatosInstalaciones(){
+    timer(2000).subscribe(()=>{
       this.obtenerInstalaciones()
     })
   }
   obtenerInstalaciones(){
-    this.service.getInstalacionesDisponibles().subscribe((data)=>{
-      this.instalacionesDatos=data
+    this.service.getInstalacionesDisponibles().subscribe({
+      next:(data)=>{
+        this.isLoading=false;
+        this.instalacionesDatos=data
+      },
+      error:(err)=>{
+        this.isLoading=false;
+        this.notificacion.showError(`No se pudo cargar la ${this.title}`,err)
+      }
     })
   }
   protected onAction(accion: Accion){
@@ -62,7 +68,7 @@ export class InstalacionComponent implements OnInit {
       width: '600px',
     })
     dialogRef.afterClosed().subscribe(()=>{
-      this.cargarInstalacionesTabla()
+      this.cargarDatosInstalaciones()
     })
   }
   //este recibe un dato
@@ -77,7 +83,7 @@ export class InstalacionComponent implements OnInit {
       next:()=>{
         this.service.desactiveInstalacion(id).subscribe(()=>{
           this.notificacion.showEliminar(`La ${this.title}? fue deshabilitada`)
-          this.cargarInstalacionesTabla();
+          this.cargarDatosInstalaciones();
         })
       },
       error:(err)=>{
@@ -94,7 +100,7 @@ export class InstalacionComponent implements OnInit {
       width: '600px',
     })
     dialogRef.afterClosed().subscribe(()=>{
-      this.cargarInstalacionesTabla()
+      this.cargarDatosInstalaciones()
     })
   }
 }
