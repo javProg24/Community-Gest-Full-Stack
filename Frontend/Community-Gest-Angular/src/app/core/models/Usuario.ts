@@ -1,5 +1,5 @@
 import { FormControl, FormGroup } from "@angular/forms";
-import { TablaColumna } from "./Tabla_Columna";
+import { Tabla } from "./Tabla_Columna";
 
 export interface Usuario{
     id?:number;
@@ -28,7 +28,7 @@ export const UsuarioDatos={
     telefono:"telefono",
     estado:"estado"
 }as const;
-export const tablaUsuario:TablaColumna<Usuario>[]=[
+export const tablaUsuario:Tabla<Usuario>[]=[
     {
         label:UsuarioDatos.id.toUpperCase(),
         def:UsuarioDatos.id,

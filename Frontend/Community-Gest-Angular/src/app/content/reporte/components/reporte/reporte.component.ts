@@ -4,7 +4,7 @@ import { MatDialog } from "@angular/material/dialog"
 import { MatIconModule } from "@angular/material/icon"
 import { toStringEnum, Entidad, Acciones } from "@core/models/Enums"
 import { Reporte } from "@core/models/Reporte"
-import { Accion, TablaColumna, columnasDatos } from "@core/models/Tabla_Columna"
+import { Accion, Tabla, columnasDatos } from "@core/models/Tabla_Columna"
 import { NotificationService } from "@core/services/notification/notification.service"
 import { DialogFormComponent } from "@shared/dialog-form/dialog-form.component"
 import { DialogComponent } from "@shared/dialog/dialog.component"
@@ -25,7 +25,7 @@ export class ReporteComponent implements OnInit{
   protected isLoading:boolean=true;
   protected titulo=toStringEnum(Entidad.Reporte)
   protected reportesDatos:Reporte[]=[];
-  protected tablaColumnas:TablaColumna<Reporte>[]=columnasDatos(Entidad.Reporte);
+  protected tablaColumnas:Tabla<Reporte>[]=columnasDatos(Entidad.Reporte);
   constructor(private service:ReporteService,private dialog:MatDialog,private notificacion:NotificationService ) {}
   ngOnInit(): void {
     this.tablaColumnas=columnasDatos(Entidad.Reporte)
@@ -47,9 +47,8 @@ export class ReporteComponent implements OnInit{
         this.isLoading=false;
         this.reportesDatos=data
       },
-      error:(err)=>{
+      error:()=>{
         this.isLoading=false;
-        this.notificacion.showError(`No se pudo cargar la ${this.titulo}`,err)
       }
     })
   }

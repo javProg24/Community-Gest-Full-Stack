@@ -8,7 +8,7 @@ import { MatOptionModule, MatNativeDateModule } from '@angular/material/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatLabel, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
+import { MatSelectChange, MatSelectModule } from '@angular/material/select';
 import { MatTimepickerModule } from '@angular/material/timepicker';
 import { HorarioService } from '@content/horario/service/horario.service';
 import { InstalacionService } from '@content/instalacion/service/instalacion.service';
@@ -87,6 +87,11 @@ export class HorarioFormComponent implements OnInit{
     }
     return horario
   }
+  
+  protected onSelectChange(event: MatSelectChange){
+    const seleccion=event.value.id;
+    console.log(seleccion);
+  }
   protected onSubmit(){
     this.titulo.toLowerCase();
     this.isEdit?this.actualizarHorario(this.Horario()):this.agregarHorario(this.Horario());
@@ -94,7 +99,8 @@ export class HorarioFormComponent implements OnInit{
   private agregarHorario(horario:Horario){
     this.horarioService.addHorario(horario).subscribe({
       next:()=>{
-        this.notificacion.showAgregado(`El ${this.titulo} fue asigando con su respectiva Instalacion`,this.dialogRef)
+        this.notificacion.showAgregado(`El ${this.titulo} fue agregado con su respectiva Instalacion`,this.dialogRef)
+        this.instalService.assignInstalacion(horario.instalacion_ID).subscribe(()=>{})
       },
       error:(err)=>{
         this.notificacion.showError(`El ${this.titulo} no fue asigando con su respectiva Instalacion`,err)
@@ -106,6 +112,7 @@ export class HorarioFormComponent implements OnInit{
     this.horarioService.updateHorario(this.currentID,horario).subscribe({
       next:()=>{
         this.notificacion.showAgregado(`El ${this.titulo} fue actualizado con su respectiva Instalacion`,this.dialogRef)
+        this.instalService.assignInstalacion(horario.instalacion_ID).subscribe(()=>{})
       },
       error:(err)=>{
         this.notificacion.showError(`El ${this.titulo} no fue actualizado con su respectiva Instalacion`,err)

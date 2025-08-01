@@ -1,7 +1,7 @@
 import { Horario } from "./Horario";
 import { Instalacion } from "./Instalacion";
 import { obtenerDisponibilidad } from "./Metodos";
-import { TablaColumna } from "./Tabla_Columna";
+import { Tabla } from "./Tabla_Columna";
 import { Usuario } from "./Usuario";
 
 export interface Reserva_Instalacion{
@@ -33,7 +33,7 @@ export const ReservaInstalacionDatos={
     fecha:"fecha",
     disponibilidad:"disponibilidad"
 }as const;
-export const tablaReservaInstalacion:TablaColumna<Reserva_Instalacion>[]=[
+export const tablaReservaInstalacion:Tabla<Reserva_Instalacion>[]=[
     {
         label:ReservaInstalacionDatos.id.toUpperCase(),
         def:ReservaInstalacionDatos.id,

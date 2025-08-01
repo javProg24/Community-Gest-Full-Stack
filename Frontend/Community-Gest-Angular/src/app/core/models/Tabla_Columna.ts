@@ -5,30 +5,31 @@ import { InstalacionDatos, tablaInstalacion } from "./Instalacion";
 import { ReporteDatos, tablaReporte } from "./Reporte";
 import { ReservaHerramientaDatos, tablaReservaHerramienta } from "./Reserva-Herramienta";
 import { ReservaInstalacionDatos, tablaReservaInstalacion } from "./Reserva-Instalacion";
-import { tablaUsuario, UsuarioDatos } from "./Usuario";
-export interface TablaColumna<T>{
+import { UsuarioDatos, tablaUsuario } from "./Usuario";
+
+export interface Tabla<T>{
     label:string,
     def:string,
     content:(row:T)=>string|number|boolean|undefined
-  }
+}
 export interface Accion<T=any>{
     accion:Acciones;
     fila:T;
 }
-const listaCamposEntidades:{[key in Entidad]?:unknown}={
-    [Entidad.Usuario]:UsuarioDatos,
-    [Entidad.Instalacion]:InstalacionDatos,
-    [Entidad.Horario]:HorarioDatos,
-    [Entidad.Herramienta]:HerramientaDatos,
-    [Entidad.Reporte]:ReporteDatos,
-    [Entidad.Reserva_Herramienta]:ReservaHerramientaDatos,
-    [Entidad.Reserva_Instalacion]:ReservaInstalacionDatos,
-}
-export const columnasEntidades=(entidad:Entidad):Array<string>=>{
-    const campoColumnas=listaCamposEntidades[entidad];
-    if(!campoColumnas)return[]
-    return Object.values(campoColumnas)
-}
+//const listaCamposEntidades: { [key in Entidad]?: unknown } = {
+//    [Entidad.Usuario]: UsuarioDatos,
+//    [Entidad.Instalacion]: InstalacionDatos,
+//    [Entidad.Horario]: HorarioDatos,
+//    [Entidad.Herramienta]: HerramientaDatos,
+//    [Entidad.Reporte]: ReporteDatos,
+//    [Entidad.Reserva_Herramienta]: ReservaHerramientaDatos,
+//    [Entidad.Reserva_Instalacion]: ReservaInstalacionDatos,
+//}
+//export const columnasEntidades=(entidad:Entidad):Array<string>=>{
+//    const campoColumnas=listaCamposEntidades[entidad];
+//    if(!campoColumnas)return[]
+//    return Object.values(campoColumnas)
+//}
 /////////////////////////////////////////////////////////////////////
 const listaDatosEntidades:{[key in Entidad]?:unknown}={
     [Entidad.Instalacion]:tablaInstalacion,
@@ -39,7 +40,7 @@ const listaDatosEntidades:{[key in Entidad]?:unknown}={
     [Entidad.Reserva_Instalacion]:tablaReservaInstalacion,
     [Entidad.Reserva_Herramienta]:tablaReservaHerramienta,
 }
-export const columnasDatos=<T>(entidad:Entidad):TablaColumna<T>[]=>{
+export const columnasDatos=<T>(entidad:Entidad):Tabla<T>[]=>{
     const datosColumnas=listaDatosEntidades[entidad]
     if(!datosColumnas)return[]
     return Object.values(datosColumnas)

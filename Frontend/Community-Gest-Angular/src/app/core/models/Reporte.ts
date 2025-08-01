@@ -1,4 +1,4 @@
-import { TablaColumna } from "./Tabla_Columna";
+import { Tabla } from "./Tabla_Columna";
 
 export interface Reporte{
     id?: number,
@@ -21,7 +21,7 @@ export const ReporteDatos={
     recurso_Afectado: "recurso_Afectado", 
     estado: "estado",
 }as const;
-export const tablaReporte:TablaColumna<Reporte>[]=[
+export const tablaReporte:Tabla<Reporte>[]=[
     {
         label:ReporteDatos.id.toUpperCase(),
         def:ReporteDatos.id,

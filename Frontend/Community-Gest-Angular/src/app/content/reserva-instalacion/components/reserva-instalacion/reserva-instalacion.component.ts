@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { toStringEnum, Entidad, Acciones } from '@core/models/Enums';
 import { Reserva_Instalacion } from '@core/models/Reserva-Instalacion';
-import { columnasEntidades, Accion, columnasDatos, TablaColumna } from '@core/models/Tabla_Columna';
+import { columnasEntidades, Accion, columnasDatos, Tabla } from '@core/models/Tabla_Columna';
 import { NotificationService } from '@core/services/notification/notification.service';
 import { DialogFormComponent } from '@shared/dialog-form/dialog-form.component';
 import { DialogComponent } from '@shared/dialog/dialog.component';
@@ -25,7 +25,7 @@ export class ReservaInstalacionComponent implements OnInit {
   protected isVisibleEliminar:boolean=true;
   protected isLoading:boolean=true;
   title=toStringEnum(Entidad.Reserva)
-  protected tablaColumnas:TablaColumna<Reserva_Instalacion>[]=[]
+  protected tablaColumnas:Tabla<Reserva_Instalacion>[]=[]
   protected reservasDatos:Reserva_Instalacion[]=[];
   constructor(private service:ReservaInstalacionService,private dialog:MatDialog,private notificacion:NotificationService) { }
   ngOnInit(): void {
@@ -48,9 +48,8 @@ export class ReservaInstalacionComponent implements OnInit {
         this.isLoading=false;
         this.reservasDatos=data
       },
-      error:(err)=>{
+      error:()=>{
         this.isLoading=false;
-        this.notificacion.showError(`No se pudo cargar la ${this.title}`,err)
       }
     })
   }

@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { toStringEnum, Entidad, Acciones } from '@core/models/Enums';
 import { Reserva_Herramienta } from '@core/models/Reserva-Herramienta';
-import { columnasEntidades, Accion, TablaColumna, columnasDatos } from '@core/models/Tabla_Columna';
+import { columnasEntidades, Accion, Tabla, columnasDatos } from '@core/models/Tabla_Columna';
 import { NotificationService } from '@core/services/notification/notification.service';
 import { DialogFormComponent } from '@shared/dialog-form/dialog-form.component';
 import { DialogComponent } from '@shared/dialog/dialog.component';
@@ -26,7 +26,7 @@ export class ReservaHerramientaComponent implements OnInit {
   protected isLoading:boolean=true;
   title=toStringEnum(Entidad.Reserva)
   protected reservasDatos:Reserva_Herramienta[]=[]
-  protected tablaColumnas:TablaColumna<Reserva_Herramienta>[]=[]
+  protected tablaColumnas:Tabla<Reserva_Herramienta>[]=[]
   constructor(private services:ReservaHerramientaService,private dialog:MatDialog,private notificacion:NotificationService) { }
 
   ngOnInit(): void {
@@ -44,9 +44,8 @@ export class ReservaHerramientaComponent implements OnInit {
         this.isLoading=false;
         this.reservasDatos=data
       },
-      error:(err)=>{
+      error:()=>{
         this.isLoading=false;
-        this.notificacion.showError(`No se pudo cargar la ${this.title}`,err)
       }
     })
   }

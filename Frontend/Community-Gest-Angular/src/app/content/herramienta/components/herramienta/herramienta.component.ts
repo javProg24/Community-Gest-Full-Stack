@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { toStringEnum, Entidad, Acciones } from '@core/models/Enums';
 import { Herramienta } from '@core/models/Herramienta';
-import { Accion, TablaColumna, columnasDatos } from '@core/models/Tabla_Columna';
+import { Accion, Tabla, columnasDatos } from '@core/models/Tabla_Columna';
 import { NotificationService } from '@core/services/notification/notification.service';
 import { DialogFormComponent } from '@shared/dialog-form/dialog-form.component';
 import { DialogComponent } from '@shared/dialog/dialog.component';
@@ -25,7 +25,7 @@ export class HerramientaComponent implements OnInit{
   protected isLoading=true;
   protected titulo = toStringEnum(Entidad.Herramienta);
   protected herramientasDatos:Herramienta[]=[];
-  protected tablaColumnas:TablaColumna<Herramienta>[]=[];
+  protected tablaColumnas:Tabla<Herramienta>[]=[];
   constructor(private service: HerramientaService,private dialog:MatDialog,private notificacion:NotificationService) {}
   ngOnInit(): void {
     this.tablaColumnas=columnasDatos(Entidad.Herramienta)
@@ -43,9 +43,8 @@ export class HerramientaComponent implements OnInit{
         this.isLoading=false;
         this.herramientasDatos=data
       },
-      error:(err)=>{
+      error:()=>{
         this.isLoading=false;
-        this.notificacion.showError(`No se pudo cargar la ${this.titulo}`,err)
       }
     })
   }

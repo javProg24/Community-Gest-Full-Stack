@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Entidad, toStringEnum } from '@core/models/Enums';
 import { Herramienta } from '@core/models/Herramienta';
+import { tipoConfiguracion } from '@core/models/Metodos';
 import { GeneralService } from '@core/services/general-service/servicio-general.service';
 import { Observable } from 'rxjs';
 
@@ -29,7 +30,7 @@ export class HerramientaService {
     return this.service.getIdService<Herramienta>(this.nombreEntidad,id)
   }
   desactiveHerramienta(id:number):Observable<Herramienta>{
-    return this.service.desactiveService<Herramienta>(this.nombreEntidad,id)
+    return this.service.configUpdateService<Herramienta>(this.nombreEntidad,tipoConfiguracion.Desactivado,id)
   }
 }
 

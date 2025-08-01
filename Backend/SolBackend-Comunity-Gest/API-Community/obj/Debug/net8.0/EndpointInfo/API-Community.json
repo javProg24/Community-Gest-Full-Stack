@@ -630,7 +630,7 @@
         }
       }
     },
-    "/api/Instalacion/desactive{id}": {
+    "/api/Instalacion/desactive/{id}": {
       "put": {
         "tags": [
           "Instalacion"
@@ -653,7 +653,30 @@
         }
       }
     },
-    "/api/Instalacion/active{id}": {
+    "/api/Instalacion/active/{id}": {
+      "put": {
+        "tags": [
+          "Instalacion"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Instalacion/asignado/{id}": {
       "put": {
         "tags": [
           "Instalacion"
@@ -1527,6 +1550,9 @@
             "nullable": true
           },
           "estado": {
+            "type": "boolean"
+          },
+          "asignado": {
             "type": "boolean"
           }
         },

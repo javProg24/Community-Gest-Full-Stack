@@ -25,7 +25,12 @@ export class InstalacionFormComponent implements OnInit {
   protected isEdit = false;
   currentID?: number;
   form!: FormGroup;
-  constructor(private fb: FormBuilder, private dialogRef: MatDialogRef<InstalacionFormComponent>, @Inject('formData') public formData: Instalacion | null, private notificacion: NotificationService, private service: InstalacionService) {}
+  constructor(
+    private fb: FormBuilder, 
+    private dialogRef: MatDialogRef<InstalacionFormComponent>, 
+    @Inject('formData') public formData: Instalacion | null, 
+    private notificacion: NotificationService, 
+    private service: InstalacionService) {}
   ngOnInit() {
     this.form=this.fb.group({
       nombre:["",[Validators.required]],

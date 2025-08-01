@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Entidad, toStringEnum } from "@core/models/Enums";
+import { tipoConfiguracion } from "@core/models/Metodos";
 import { Usuario } from "@core/models/Usuario";
 import { GeneralService } from "@core/services/general-service/servicio-general.service";
 import { Observable } from "rxjs";
@@ -26,6 +27,6 @@ export class UsuarioService {
     return this.service.getIdService<Usuario>(this.nombreEntidad,id)
   }
   desactiveUsuario(id:number):Observable<Usuario>{
-    return this.service.desactiveService<Usuario>(this.nombreEntidad,id)
+    return this.service.configUpdateService<Usuario>(this.nombreEntidad,tipoConfiguracion.Desactivado,id)
   }
 }

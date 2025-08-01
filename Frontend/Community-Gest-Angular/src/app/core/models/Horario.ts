@@ -1,5 +1,5 @@
 import { Instalacion } from "./Instalacion"
-import { TablaColumna } from "./Tabla_Columna"
+import { Tabla } from "./Tabla_Columna"
 
 export interface Horario{
     id?:number,
@@ -26,7 +26,7 @@ export const HorarioDatos={
     hora_Fin:"hora_Fin",
     estado:"estado"
 }
-export const tablaHorario:TablaColumna<Horario>[]=[
+export const tablaHorario:Tabla<Horario>[]=[
     {
         label:HorarioDatos.id.toUpperCase(),
         def:HorarioDatos.id,

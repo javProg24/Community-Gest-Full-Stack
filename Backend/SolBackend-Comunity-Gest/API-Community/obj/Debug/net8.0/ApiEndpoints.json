@@ -349,7 +349,7 @@
   {
     "ContainingType": "API_Community.Controllers.InstalacionController",
     "Method": "ActiveInstalacion",
-    "RelativePath": "api/Instalacion/active{id}",
+    "RelativePath": "api/Instalacion/active/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -384,8 +384,24 @@
   },
   {
     "ContainingType": "API_Community.Controllers.InstalacionController",
+    "Method": "Asignacion",
+    "RelativePath": "api/Instalacion/asignado/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_Community.Controllers.InstalacionController",
     "Method": "DesactiveInstalacion",
-    "RelativePath": "api/Instalacion/desactive{id}",
+    "RelativePath": "api/Instalacion/desactive/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,

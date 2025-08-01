@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { TablaReutilizableComponent } from '@shared/tabla-reutilizable/tabla-reutilizable.component';
 import { Acciones, Entidad, toStringEnum } from '@core/models/Enums';
-import { Accion, columnasDatos, TablaColumna } from '@core/models/Tabla_Columna';
+import { Accion, columnasDatos, Tabla } from '@core/models/Tabla_Columna';
 import { Usuario } from '@core/models/Usuario';
 import { NotificationService } from '@core/services/notification/notification.service';
 import { DialogFormComponent } from '@shared/dialog-form/dialog-form.component';
@@ -25,7 +25,7 @@ export class UsuarioComponent implements OnInit{
   protected isLoading:boolean=true;
   protected title=toStringEnum(Entidad.Usuario)
   protected usuariosDatos:Usuario[]=[];
-  protected tablaColumnas:TablaColumna<Usuario>[]=[];
+  protected tablaColumnas:Tabla<Usuario>[]=[];
   constructor(private service:UsuarioService,private dialog:MatDialog,private notificacion:NotificationService){}
   ngOnInit(): void {
     this.tablaColumnas=columnasDatos(Entidad.Usuario)
@@ -48,9 +48,8 @@ export class UsuarioComponent implements OnInit{
         this.isLoading=false;
         this.usuariosDatos=data
       },
-      error:(err)=>{
+      error:()=>{
         this.isLoading=false;
-        this.notificacion.showError(`No se pudo cargar la ${this.title}`,err)
       }
     })
   }

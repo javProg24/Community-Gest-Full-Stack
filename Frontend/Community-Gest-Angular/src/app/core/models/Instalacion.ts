@@ -1,4 +1,4 @@
-import { TablaColumna } from "./Tabla_Columna";
+import { Tabla } from "./Tabla_Columna";
 
 export interface Instalacion{
     id?:number,
@@ -6,7 +6,8 @@ export interface Instalacion{
     tipo:string,
     capacidad:number,
     descripcion:string,
-    estado:boolean
+    estado:boolean,
+    asignado:boolean,
 }  
 export const InstalacionDatos={
     id:"id",
@@ -14,10 +15,11 @@ export const InstalacionDatos={
     tipo:"tipo",
     capacidad:"capacidad",
     descripcion:"descripcion",
-    estado:"estado"
+    estado:"estado",
+    asignado:"asignado",
 }as const;
 
-export const tablaInstalacion:TablaColumna<Instalacion>[]=[
+export const tablaInstalacion:Tabla<Instalacion>[]=[
     {
         label:InstalacionDatos.id.toUpperCase(),
         def:InstalacionDatos.id,
@@ -47,5 +49,10 @@ export const tablaInstalacion:TablaColumna<Instalacion>[]=[
         label:InstalacionDatos.estado,
         def:InstalacionDatos.estado,
         content:(row)=>row.estado?"Disponible":"Fuera de Servicio"
+    },
+    {
+        label:InstalacionDatos.asignado,
+        def:InstalacionDatos.asignado,
+        content:(row)=>row.asignado?"Si":"No"
     }
 ]

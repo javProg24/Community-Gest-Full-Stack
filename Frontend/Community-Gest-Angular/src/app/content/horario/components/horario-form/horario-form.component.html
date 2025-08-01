@@ -7,7 +7,7 @@
             
             <mat-form-field appearance="fill" class="full-width">
                 <mat-label>Instalacion</mat-label>
-                <mat-select formControlName="instalacion">
+                <mat-select formControlName="instalacion" (selectionChange)="onSelectChange($event)">
                     <mat-option *ngFor="let instalacion of (isEdit?instalaciones:instalacionesDispo)" [value]="instalacion">
                         {{instalacion.nombre}}
                     </mat-option>

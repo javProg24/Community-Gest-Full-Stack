@@ -26,7 +26,7 @@ namespace API_Community.Controllers
         public async Task<ActionResult<IEnumerable<Instalacion>>> GetInstalaciones()
         {
             return await _context.Instalaciones
-                .Where(i=>i.Estado==true)
+                .Where(i=>i.Estado==true && i.Asignado==false)
                 .OrderBy(i=>i.ID)
                 .ToListAsync();
         }
@@ -35,6 +35,7 @@ namespace API_Community.Controllers
         {
             return await _context.Instalaciones
                 .OrderBy(i => i.ID)
+                .Where(i=>i.Estado==true)
                 .ToListAsync();
         }
 
@@ -109,7 +110,7 @@ namespace API_Community.Controllers
 
             return NoContent();
         }
-        [HttpPut("desactive{id}")]
+        [HttpPut("desactive/{id}")]
         public async Task<IActionResult>DesactiveInstalacion(int id)
         {
             var instalacion = await _context.Instalaciones.FindAsync(id);
@@ -130,14 +131,34 @@ namespace API_Community.Controllers
             }
             return NoContent();
         }
-        [HttpPut("active{id}")]
+        [HttpPut("active/{id}")]
         public async Task<IActionResult>ActiveInstalacion(int id) {
             var instalacion = await _context.Instalaciones.FindAsync(id);
-            if (instalacion == null)
-            {
+            if (instalacion == null){
                 return NotFound("Instalacion no encontrado");
             }
             instalacion.Estado = true;
+            try{
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException){
+                if (!InstalacionExists(id)){
+                    return NotFound();
+                }
+                else{
+                    throw;
+                }
+            }
+            return NoContent();
+        }
+        [HttpPut("asignado/{id}")]
+        public async Task<IActionResult>Asignacion(int id)
+        {
+            var instalacion= await _context.Instalaciones.FindAsync(id);
+            if(instalacion == null){
+                return NotFound("Instalacion no encontrado");
+            }
+            instalacion.Asignado = true;
             try
             {
                 await _context.SaveChangesAsync();

@@ -1,6 +1,6 @@
 import { Herramienta } from "./Herramienta";
 import { obtenerDisponibilidad } from "./Metodos";
-import { TablaColumna } from "./Tabla_Columna";
+import { Tabla } from "./Tabla_Columna";
 import { Usuario } from "./Usuario";
 
 export interface Reserva_Herramienta{
@@ -36,7 +36,7 @@ export const ReservaHerramientaDatos={
     hora_Fin: "hora_Fin",
     disponibilidad: "disponibilidad"
 }as const;
-export const tablaReservaHerramienta:TablaColumna<Reserva_Herramienta>[]=[
+export const tablaReservaHerramienta:Tabla<Reserva_Herramienta>[]=[
     {
         label:ReservaHerramientaDatos.id.toUpperCase(),
         def:ReservaHerramientaDatos.id,

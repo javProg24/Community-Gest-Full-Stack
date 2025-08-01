@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { toStringEnum, Entidad, Acciones } from '@core/models/Enums';
 import { Horario } from '@core/models/Horario';
-import { Accion, TablaColumna, columnasDatos } from '@core/models/Tabla_Columna';
+import { Accion, Tabla, columnasDatos } from '@core/models/Tabla_Columna';
 import { NotificationService } from '@core/services/notification/notification.service';
 import { DialogFormComponent } from '@shared/dialog-form/dialog-form.component';
 import { DialogComponent } from '@shared/dialog/dialog.component';
@@ -25,7 +25,7 @@ export class HorarioComponent implements OnInit{
   protected isVisibleEditar=true;
   protected isVisibleEliminar=true;
   protected isLoading=true;
-  protected tablaColumnas:TablaColumna<Horario>[]=[];
+  protected tablaColumnas:Tabla<Horario>[]=[];
   protected horariosDatos:Horario[]=[];
   constructor(private service:HorarioService,private dialog:MatDialog,private notificacion:NotificationService){}
   ngOnInit(): void {
@@ -43,9 +43,8 @@ export class HorarioComponent implements OnInit{
         this.isLoading=false;
         this.horariosDatos=data
       },
-      error:(err)=>{
+      error:()=>{
         this.isLoading=false;
-        this.notificacion.showError(`No se pudo cargar la ${this.titulo}`,err)
       }
     })
   }

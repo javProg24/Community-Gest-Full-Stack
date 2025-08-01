@@ -15,6 +15,7 @@ namespace Data.Models
         public int Capacidad { get; set; }
         public string Descripcion { get; set; }
         public bool Estado { get; set; }
+        public bool Asignado { get; set; }
         [JsonIgnore]
         public virtual ICollection<Horario> Horarios {  get; set; } = new List<Horario>();
     }

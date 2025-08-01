@@ -9,13 +9,8 @@ import { Observable } from 'rxjs';
 export class GeneralService implements Metodos{
   private url = 'https://localhost:7179/api'
   constructor(private http:HttpClient) { }
-  activeService<T>(instancia: string, id: number): Observable<T> {
-    const ApiUrl=`${this.url}/${instancia}/active/${id}`
-    return this.http.put<T>(ApiUrl,{})
-  }
-  desactiveService<T>(instancia: string, id: number): Observable<T> {
-    const ApiUrl=`${this.url}/${instancia}/desactive/${id}`
-    return this.http.put<T>(ApiUrl,{})
+  configUpdateService<T>(instancia: string, tipo: string, id: number): Observable<T> {
+    return this.http.put<T>(`${this.url}/${instancia}/${tipo}/${id}`,{})
   }
   getService<T>(instancia: string): Observable<T[]> {
     const APIurl=`${this.url}/${instancia}`;

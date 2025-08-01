@@ -4,12 +4,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { toStringEnum, Entidad, Acciones } from '@core/models/Enums';
 import { Instalacion } from '@core/models/Instalacion';
-import { columnasEntidades, TablaColumna, columnasDatos, Accion } from '@core/models/Tabla_Columna';
+import { Tabla, columnasDatos, Accion } from '@core/models/Tabla_Columna';
 import { NotificationService } from '@core/services/notification/notification.service';
 import { DialogFormComponent } from '@shared/dialog-form/dialog-form.component';
 import { DialogComponent } from '@shared/dialog/dialog.component';
 import { TablaReutilizableComponent } from '@shared/tabla-reutilizable/tabla-reutilizable.component';
-import { TableComponent } from '@shared/table/table.component';
 import { InstalacionFormComponent } from '../instalacion-form/instalacion-form.component';
 import { InstalacionService } from '@content/instalacion/service/instalacion.service';
 import { timer } from 'rxjs';
@@ -26,7 +25,7 @@ export class InstalacionComponent implements OnInit {
   protected isLoading=true;
   protected title = toStringEnum(Entidad.Instalacion);
   protected instalacionesDatos:Instalacion[]=[];
-  protected tablaColumnas:TablaColumna<Instalacion>[]=[];
+  protected tablaColumnas:Tabla<Instalacion>[]=[];
   constructor(private service: InstalacionService,private dialog:MatDialog,private notificacion:NotificationService) {}
   ngOnInit() {
     this.tablaColumnas=columnasDatos(Entidad.Instalacion)
@@ -43,14 +42,13 @@ export class InstalacionComponent implements OnInit {
     })
   }
   obtenerInstalaciones(){
-    this.service.getInstalacionesDisponibles().subscribe({
+    this.service.getInstalaciones().subscribe({
       next:(data)=>{
         this.isLoading=false;
         this.instalacionesDatos=data
       },
-      error:(err)=>{
+      error:()=>{
         this.isLoading=false;
-        this.notificacion.showError(`No se pudo cargar la ${this.title}`,err)
       }
     })
   }

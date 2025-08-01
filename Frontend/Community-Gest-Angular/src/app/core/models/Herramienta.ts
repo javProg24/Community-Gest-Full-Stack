@@ -1,4 +1,4 @@
-import { TablaColumna } from "./Tabla_Columna";
+import { Tabla } from "./Tabla_Columna";
 
 export interface Herramienta{
     id?:number;
@@ -24,7 +24,7 @@ export const HerramientaDatos={
     cantidad:"cantidad",
     estado:"estado"
 }as const;
-export const tablaHerramienta:TablaColumna<Herramienta>[]=[
+export const tablaHerramienta:Tabla<Herramienta>[]=[
     {
         label:HerramientaDatos.id.toUpperCase(),
         def:HerramientaDatos.id,

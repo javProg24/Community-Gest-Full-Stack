@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Entidad, toStringEnum } from '@core/models/Enums';
 import { Horario } from '@core/models/Horario';
+import { tipoConfiguracion } from '@core/models/Metodos';
 import { GeneralService } from '@core/services/general-service/servicio-general.service';
 import { Observable } from 'rxjs';
 
@@ -26,9 +27,9 @@ export class HorarioService {
     return this.service.getIdService<Horario>(this.nombreEntidad,id)
   }
   activeHorario(id:number):Observable<Horario>{
-    return this.service.activeService(this.nombreEntidad,id)
+    return this.service.configUpdateService(this.nombreEntidad,tipoConfiguracion.Activado,id)
   }
   desactiveHorario(id:number):Observable<Horario>{
-    return this.service.desactiveService(this.nombreEntidad,id)
+    return this.service.configUpdateService(this.nombreEntidad,tipoConfiguracion.Desactivado,id)
   }
 }
