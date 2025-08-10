@@ -11,7 +11,7 @@ import { DialogFormComponent } from '@shared/dialog-form/dialog-form.component';
 import { UsuarioFormComponent } from '../usuario-form/usuario-form.component';
 import { DialogComponent } from '@shared/dialog/dialog.component';
 import { UsuarioService } from '@content/usuario/service/usuario.service';
-import { timer } from 'rxjs';
+import { Subject, takeUntil, timer } from 'rxjs';
 
 @Component({
   selector: 'app-usuario',
@@ -20,6 +20,7 @@ import { timer } from 'rxjs';
   styleUrl: './usuario.component.css'
 })
 export class UsuarioComponent implements OnInit{
+  private destroy$=new Subject<void>();
   protected isVisibleEditar:boolean=true;
   protected isVisibleEliminar:boolean=true;
   protected isLoading:boolean=true;
@@ -30,6 +31,12 @@ export class UsuarioComponent implements OnInit{
   ngOnInit(): void {
     this.tablaColumnas=columnasDatos(Entidad.Usuario)
     this.cargandoDatosUsuarios();
+    console.count('UsuarioComponent initialized');
+  }
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+    console.log('UsuarioComponent destroyed');
   }
   /*/private getUsuariosTabla(){
     this.service.getUsuarios().subscribe((data)=>{
@@ -37,14 +44,18 @@ export class UsuarioComponent implements OnInit{
     })
   }*/
   private cargandoDatosUsuarios(){
-    timer(2000).subscribe(()=>{
+    timer(2000)
+    .pipe(takeUntil(this.destroy$))
+    .subscribe(()=>{
       this.obtenerUsuarios()
     })
   }
   // recuerda ejecutar el subscribe para que se ejecute la peticion
   private obtenerUsuarios(){
-    this.service.getUsuarios().subscribe({
+    this.service.getUsuarios().pipe(takeUntil(this.destroy$))
+    .subscribe({
       next:(data)=>{
+        console.log('Respuesta del backend recibida para usuarios');
         this.isLoading=false;
         this.usuariosDatos=data
       },

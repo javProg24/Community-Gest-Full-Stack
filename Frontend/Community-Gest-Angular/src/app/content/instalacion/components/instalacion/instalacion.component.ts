@@ -11,7 +11,7 @@ import { DialogComponent } from '@shared/dialog/dialog.component';
 import { TablaReutilizableComponent } from '@shared/tabla-reutilizable/tabla-reutilizable.component';
 import { InstalacionFormComponent } from '../instalacion-form/instalacion-form.component';
 import { InstalacionService } from '@content/instalacion/service/instalacion.service';
-import { timer } from 'rxjs';
+import { Subject, takeUntil, timer } from 'rxjs';
 
 @Component({
   selector: 'app-instalacion',
@@ -20,6 +20,7 @@ import { timer } from 'rxjs';
   styleUrl: './instalacion.component.css'
 })
 export class InstalacionComponent implements OnInit {
+  private destroy$=new Subject<void>();
   protected isVisibleEditar=true;
   protected isVisibleEliminar=true;
   protected isLoading=true;
@@ -27,9 +28,15 @@ export class InstalacionComponent implements OnInit {
   protected instalacionesDatos:Instalacion[]=[];
   protected tablaColumnas:Tabla<Instalacion>[]=[];
   constructor(private service: InstalacionService,private dialog:MatDialog,private notificacion:NotificationService) {}
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+    console.log('InstalacionComponent destroyed');
+  }
   ngOnInit() {
     this.tablaColumnas=columnasDatos(Entidad.Instalacion)
     this.cargarDatosInstalaciones();
+    console.count('InstalacionComponent initialized');
   }
   /*private getInstalacionesTabla(){
     this.service.getsInstalacion().subscribe((data)=>{
@@ -37,13 +44,31 @@ export class InstalacionComponent implements OnInit {
     })
   }*/
   private cargarDatosInstalaciones(){
-    timer(2000).subscribe(()=>{
+    // timer(2000).subscribe(()=>{
+    //   this.obtenerInstalaciones()
+    //   //
+    // })
+    timer(2000)
+    .pipe(takeUntil(this.destroy$))
+    .subscribe(()=>{
       this.obtenerInstalaciones()
     })
   }
   obtenerInstalaciones(){
-    this.service.getInstalaciones().subscribe({
+    // this.service.getInstalaciones().subscribe({
+    //   next:(data)=>{
+    //     console.log('Respuesta del backend recibida para instalaciones');
+    //     this.isLoading=false;
+    //     this.instalacionesDatos=data
+    //   },
+    //   error:()=>{
+    //     this.isLoading=false;
+    //   }
+    // })
+    this.service.getInstalaciones().pipe(takeUntil(this.destroy$))
+    .subscribe({
       next:(data)=>{
+        console.log('Respuesta del backend recibida para instalaciones');
         this.isLoading=false;
         this.instalacionesDatos=data
       },

@@ -15,6 +15,5 @@ export const appConfig: ApplicationConfig = {
       timeOut: 3000, // Tiempo de duración en milisegundos
       preventDuplicates: true, // Evita mensajes repetidos
     }), provideAnimationsAsync(),
-    provideAnimationsAsync(), provideAnimationsAsync()
   ]
 };

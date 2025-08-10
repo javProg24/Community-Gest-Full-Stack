@@ -11,7 +11,7 @@ import { DialogComponent } from '@shared/dialog/dialog.component';
 import { TablaReutilizableComponent } from '@shared/tabla-reutilizable/tabla-reutilizable.component';
 import { HerramientaFormComponent } from '../herramienta-form/herramienta-form.component';
 import { HerramientaService } from '@content/herramienta/service/herramienta.service';
-import { timer } from 'rxjs';
+import { Subject, takeUntil, timer } from 'rxjs';
 
 @Component({
   selector: 'app-herramienta',
@@ -20,6 +20,7 @@ import { timer } from 'rxjs';
   styleUrl: './herramienta.component.css'
 })
 export class HerramientaComponent implements OnInit{
+  private destroy$=new Subject<void>();
   protected isVisibleEditar=true;
   protected isVisibleEliminar=true;
   protected isLoading=true;
@@ -38,8 +39,10 @@ export class HerramientaComponent implements OnInit{
     })
   }*/
   private obtenerHerramientas(){
-    this.service.getsHerramienta().subscribe({
+    this.service.getsHerramienta().pipe(takeUntil(this.destroy$))
+    .subscribe({
       next:(data)=>{
+        console.log('Respuesta del backend recibida para herramientas');
         this.isLoading=false;
         this.herramientasDatos=data
       },
@@ -49,7 +52,7 @@ export class HerramientaComponent implements OnInit{
     })
   }
   private cargarDatosHerramientas(){
-    timer(2000).subscribe(()=>{
+    timer(2000).pipe(takeUntil(this.destroy$)).subscribe(()=>{
       this.isLoading=false
       this.obtenerHerramientas()
     })

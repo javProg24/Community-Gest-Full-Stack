@@ -11,7 +11,7 @@ import { DialogComponent } from "@shared/dialog/dialog.component"
 import { ReporteFormComponent } from "../reporte-form/reporte-form.component"
 import { TablaReutilizableComponent } from "@shared/tabla-reutilizable/tabla-reutilizable.component"
 import { ReporteService } from "@content/reporte/service/reporte.service"
-import { timer } from "rxjs"
+import { Subject, takeUntil, timer } from "rxjs"
 
 @Component({
   selector: 'app-reporte',
@@ -20,6 +20,7 @@ import { timer } from "rxjs"
   styleUrl: './reporte.component.css'
 })
 export class ReporteComponent implements OnInit{
+  private destroy$=new Subject<void>();
   protected isVisibleEditar:boolean=true;
   protected isVisibleEliminar:boolean=true;
   protected isLoading:boolean=true;
@@ -37,13 +38,17 @@ export class ReporteComponent implements OnInit{
     })
   }*/
   private cargandoDatosReportes(){
-    timer(2000).subscribe(()=>{
+    timer(2000)
+    .pipe(takeUntil(this.destroy$))
+    .subscribe(()=>{
       this.obtenerReportes()
     })
   }
   private obtenerReportes(){
-    this.service.getsReporte().subscribe({
+    this.service.getsReporte().pipe(takeUntil(this.destroy$))
+    .subscribe({
       next:(data)=>{
+        console.log('Respuesta del backend recibida para reportes');
         this.isLoading=false;
         this.reportesDatos=data
       },

@@ -11,7 +11,7 @@ import { DialogComponent } from '@shared/dialog/dialog.component';
 import { HorarioFormComponent } from '../horario-form/horario-form.component';
 import { TablaReutilizableComponent } from '@shared/tabla-reutilizable/tabla-reutilizable.component';
 import { HorarioService } from '@content/horario/service/horario.service';
-import { timer } from 'rxjs';
+import { Subject, takeUntil, timer } from 'rxjs';
 
 @Component({
   selector: 'app-horario',
@@ -20,6 +20,7 @@ import { timer } from 'rxjs';
   styleUrl: './horario.component.css'
 })
 export class HorarioComponent implements OnInit{
+  private destroy$=new Subject<void>();
   protected titulo=toStringEnum(Entidad.Horario);
   protected isVisibleHabilitar=false;
   protected isVisibleEditar=true;
@@ -33,12 +34,12 @@ export class HorarioComponent implements OnInit{
     this.cargarDatosHorario();
   }
   private cargarDatosHorario(){
-    timer(2000).subscribe(()=>{
+    timer(2000).pipe(takeUntil(this.destroy$)).subscribe(()=>{
       this.obtenerHorarios()
     })
   }
   private obtenerHorarios(){
-    this.service.getHorarios().subscribe({
+    this.service.getHorarios().pipe(takeUntil(this.destroy$)).subscribe({
       next:(data)=>{
         this.isLoading=false;
         this.horariosDatos=data

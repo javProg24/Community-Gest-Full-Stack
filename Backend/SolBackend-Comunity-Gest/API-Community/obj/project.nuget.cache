@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CLEtJvYxOms=",
+  "dgSpecHash": "8EuS0+AdIi0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\API-Community\\API-Community.csproj",
+  "projectFilePath": "C:\\Users\\ULTRA GAMING\\Documents\\Proyectos_Personales\\Community-Gest-Full-Stack\\Backend\\SolBackend-Comunity-Gest\\API-Community\\API-Community.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ULTRA GAMING\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\ULTRA GAMING\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

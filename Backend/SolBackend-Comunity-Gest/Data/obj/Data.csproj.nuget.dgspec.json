@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Data.csproj": {}
+    "C:\\Users\\ULTRA GAMING\\Documents\\Proyectos_Personales\\Community-Gest-Full-Stack\\Backend\\SolBackend-Comunity-Gest\\Data\\Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Data.csproj": {
+    "C:\\Users\\ULTRA GAMING\\Documents\\Proyectos_Personales\\Community-Gest-Full-Stack\\Backend\\SolBackend-Comunity-Gest\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Data.csproj",
+        "projectUniqueName": "C:\\Users\\ULTRA GAMING\\Documents\\Proyectos_Personales\\Community-Gest-Full-Stack\\Backend\\SolBackend-Comunity-Gest\\Data\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\Data.csproj",
+        "projectPath": "C:\\Users\\ULTRA GAMING\\Documents\\Proyectos_Personales\\Community-Gest-Full-Stack\\Backend\\SolBackend-Comunity-Gest\\Data\\Data.csproj",
         "packagesPath": "C:\\Users\\ULTRA GAMING\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ULTRA GAMING\\Documents\\Full-Stack\\Community-Gest\\Backend\\SolBackend-Comunity-Gest\\Data\\obj\\",
+        "outputPath": "C:\\Users\\ULTRA GAMING\\Documents\\Proyectos_Personales\\Community-Gest-Full-Stack\\Backend\\SolBackend-Comunity-Gest\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

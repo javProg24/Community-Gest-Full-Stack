@@ -4,15 +4,14 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { toStringEnum, Entidad, Acciones } from '@core/models/Enums';
 import { Reserva_Herramienta } from '@core/models/Reserva-Herramienta';
-import { columnasEntidades, Accion, Tabla, columnasDatos } from '@core/models/Tabla_Columna';
+import { Accion, Tabla, columnasDatos } from '@core/models/Tabla_Columna';
 import { NotificationService } from '@core/services/notification/notification.service';
 import { DialogFormComponent } from '@shared/dialog-form/dialog-form.component';
 import { DialogComponent } from '@shared/dialog/dialog.component';
-import { TableComponent } from '@shared/table/table.component';
 import { ReservaFormComponent } from '../reserva-form/reserva-form.component';
 import { TablaReutilizableComponent } from '@shared/tabla-reutilizable/tabla-reutilizable.component';
 import { ReservaHerramientaService } from '@content/reserva-herramienta/service/reserva-herramienta.service';
-import { timer } from 'rxjs';
+import { Subject, takeUntil, timer } from 'rxjs';
 
 @Component({
   selector: 'app-reserva-herramienta',
@@ -21,6 +20,7 @@ import { timer } from 'rxjs';
   styleUrl: './reserva-herramienta.component.css'
 })
 export class ReservaHerramientaComponent implements OnInit {
+  private destroy$=new Subject<void>();
   protected isVisibleEditar:boolean=true;
   protected isVisibleEliminar:boolean=true;
   protected isLoading:boolean=true;
@@ -34,12 +34,12 @@ export class ReservaHerramientaComponent implements OnInit {
     this.cargarDatosReservas()
   }
   private cargarDatosReservas(){
-    timer(2000).subscribe(()=>{
+    timer(2000).pipe(takeUntil(this.destroy$)).subscribe(()=>{
       this.getReservasTabla()
     })
   }
   private getReservasTabla(){
-    this.services.getReservas().subscribe({
+    this.services.getReservas().pipe(takeUntil(this.destroy$)).subscribe({
       next:(data)=>{
         this.isLoading=false;
         this.reservasDatos=data
