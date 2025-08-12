@@ -53,7 +53,7 @@ export class HorarioFormComponent implements OnInit{
     this.instalacionesDisponibles();
   }
   private instalacionesDisponibles(){
-    this.instalService.getInstalacionesDisponibles().subscribe((data:Instalacion[])=>{
+    this.instalService.getInstalaciones().subscribe((data:Instalacion[])=>{
       this.instalacionesDispo=data;
     })
   }
@@ -61,7 +61,7 @@ export class HorarioFormComponent implements OnInit{
     this.isEdit=true;
     this.currentID=horario.id;
     if(!this.currentID)return;
-    this.instalService.getInstalaciones().subscribe((data:Instalacion[])=>{
+    this.instalService.getInstalacionesDisponibles().subscribe((data:Instalacion[])=>{
       this.instalaciones=data;
       this.llenarFormulario(horario);
     })

@@ -3,7 +3,7 @@ import { Entidad, toStringEnum } from '@core/models/Enums';
 import { Instalacion } from '@core/models/Instalacion';
 import { tipoConfiguracion } from '@core/models/Metodos';
 import { GeneralService } from '@core/services/general-service/servicio-general.service';
-import { Observable } from 'rxjs';
+import { filter, map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -29,15 +29,20 @@ export class InstalacionService {
   deleteInstalacion(id:number):Observable<void>{
     return this.service.deleteService<void>(this.nombreEntidad,id)
   }
-  getInstalacionesDisponibles():Observable<Instalacion[]>{
+  getInstalaciones():Observable<Instalacion[]>{
     return this.service.getService<Instalacion>(this.nombreEntidad)
   }
   getIdInstalacion(id:number):Observable<Instalacion[]>{
     return this.service.getIdService<Instalacion>(this.nombreEntidad,id)
   }
-  getInstalaciones():Observable<Instalacion[]>{
-    const entidad=`${this.nombreEntidad}/All_${this.nombreEntidad}`;
-    return this.service.getService<Instalacion>(entidad);
+  getInstalacionesDisponibles():Observable<Instalacion[]>{
+    // const entidad=`${this.nombreEntidad}/All_${this.nombreEntidad}`;
+    // return this.service.getService<Instalacion>(entidad);
+    return this.service.getService<Instalacion>(this.nombreEntidad).pipe(
+      map((instalaciones:Instalacion[])=>
+        instalaciones.filter(instalacion => instalacion.estado === true && instalacion.asignado === false)
+      )
+    );
   }
 }
 

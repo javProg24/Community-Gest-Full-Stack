@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\ULTRA GAMING\\Documents\\Proyectos_Personales\\Community-Gest-Full-Stack\\Backend\\SolBackend-Comunity-Gest\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DED5D0A2-8EEA-4667-8F53-7426FF203271}|API-Community\\API-Community.csproj|c:\\users\\ultra gaming\\documents\\proyectos_personales\\community-gest-full-stack\\backend\\solbackend-comunity-gest\\api-community\\controllers\\reportecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DED5D0A2-8EEA-4667-8F53-7426FF203271}|API-Community\\API-Community.csproj|solutionrelative:api-community\\controllers\\reportecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DED5D0A2-8EEA-4667-8F53-7426FF203271}|API-Community\\API-Community.csproj|c:\\users\\ultra gaming\\documents\\proyectos_personales\\community-gest-full-stack\\backend\\solbackend-comunity-gest\\api-community\\controllers\\instalacioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DED5D0A2-8EEA-4667-8F53-7426FF203271}|API-Community\\API-Community.csproj|solutionrelative:api-community\\controllers\\instalacioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DED5D0A2-8EEA-4667-8F53-7426FF203271}|API-Community\\API-Community.csproj|c:\\users\\ultra gaming\\documents\\proyectos_personales\\community-gest-full-stack\\backend\\solbackend-comunity-gest\\api-community\\controllers\\horariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DED5D0A2-8EEA-4667-8F53-7426FF203271}|API-Community\\API-Community.csproj|solutionrelative:api-community\\controllers\\horariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DED5D0A2-8EEA-4667-8F53-7426FF203271}|API-Community\\API-Community.csproj|c:\\users\\ultra gaming\\documents\\proyectos_personales\\community-gest-full-stack\\backend\\solbackend-comunity-gest\\api-community\\controllers\\reportecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DED5D0A2-8EEA-4667-8F53-7426FF203271}|API-Community\\API-Community.csproj|solutionrelative:api-community\\controllers\\reportecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -17,7 +21,7 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 315,
+          "DockedWidth": 506,
           "SelectedChildIndex": 4,
           "Children": [
             {
@@ -39,27 +43,47 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ReporteController.cs",
-              "DocumentMoniker": "C:\\Users\\ULTRA GAMING\\Documents\\Proyectos_Personales\\Community-Gest-Full-Stack\\Backend\\SolBackend-Comunity-Gest\\API-Community\\Controllers\\ReporteController.cs",
-              "RelativeDocumentMoniker": "API-Community\\Controllers\\ReporteController.cs",
-              "ToolTip": "C:\\Users\\ULTRA GAMING\\Documents\\Proyectos_Personales\\Community-Gest-Full-Stack\\Backend\\SolBackend-Comunity-Gest\\API-Community\\Controllers\\ReporteController.cs",
-              "RelativeToolTip": "API-Community\\Controllers\\ReporteController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-08T02:08:43.932Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "InstalacionController.cs",
               "DocumentMoniker": "C:\\Users\\ULTRA GAMING\\Documents\\Proyectos_Personales\\Community-Gest-Full-Stack\\Backend\\SolBackend-Comunity-Gest\\API-Community\\Controllers\\InstalacionController.cs",
               "RelativeDocumentMoniker": "API-Community\\Controllers\\InstalacionController.cs",
               "ToolTip": "C:\\Users\\ULTRA GAMING\\Documents\\Proyectos_Personales\\Community-Gest-Full-Stack\\Backend\\SolBackend-Comunity-Gest\\API-Community\\Controllers\\InstalacionController.cs",
               "RelativeToolTip": "API-Community\\Controllers\\InstalacionController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAAwBAAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAAB0AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-05T16:05:17.494Z"
+              "WhenOpened": "2025-08-05T16:05:17.494Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HorarioController.cs",
+              "DocumentMoniker": "C:\\Users\\ULTRA GAMING\\Documents\\Proyectos_Personales\\Community-Gest-Full-Stack\\Backend\\SolBackend-Comunity-Gest\\API-Community\\Controllers\\HorarioController.cs",
+              "RelativeDocumentMoniker": "API-Community\\Controllers\\HorarioController.cs",
+              "ToolTip": "C:\\Users\\ULTRA GAMING\\Documents\\Proyectos_Personales\\Community-Gest-Full-Stack\\Backend\\SolBackend-Comunity-Gest\\API-Community\\Controllers\\HorarioController.cs",
+              "RelativeToolTip": "API-Community\\Controllers\\HorarioController.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAswB8AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T03:16:08.864Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 124,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ReporteController.cs",
+              "DocumentMoniker": "C:\\Users\\ULTRA GAMING\\Documents\\Proyectos_Personales\\Community-Gest-Full-Stack\\Backend\\SolBackend-Comunity-Gest\\API-Community\\Controllers\\ReporteController.cs",
+              "RelativeDocumentMoniker": "API-Community\\Controllers\\ReporteController.cs",
+              "ToolTip": "C:\\Users\\ULTRA GAMING\\Documents\\Proyectos_Personales\\Community-Gest-Full-Stack\\Backend\\SolBackend-Comunity-Gest\\API-Community\\Controllers\\ReporteController.cs",
+              "RelativeToolTip": "API-Community\\Controllers\\ReporteController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-08T02:08:43.932Z",
+              "EditorCaption": ""
             }
           ]
         },

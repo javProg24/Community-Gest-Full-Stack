@@ -26,18 +26,17 @@ namespace API_Community.Controllers
         public async Task<ActionResult<IEnumerable<Instalacion>>> GetInstalaciones()
         {
             return await _context.Instalaciones
-                .Where(i=>i.Estado==true && i.Asignado==false)
-                .OrderBy(i=>i.ID)
-                .ToListAsync();
-        }
-        [HttpGet("All_Instalacion")]
-        public async Task<ActionResult<IEnumerable<Instalacion>>> GetAllInstalaciones()
-        {
-            return await _context.Instalaciones
                 .OrderBy(i => i.ID)
-                .Where(i=>i.Estado==true)
                 .ToListAsync();
         }
+        //[HttpGet("All_Instalacion")]
+        //public async Task<ActionResult<IEnumerable<Instalacion>>> GetAllInstalaciones()
+        //{
+        //    return await _context.Instalaciones
+        //        .OrderBy(i => i.ID)
+        //        .Where(i=>i.Estado==true)
+        //        .ToListAsync();
+        //}
 
         // GET: api/Instalacion/5
         [HttpGet("{id}")]

@@ -55,17 +55,7 @@ export class InstalacionComponent implements OnInit {
     })
   }
   obtenerInstalaciones(){
-    // this.service.getInstalaciones().subscribe({
-    //   next:(data)=>{
-    //     console.log('Respuesta del backend recibida para instalaciones');
-    //     this.isLoading=false;
-    //     this.instalacionesDatos=data
-    //   },
-    //   error:()=>{
-    //     this.isLoading=false;
-    //   }
-    // })
-    this.service.getInstalaciones().pipe(takeUntil(this.destroy$))
+    this.service.getInstalacionesDisponibles().pipe(takeUntil(this.destroy$))
     .subscribe({
       next:(data)=>{
         console.log('Respuesta del backend recibida para instalaciones');
